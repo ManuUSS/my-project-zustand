@@ -1,16 +1,11 @@
-import { Sidebar } from "./modules/shared/components"
-import { Footer } from "./modules/shared/components/Footer"
+import { MainLayout } from "./layouts"
+
 
 function App() {
-
   return (
-    <>
-      <Sidebar />
-      <h1 className="text-3xl text-center font-bold underline">
-        Hello world!!!
-      </h1>
-      <Footer />
-    </>
+    <MainLayout>
+      <h1>Hola Mundo!!</h1>
+    </MainLayout>
   )
 }
 
