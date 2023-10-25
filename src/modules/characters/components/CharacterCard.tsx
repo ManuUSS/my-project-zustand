@@ -25,7 +25,7 @@ export const CharacterCard:FC<Props> = ({ character }) => {
     }
 
     return (
-        <article className="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+        <article className="max-w-sm bg-white border border-gray-200 rounded-lg shadow fade-in">
             <div>
                 <img 
                     className="rounded-t-lg" 
