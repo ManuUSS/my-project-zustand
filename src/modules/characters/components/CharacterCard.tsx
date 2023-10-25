@@ -49,7 +49,11 @@ export const CharacterCard:FC<Props> = ({ character }) => {
                     />
                 </div>
                 <p className="mb-3 font-normal text-gray-700">
-                    { textProof.slice(0, 150) + "..."}
+                    { 
+                        ( character.about.length > 125 ) 
+                        ? character.about.slice( 0, 125 ) + "..."
+                        : character.about
+                    }
                 </p>
                 <div
                     className="flex justify-between items-center"
