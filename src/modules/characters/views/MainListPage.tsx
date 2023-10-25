@@ -11,22 +11,22 @@ export const MainListPage = () => {
   return (
     <MainLayout>
         <section className="list-container p-4">
-            <h1 className="text-center text-4xl mb-4">Lista de personajes</h1>
-            {
-              isLoading 
-              ? ( <Loader /> )
-              :
-              <div className="grid grid-cols-1 md:grid-cols-3 md:gap-3 justify-items-center">
-                  {
-                    characters && characters.map(( char ) => (
-                      <CharacterCard 
-                        key={ char.id } 
-                        character={ char }
-                      />
-                    ))
-                  }
-              </div>
-            }
+          <h1 className="text-center text-4xl mb-4">Lista de personajes</h1>
+          {
+            isLoading 
+            ? ( <Loader /> )
+            :
+            <div className="grid grid-cols-1 md:grid-cols-3 md:gap-3 justify-items-center">
+                {
+                  characters && characters.map(( char ) => (
+                    <CharacterCard 
+                      key={ char.id } 
+                      character={ char }
+                    />
+                  ))
+                }
+            </div>
+          }
         </section>
     </MainLayout>
   )

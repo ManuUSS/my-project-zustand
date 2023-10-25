@@ -19,3 +19,16 @@ body {
 h1 {
     font-weight: 600;
 }
+
+.fade-in {
+    animation: 1s ease-in 0s fade-in;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+}
+}
