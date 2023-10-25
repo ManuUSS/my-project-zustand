@@ -11,13 +11,13 @@ export const Sidebar = () => {
             aria-label="Sidebar"
         >   
             <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50">
-                <h1 className="text-center text-2xl mb-2">Guía Zustand</h1>
+                <h1 className="text-center text-2xl border-b-2 border-b-sky-500 text-sky-600 pb-2 mb-2 select-none">Guía Zustand</h1>
                 <ul className="space-y-2 text-lg">
                     <li>
                         <button 
                             className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full"
                         >
-                            <UsersIcon className="w-5 text-teal-500" />
+                            <UsersIcon className="w-5 text-sky-600" />
                             <span className="ml-3">Lista de personajes</span>
                         </button>
                     </li>
@@ -25,7 +25,7 @@ export const Sidebar = () => {
                         <button 
                             className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full"
                         >
-                            <HandThumbUpIcon className="w-5 text-teal-500" />
+                            <HandThumbUpIcon className="w-5 text-sky-600" />
                             <span className="ml-3">Personajes vivos</span>
                         </button>
                     </li>
@@ -33,7 +33,7 @@ export const Sidebar = () => {
                         <button 
                             className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full"
                         >
-                            <HandThumbDownIcon className="w-5 text-teal-500" />
+                            <HandThumbDownIcon className="w-5 text-sky-600" />
                             <span className="ml-3">Personajes muertos</span>
                         </button>
                     </li>
@@ -41,7 +41,7 @@ export const Sidebar = () => {
                         <button 
                             className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full"
                         >
-                            <HeartIcon className="w-5 text-teal-500" />
+                            <HeartIcon className="w-5 text-sky-600" />
                             <span className="ml-3">Mis favoritos</span>
                         </button>
                     </li>
@@ -49,7 +49,7 @@ export const Sidebar = () => {
                         <button 
                             className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full"
                         >
-                            <PlusIcon className="w-5 text-teal-500"/>
+                            <PlusIcon className="w-5 text-sky-600"/>
                             <span className="ml-3">Agregar nuevo</span>
                         </button>
                     </li>
