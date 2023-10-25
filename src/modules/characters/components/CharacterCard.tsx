@@ -1,3 +1,4 @@
+import { EyeIcon } from "@heroicons/react/24/outline";
 import { StopIcon } from "@heroicons/react/24/solid"
 
 const textProof = `Es un profesor y uno de los hechiceros más poderosos de la serie. 
@@ -33,12 +34,22 @@ export const CharacterCard = () => {
             <p className="mb-3 font-normal text-gray-700">
                 { textProof.slice(0, 150) + "..."}
             </p>
-            <button
-                type="button"
-                className="text-white bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            <div
+                className="flex justify-between items-center"
             >
-                Guardar como favorito
-            </button>
+                <button
+                    type="button"
+                    className="text-white bg-sky-500 hover:bg-sky-600 focus:ring-4 focus:outline-none focus:ring-sky-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                >
+                    Guardar como favorito
+                </button>
+                <button
+                    type="button"
+                    className="text-gray-600 hover:text-white border border-gray-500 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center"
+                >
+                    <EyeIcon width={ 12 } />
+                </button>
+            </div>
         </div>
     </article>
   )
