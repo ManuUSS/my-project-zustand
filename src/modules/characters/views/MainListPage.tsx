@@ -4,8 +4,8 @@ import './MainListPage.css';
 export const MainListPage = () => {
   return (
     <MainLayout>
-        <section className="list-container">
-            <h1>Lista de personaes</h1>
+        <section className="list-container p-4">
+            <h1 className="text-center text-4xl">Lista de personaes</h1>
         </section>
     </MainLayout>
   )
