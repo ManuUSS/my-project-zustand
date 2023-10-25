@@ -1,0 +1,4 @@
+.list-container {
+    min-height: calc( 100vh - 77px );
+    border: 1px solid red;
+}
