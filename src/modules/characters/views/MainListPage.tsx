@@ -1,19 +1,25 @@
+import { useCharacters } from "..";
 import { MainLayout } from "../../../layouts"
 import { CharacterCard } from "../components";
 import './MainListPage.css';
 
 export const MainListPage = () => {
+
+  const { characters } = useCharacters({});
+
   return (
     <MainLayout>
         <section className="list-container p-4">
             <h1 className="text-center text-4xl mb-4">Lista de personajes</h1>
             <div className="grid grid-cols-1 md:grid-cols-3 md:gap-3 justify-items-center">
-                <CharacterCard />
-                <CharacterCard />
-                <CharacterCard />
-                <CharacterCard />
-                <CharacterCard />
-                <CharacterCard />
+                {
+                  characters && characters.map(( char ) => (
+                    <CharacterCard 
+                      key={ char.id } 
+                      character={ char }
+                    />
+                  ))
+                }
             </div>
         </section>
     </MainLayout>

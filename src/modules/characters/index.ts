@@ -6,3 +6,7 @@ export { charactersApi } from "./api/charactersApi";
 export * as charactersActions from './services/actions'
 
 // <--- Hooks --->
+export { useCharacters } from "./hooks/useCharacters";
+
+// <--- Interfaces --->
+export type { CharacterResponse } from './interfaces/character';

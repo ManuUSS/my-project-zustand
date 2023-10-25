@@ -1,5 +1,7 @@
-import { EyeIcon } from "@heroicons/react/24/outline";
-import { StopIcon } from "@heroicons/react/24/solid"
+import { FC } from 'react';
+import { EyeIcon } from '@heroicons/react/24/outline';
+import { StopIcon } from '@heroicons/react/24/solid';
+import { CharacterResponse } from '..';
 
 const textProof = `Es un profesor y uno de los hechiceros más poderosos de la serie. 
 Su función principal es entrenar a los estudiantes en la Escuela Técnica de Hechicería de Tokio, 
@@ -7,25 +9,31 @@ así como liderarlos en la lucha contra las maldiciones y demonios que amenazan 
 astucia y habilidades sobresalientes en el combate, especialmente debido a sus "Ojos Malditos", una habilidad especial que le otorga una ventaja sobrenatural en la lucha contra maldiciones`;
 
 
+interface Props {
+    character: CharacterResponse
+}
+
 /**
  * 
  * @returns JSX.Element
  */
-export const CharacterCard = () => {
+export const CharacterCard:FC<Props> = ({ character }) => {
+
+
   return (
     <article className="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
         <div>
             <img 
                 className="rounded-t-lg" 
-                src="https://www.geekmi.news/__export/1691600122329/sites/debate/img/2023/08/09/geekmi_-_2023-08-09t095403_909.jpg_554688468.jpg" 
-                alt="Satoru Gojo & Geto" 
+                src={ character.image } 
+                alt={ character.name } 
             />
         </div>
         <div className="p-5">
             <div className="flex justify-between items-center mb-2">
                 <div>
-                    <h5 className="text-2xl font-bold tracking-tight text-gray-900">Saturo Gojo</h5>
-                    <p className="">Jujutsu Kaisen</p>
+                    <h5 className="text-2xl font-bold tracking-tight text-gray-900">{ character.name }</h5>
+                    <p className="">{ character.serie }</p>
                 </div>
                 <StopIcon 
                     className={"w-5 text-green-500"} 
