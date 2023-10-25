@@ -11,6 +11,7 @@ export const Sidebar = () => {
             aria-label="Sidebar"
         >   
         <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50">
+            <h1 className="text-center text-2xl mb-2">Guía Zustand</h1>
             <ul className="space-y-2 text-lg">
                 <li>
                     <button 

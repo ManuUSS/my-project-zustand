@@ -5,7 +5,7 @@ export const Footer = () => {
     <footer className="w-[calc(100%-16rem)] float-right bg-white dark:bg-gray-900 px-2">
         <div className="mx-auto p-4 md:py-8">
             <div className="sm:flex sm:items-center sm:justify-between sm:pr-1">
-                <p className="text-lg font-bold text-slate-300">Manuel Ulate Sancho</p>
+                <p className="text-lg text-slate-300">Manuel Ulate Sancho</p>
                 <ul className="flex items-center gap-2">
                     <li>
                         <a 
