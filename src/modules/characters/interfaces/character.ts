@@ -13,7 +13,7 @@ export interface Power {
     efectiveness: number;
 }
 
-enum Status {
+export enum Status {
     "Alive" = "alive",
     "Dead" = "dead",
     "Unknown" = "unknown",

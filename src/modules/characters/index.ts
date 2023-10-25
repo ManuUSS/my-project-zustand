@@ -9,4 +9,4 @@ export * as charactersActions from './services/actions'
 export { useCharacters } from "./hooks/useCharacters";
 
 // <--- Interfaces --->
-export type { CharacterResponse } from './interfaces/character';
+export type { CharacterResponse, Status } from './interfaces/character';

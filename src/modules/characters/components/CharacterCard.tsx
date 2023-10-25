@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { EyeIcon } from '@heroicons/react/24/outline';
 import { StopIcon } from '@heroicons/react/24/solid';
-import { CharacterResponse } from '..';
+import { CharacterResponse, Status } from '..';
 
 const textProof = `Es un profesor y uno de los hechiceros más poderosos de la serie. 
 Su función principal es entrenar a los estudiantes en la Escuela Técnica de Hechicería de Tokio, 
@@ -19,6 +19,14 @@ interface Props {
  */
 export const CharacterCard:FC<Props> = ({ character }) => {
 
+  const validateStatus = ( status: Status ) => {
+    if( status === "alive" )
+        return "text-green-500"
+    else if ( status === "dead" )
+        return "text-red-500"
+    
+    return "text-slay-500"
+}
 
   return (
     <article className="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
@@ -36,7 +44,7 @@ export const CharacterCard:FC<Props> = ({ character }) => {
                     <p className="">{ character.serie }</p>
                 </div>
                 <StopIcon 
-                    className={"w-5 text-green-500"} 
+                    className={`w-5 ${ validateStatus( character.status )}`} 
                 />
             </div>
             <p className="mb-3 font-normal text-gray-700">
