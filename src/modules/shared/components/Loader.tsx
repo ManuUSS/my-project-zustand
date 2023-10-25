@@ -1,7 +1,10 @@
-
+import './Loader.css';
 
 export const Loader = () => {
   return (
-    <div>Loader</div>
+    <div className='flex items-center'>
+      <div className="loader"></div>
+      <p className='text-lg'>Cargando...</p>
+    </div>
   )
 }
