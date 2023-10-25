@@ -3,18 +3,13 @@ import { EyeIcon } from '@heroicons/react/24/outline';
 import { StopIcon } from '@heroicons/react/24/solid';
 import { CharacterResponse, Status } from '..';
 
-const textProof = `Es un profesor y uno de los hechiceros más poderosos de la serie. 
-Su función principal es entrenar a los estudiantes en la Escuela Técnica de Hechicería de Tokio, 
-así como liderarlos en la lucha contra las maldiciones y demonios que amenazan a la humanidad. Gojo destaca por su carisma, 
-astucia y habilidades sobresalientes en el combate, especialmente debido a sus "Ojos Malditos", una habilidad especial que le otorga una ventaja sobrenatural en la lucha contra maldiciones`;
-
-
 interface Props {
     character: CharacterResponse
 }
 
 /**
- * 
+ * Displays the information about a character, image, name, description, etc
+ * @param { character } 
  * @returns JSX.Element
  */
 export const CharacterCard:FC<Props> = ({ character }) => {
