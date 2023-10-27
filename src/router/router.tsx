@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { JJKListPage, MainListPage } from '../modules/characters';
+import { JJKListPage, MainListPage, HxHListPage } from '../modules/characters';
 import { MainLayout } from '../layouts';
 
 
@@ -15,6 +15,10 @@ export const router = createBrowserRouter([
             {
                 path: "/jjk",
                 element: <JJKListPage />
+            },
+            {
+                path: "/hxh",
+                element: <HxHListPage />
             }
         ] 
     }

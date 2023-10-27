@@ -3,6 +3,7 @@
 // <--- Views --->
 export { MainListPage } from './views/MainListPage';
 export { JJKListPage } from './views/JJKListPage';
+export { HxHListPage } from './views/HxHListPage';
 
 // <--- API --->
 export { charactersApi } from "./api/charactersApi";
