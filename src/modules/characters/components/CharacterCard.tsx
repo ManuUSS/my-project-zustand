@@ -26,9 +26,9 @@ export const CharacterCard:FC<Props> = ({ character }) => {
 
     return (
         <article className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-700 dark:border-gray-800 fade-in">
-            <div>
+            <div className="overflow-hidden">
                 <img 
-                    className="rounded-t-lg" 
+                    className="rounded-t-lg object-cover h-48 w-96 hover:scale-110 ease-in duration-300" 
                     src={ character.image } 
                     alt={ character.name } 
                 />
@@ -64,7 +64,7 @@ export const CharacterCard:FC<Props> = ({ character }) => {
                     </button>
                     <button
                         type="button"
-                        className="text-gray-600 hover:text-white text-center dark:text-slate-300"
+                        className="text-gray-600 text-center dark:text-slate-300"
                     >
                         <EyeIcon width={ 15 } />
                     </button>
