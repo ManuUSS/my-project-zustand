@@ -25,7 +25,7 @@ export const CharacterCard:FC<Props> = ({ character }) => {
     }
 
     return (
-        <article className="max-w-sm bg-white border border-gray-200 rounded-lg shadow fade-in">
+        <article className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-700 dark:border-gray-800 fade-in">
             <div>
                 <img 
                     className="rounded-t-lg" 
@@ -36,8 +36,8 @@ export const CharacterCard:FC<Props> = ({ character }) => {
             <div className="p-5">
                 <div className="flex justify-between items-center mb-2">
                     <div>
-                        <h5 className="text-2xl font-bold tracking-tight text-gray-900">{ character.name }</h5>
-                        <p className="">{ character.serie }</p>
+                        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-slate-200">{ character.name }</h5>
+                        <p className="dark:text-slate-300">{ character.serie }</p>
                     </div>
                     <div className='flex'>
                         <p className={ validateStatus( character.status) }>{ character.status.charAt(0).toUpperCase() + character.status.slice(1, character.status.length )}</p>
@@ -46,7 +46,7 @@ export const CharacterCard:FC<Props> = ({ character }) => {
                         />
                     </div>
                 </div>
-                <p className="mb-3 font-normal text-gray-700">
+                <p className="mb-3 font-normal text-gray-700 dark:text-slate-300">
                     { 
                         ( character.about.length > 125 ) 
                         ? character.about.slice( 0, 125 ) + "..."
