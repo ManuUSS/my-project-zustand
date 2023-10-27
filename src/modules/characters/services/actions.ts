@@ -10,7 +10,7 @@ export const getCharacters = async ({ filterKey }:GetProductsOptions ):Promise<C
     const params = new URLSearchParams();
     
     if( filterKey ) {
-        params.append('category', filterKey );
+        params.append('serie', filterKey );
     }
     const { data } = await charactersApi.get<CharacterResponse[]>('/characters', { params });
     await delay( 5000 );
