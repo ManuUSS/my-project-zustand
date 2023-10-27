@@ -1,4 +1,4 @@
-import { PlusIcon, HeartIcon, HandThumbDownIcon, HandThumbUpIcon, UsersIcon } from "@heroicons/react/24/outline";
+import { PlusIcon, UsersIcon, CheckBadgeIcon, StarIcon } from "@heroicons/react/24/outline";
 
 /**
  * 
@@ -25,7 +25,7 @@ export const Sidebar = () => {
                         <button 
                             className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full"
                         >
-                            <HandThumbUpIcon className="w-5 text-sky-600" />
+                            <CheckBadgeIcon className="w-5 text-sky-600" />
                             <span className="ml-3">Jujutsu Kaisen</span>
                         </button>
                     </li>
@@ -33,7 +33,7 @@ export const Sidebar = () => {
                         <button 
                             className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full"
                         >
-                            <HandThumbDownIcon className="w-5 text-sky-600" />
+                            <CheckBadgeIcon className="w-5 text-sky-600" />
                             <span className="ml-3">Demon Slayer</span>
                         </button>
                     </li>
@@ -41,7 +41,7 @@ export const Sidebar = () => {
                         <button 
                             className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full"
                         >
-                            <HandThumbDownIcon className="w-5 text-sky-600" />
+                            <CheckBadgeIcon className="w-5 text-sky-600" />
                             <span className="ml-3">Hunter X Hunter</span>
                         </button>
                     </li>
@@ -49,7 +49,7 @@ export const Sidebar = () => {
                         <button 
                             className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full"
                         >
-                            <HeartIcon className="w-5 text-sky-600" />
+                            <StarIcon className="w-5 text-sky-600" />
                             <span className="ml-3">Mis favoritos</span>
                         </button>
                     </li>
