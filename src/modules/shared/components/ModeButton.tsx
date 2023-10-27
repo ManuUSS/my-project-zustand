@@ -7,7 +7,7 @@ export const ModeButton = () => {
   const { changeTheme, theme } = useThemeStore();
 
   return (
-    <div className="absolute right-0 px-8 py-2">
+    <div className="absolute right-0 px-8 py-6">
       <button 
         id="dropdown-button" 
         data-dropdown-toggle="dropdown-menu" 
