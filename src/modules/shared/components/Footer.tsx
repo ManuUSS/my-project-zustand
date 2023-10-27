@@ -2,10 +2,10 @@
 
 export const Footer = () => {
   return (
-    <footer className="w-[calc(100%-16rem)] float-right border-t border-gray-50 bg-white px-2">
+    <footer className="w-[calc(100%-16rem)] float-right border-t border-gray-50 bg-white px-2 dark:bg-gray-800 dark:border-gray-800 dark:border-[#1c2633]">
         <div className="mx-auto p-4 md:py-4">
             <div className="sm:flex sm:items-center sm:justify-between sm:pr-1">
-                <p className="text-lg">Manuel Ulate Sancho</p>
+                <p className="text-lg dark:text-slate-200">Manuel Ulate Sancho</p>
                 <ul className="flex items-center gap-2">
                     <li>
                         <a 
