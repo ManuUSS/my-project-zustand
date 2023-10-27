@@ -1,9 +1,11 @@
 
 
+
 // <--- Views --->
 export { MainListPage } from './views/MainListPage';
 export { JJKListPage } from './views/JJKListPage';
 export { HxHListPage } from './views/HxHListPage';
+export { DemonSlayerListPage } from './views/DemonSlayerListPage';
 
 // <--- API --->
 export { charactersApi } from "./api/charactersApi";

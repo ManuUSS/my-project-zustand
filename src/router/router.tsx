@@ -17,6 +17,10 @@ export const router = createBrowserRouter([
                 element: <JJKListPage />
             },
             {
+                path: "/demon-slayer",
+                element: <JJKListPage />
+            },
+            {
                 path: "/hxh",
                 element: <HxHListPage />
             }
