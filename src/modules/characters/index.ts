@@ -1,6 +1,8 @@
 
+
 // <--- Views --->
 export { MainListPage } from './views/MainListPage';
+export { JJKListPage } from './views/JJKListPage';
 
 // <--- API --->
 export { charactersApi } from "./api/charactersApi";

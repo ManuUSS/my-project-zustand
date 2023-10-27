@@ -1,7 +1,6 @@
-import { useCharacters } from "..";
-import { Loader } from "../../shared/components";
-import { CharacterCard } from "../components";
-import './MainListPage.css';
+import { useCharacters } from '..';
+import { Loader } from '../../shared/components';
+import { CharacterCard } from '../components';
 
 export const MainListPage = () => {
 

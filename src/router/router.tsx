@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { MainListPage } from '../modules/characters';
+import { JJKListPage, MainListPage } from '../modules/characters';
 import { MainLayout } from '../layouts';
 
 
@@ -11,6 +11,10 @@ export const router = createBrowserRouter([
             {
                 path: "",
                 element: <MainListPage />
+            },
+            {
+                path: "/jjk",
+                element: <JJKListPage />
             }
         ] 
     }

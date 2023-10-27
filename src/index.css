@@ -20,6 +20,10 @@ h1 {
     font-weight: 600;
 }
 
+.list-container {
+    min-height: calc( 100vh - 56.24px );
+}
+
 .fade-in {
     animation: 1s ease-in 0s fade-in;
 }
