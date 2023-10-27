@@ -1,5 +1,6 @@
 import { PlusIcon, UsersIcon, CheckBadgeIcon, StarIcon } from "@heroicons/react/24/outline";
 import { NavLink } from "react-router-dom";
+import { PATHS } from "../../../router/routes";
 
 /**
  * 
@@ -32,8 +33,8 @@ export const Sidebar = () => {
                     </li>
                     <li>
                         <NavLink 
-                            to="/jjk"
-                             className={ ({ isActive }) => validateActiveLink( isActive )}
+                            to={ PATHS["JJK"] }
+                            className={ ({ isActive }) => validateActiveLink( isActive )}
                         >
                             <CheckBadgeIcon className="w-5 text-sky-600 dark:text-sky-300" />
                             <span className="ml-3 dark:text-slate-200">Jujutsu Kaisen</span>
@@ -41,8 +42,8 @@ export const Sidebar = () => {
                     </li>
                     <li>
                         <NavLink 
-                            to="demon-slayer"
-                             className={ ({ isActive }) => validateActiveLink( isActive )}
+                            to={ PATHS["DemonSlayer"] }
+                            className={ ({ isActive }) => validateActiveLink( isActive )}
                         >
                             <CheckBadgeIcon className="w-5 text-sky-600 dark:text-sky-300" />
                             <span className="ml-3 dark:text-slate-200">Demon Slayer</span>
@@ -50,8 +51,8 @@ export const Sidebar = () => {
                     </li>
                     <li>
                         <NavLink 
-                            to="hxh"
-                             className={ ({ isActive }) => validateActiveLink( isActive )}
+                            to={ PATHS["HxH"]}
+                            className={ ({ isActive }) => validateActiveLink( isActive )}
                         >
                             <CheckBadgeIcon className="w-5 text-sky-600 dark:text-sky-300" />
                             <span className="ml-3 dark:text-slate-200">Hunter X Hunter</span>
