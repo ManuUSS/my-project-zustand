@@ -26,7 +26,7 @@ export const Sidebar = () => {
                             className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full"
                         >
                             <HandThumbUpIcon className="w-5 text-sky-600" />
-                            <span className="ml-3">Personajes vivos</span>
+                            <span className="ml-3">Jujutsu Kaisen</span>
                         </button>
                     </li>
                     <li>
@@ -34,7 +34,15 @@ export const Sidebar = () => {
                             className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full"
                         >
                             <HandThumbDownIcon className="w-5 text-sky-600" />
-                            <span className="ml-3">Personajes muertos</span>
+                            <span className="ml-3">Demon Slayer</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button 
+                            className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full"
+                        >
+                            <HandThumbDownIcon className="w-5 text-sky-600" />
+                            <span className="ml-3">Hunter X Hunter</span>
                         </button>
                     </li>
                     <li>
