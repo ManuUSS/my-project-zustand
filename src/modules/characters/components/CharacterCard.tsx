@@ -64,9 +64,9 @@ export const CharacterCard:FC<Props> = ({ character }) => {
                     </button>
                     <button
                         type="button"
-                        className="text-gray-600 hover:text-white border border-gray-500 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center"
+                        className="text-gray-600 hover:text-white text-center dark:text-slate-300"
                     >
-                        <EyeIcon width={ 12 } />
+                        <EyeIcon width={ 15 } />
                     </button>
                 </div>
             </div>
