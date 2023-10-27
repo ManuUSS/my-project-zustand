@@ -1,10 +1,10 @@
 import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
-import { usethemeStore } from "../../../plugins/ModeProvider";
+import { useThemeStore } from "../../../plugins/ThemeProvider";
 
 
 export const ModeButton = () => {
 
-  const { changeTheme, theme } = usethemeStore();
+  const { changeTheme, theme } = useThemeStore();
 
   return (
     <div className="absolute right-0 px-8 py-2">

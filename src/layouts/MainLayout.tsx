@@ -1,10 +1,10 @@
 import { Outlet } from 'react-router-dom';
 import { Sidebar, Footer, ModeButton } from '../modules/shared/components';
-import { usethemeStore } from '../plugins/ModeProvider';
+import { useThemeStore } from '../plugins/ThemeProvider';
 
 export const MainLayout = ( ) => {
 
-  const { theme } = usethemeStore();
+  const { theme } = useThemeStore();
 
   return (
     <body className={ theme }>
