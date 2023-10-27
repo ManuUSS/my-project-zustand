@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { JJKListPage, MainListPage, HxHListPage } from '../modules/characters';
+import { JJKListPage, MainListPage, HxHListPage, DemonSlayerListPage } from '../modules/characters';
 import { MainLayout } from '../layouts';
 import { PATHS } from './routes';
 
@@ -19,7 +19,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: PATHS["DemonSlayer"],
-                element: <JJKListPage />
+                element: <DemonSlayerListPage />
             },
             {
                 path: PATHS["HxH"],
