@@ -16,7 +16,7 @@ export const MainListPage = () => {
             isLoading 
             ? ( <Loader /> )
             :
-            <div className="grid grid-cols-1 md:grid-cols-3 md:gap-3 justify-items-center">
+            <div className="grid grid-cols-1 md:grid-cols-4 md:gap-3 justify-items-center">
                 {
                   characters && characters.map(( char ) => (
                     <CharacterCard 
