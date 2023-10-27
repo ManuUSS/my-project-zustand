@@ -11,6 +11,9 @@ type Actions = {
 }
 
 export const useThemeStore = create<ThemeStore & Actions>()(( set ) => ({
-    theme: 'dark',
-    changeTheme: ( theme: Theme ) => set(() => ({ theme: theme }))
+    theme: localStorage.getItem('theme') as Theme || 'light',
+    changeTheme: ( theme: Theme ) => {
+        set(() => ({ theme: theme }));
+        localStorage.setItem( 'theme', theme );
+    }
 }));
