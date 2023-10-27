@@ -25,10 +25,10 @@ export const CharacterCard:FC<Props> = ({ character }) => {
     }
 
     return (
-        <article className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-700 dark:border-gray-800 fade-in">
+        <article className="max-w-sm bg-white overflow-hidden border border-gray-200 rounded-lg shadow dark:bg-gray-700 dark:border-gray-800 fade-in">
             <div className="overflow-hidden">
                 <img 
-                    className="rounded-t-lg object-cover h-48 w-96 hover:scale-110 ease-in duration-300" 
+                    className="rounded-t-lg object-cover h-52 w-full hover:scale-110 ease-in duration-300" 
                     src={ character.image } 
                     alt={ character.name } 
                 />
