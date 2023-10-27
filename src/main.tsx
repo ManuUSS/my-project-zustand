@@ -8,7 +8,7 @@ import './index.css'
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <TanStackProvider>
-      <RouterProvider  router={ router } />
+      <RouterProvider router={ router } />
     </TanStackProvider>
   </React.StrictMode>,
 )
