@@ -1,4 +1,7 @@
 
+// <--- Views --->
+export { MainListPage } from './views/MainListPage';
+
 // <--- API --->
 export { charactersApi } from "./api/charactersApi";
 
