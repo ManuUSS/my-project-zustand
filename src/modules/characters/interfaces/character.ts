@@ -1,11 +1,11 @@
 export interface CharacterResponse {
-    id:     number;
-    name:   string;
-    serie:  string;
-    image:  string;
-    about:  string;
-    status: Status;
-    powers: Power[];
+    id:      number;
+    name:    string;
+    serie:   string;
+    image:   string;
+    about:   string;
+    status:  Status;
+    powers?: Power[];
 }
 
 export interface Power {
@@ -17,8 +17,7 @@ export enum Status {
     "Alive" = "alive",
     "Dead" = "dead",
     "Unknown" = "unknown",
+    "Unset" = ""
 }
 
-export interface CharacterLike extends Omit<CharacterResponse, "id" | "powers" | "status"> {
-    status: string;
-}
+export interface CharacterLike extends Omit<CharacterResponse, "id" | "powers" > {}
