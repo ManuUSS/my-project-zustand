@@ -1,4 +1,4 @@
-import { CharacterResponse, charactersApi } from "..";
+import { CharacterLike, CharacterResponse, charactersApi } from "..";
 
 interface GetProductsOptions {
     filterKey?: string;
@@ -17,6 +17,14 @@ export const getCharacters = async ({ filterKey }:GetProductsOptions ):Promise<C
 
     return data;
 
+}
+
+export const newCharacter = async ( character: CharacterLike ):Promise<CharacterResponse> => {
+    
+    const { data } = await charactersApi.post<CharacterResponse>('/characters', character );
+    await delay( 5000 );
+
+    return data;
 }
 
 const delay = (ms:number) => new Promise(res => setTimeout(res, ms));
