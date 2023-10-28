@@ -77,7 +77,10 @@ export const Searcher = () => {
                                     role="menuitem"
                                     onClick={ () => changeStatus({ label: 'Todos', value: '' })}
                                 >
-                                    <div className="inline-flex items-center">      
+                                    <div className="inline-flex items-center">
+                                        <StopIcon
+                                            className="w-5 text-gray-100 dark:text-gray-800"
+                                        />       
                                         Todos
                                     </div>
                                 </button>
