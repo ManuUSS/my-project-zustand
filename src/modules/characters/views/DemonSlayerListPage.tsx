@@ -1,4 +1,4 @@
-import { useCharacters } from "..";
+import { ListHeader, useCharacters } from "..";
 import { Loader } from "../../shared/components";
 import { CharacterCard } from "../components";
 
@@ -8,7 +8,7 @@ export const DemonSlayerListPage = () => {
 
     return (
         <section className="list-container p-4">
-            <h1 className="text-center text-4xl mt-4 mb-8 dark:text-slate-100">Demon Slayer</h1>
+            <ListHeader title="Demon Slayer" />
             {
                 isLoading 
                 ? ( <Loader /> )
