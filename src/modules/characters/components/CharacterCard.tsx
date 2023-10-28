@@ -39,12 +39,9 @@ export const CharacterCard:FC<Props> = ({ character }) => {
                         <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-slate-200">{ character.name }</h5>
                         <p className="dark:text-slate-300">{ character.serie }</p>
                     </div>
-                    <div className='flex'>
-                        <p className={ validateStatus( character.status) }>{ character.status.charAt(0).toUpperCase() + character.status.slice(1, character.status.length )}</p>
-                        <StopIcon 
-                            className={`w-5 ${ validateStatus( character.status )}`} 
-                        />
-                    </div>
+                    <StopIcon 
+                        className={`w-5 ${ validateStatus( character.status )}`} 
+                    />
                 </div>
                 <p className="mb-3 font-normal text-gray-700 dark:text-slate-300">
                     { 
