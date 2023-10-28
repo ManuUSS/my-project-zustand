@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { JJKListPage, MainListPage, HxHListPage, DemonSlayerListPage } from '../modules/characters';
-import { MainLayout } from '../layouts';
 import { PATHS } from './routes';
+import { JJKListPage, MainListPage, HxHListPage, DemonSlayerListPage, NewCharacter } from '../modules/characters';
+import { MainLayout } from '../layouts';
 
 
 export const router = createBrowserRouter([
@@ -24,6 +24,10 @@ export const router = createBrowserRouter([
             {
                 path: PATHS["HxH"],
                 element: <HxHListPage />
+            },
+            {
+                path: PATHS["New"],
+                element: <NewCharacter />
             }
         ] 
     }

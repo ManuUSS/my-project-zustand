@@ -1,4 +1,4 @@
-import { ListHeader } from ".."
+import { ListHeader } from '..';
 
 
 export const NewCharacter = () => {
