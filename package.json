@@ -18,6 +18,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.47.0",
     "react-router-dom": "^6.17.0",
+    "sonner": "^1.0.3",
     "zustand": "^4.4.4"
   },
   "devDependencies": {

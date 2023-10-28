@@ -1,6 +1,7 @@
-import { useForm } from "react-hook-form"
-import { CharacterLike } from "../interfaces/character"
-
+import { useForm } from 'react-hook-form';
+import { useQueryClient, useMutation } from '@tanstack/react-query'
+import { CharacterLike } from '../interfaces/character';
+import { charactersActions } from '..';
 
 
 const defaultValues:CharacterLike = {
@@ -17,8 +18,13 @@ export const useNewCharacter = () => {
         defaultValues
     });
 
-    
-
+    const queryClient = useQueryClient();
+    const mutation = useMutation({
+        mutationFn: charactersActions.newCharacter,
+        onSuccess: ( character, _vars ) => {
+            
+        } 
+    })
 
 
     return {
