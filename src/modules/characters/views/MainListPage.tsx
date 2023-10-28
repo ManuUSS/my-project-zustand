@@ -1,9 +1,15 @@
+import { useEffect } from 'react';
 import { useCharacters, CharacterCard, ListHeader } from '..';
 import { Loader } from '../../shared/components';
 
 export const MainListPage = () => {
 
   const { isLoading, characters } = useCharacters({});
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, []);
+  
 
   return (
       <section className="list-container p-4">

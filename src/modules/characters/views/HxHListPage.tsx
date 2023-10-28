@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { ListHeader, useCharacters } from "..";
 import { Loader } from "../../shared/components";
 import { CharacterCard } from "../components";
@@ -6,6 +7,10 @@ import { CharacterCard } from "../components";
 export const HxHListPage = () => {
 
     const { isLoading, characters } = useCharacters({ filterKey: "Hunter X Hunter" });
+
+    useEffect(() => {
+        window.scrollTo(0,0)
+    }, []);
 
     return (
         <section className="list-container p-4">
