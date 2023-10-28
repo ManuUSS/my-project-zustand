@@ -6,7 +6,7 @@ export const NewCharacter = () => {
     <section className="list-container p-4">
         <ListHeader title="Nuevo personaje" hideSearcher/>
         <div className="grid grid-cols-2 gap-4">
-            <form className="p-4 border rounded-md flex flex-col gap-3 text-lg" action="" noValidate>
+            <form className="p-4 border rounded-md flex flex-col gap-3 text-lg" noValidate>
                 <div>
                     <label htmlFor="name" className="text-gray-900 dark:text-white">Nombre del personaje:</label>
                     <input 

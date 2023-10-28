@@ -18,3 +18,7 @@ export enum Status {
     "Dead" = "dead",
     "Unknown" = "unknown",
 }
+
+export interface CharacterLike extends Omit<CharacterResponse, "id" | "powers" | "status"> {
+    status: string;
+}
