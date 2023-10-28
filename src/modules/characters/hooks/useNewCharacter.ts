@@ -40,11 +40,11 @@ export const useNewCharacter = () => {
                 description: `${ character.name } agregado ${ moment().format('MMMM Do YYYY')}`
             });
             
-            queryClient.refetchQueries({
+            queryClient.invalidateQueries({
                 queryKey: ['characters', {}]
             });
 
-            queryClient.refetchQueries({
+            queryClient.invalidateQueries({
                 queryKey: ['characters', { filterKey: character.serie }]
             });
             
