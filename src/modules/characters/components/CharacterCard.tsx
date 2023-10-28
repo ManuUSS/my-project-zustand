@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { EyeIcon } from '@heroicons/react/24/outline';
-import { StopIcon } from '@heroicons/react/24/solid';
+import { StarIcon, StopIcon } from '@heroicons/react/24/solid';
 import { CharacterResponse, Status } from '..';
 
 interface Props {
@@ -53,18 +53,15 @@ export const CharacterCard:FC<Props> = ({ character }) => {
                 <div
                     className="flex justify-between items-center"
                 >
-                    <button
-                        type="button"
-                        className="text-white bg-sky-500 hover:bg-sky-600 focus:ring-4 focus:outline-none focus:ring-sky-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                    >
-                        Guardar como favorito
-                    </button>
-                    <button
-                        type="button"
-                        className="text-gray-600 text-center dark:text-slate-300"
-                    >
-                        <EyeIcon width={ 15 } />
-                    </button>
+                    <StarIcon 
+                        width={ 20 } 
+                        color='#fabf0c'
+                        className="cursor-pointer"
+                    />
+                    <EyeIcon 
+                        width={ 20 } 
+                        className='text-gray-600 text-center dark:text-slate-300 cursor-pointer'
+                    />
                 </div>
             </div>
         </article>
