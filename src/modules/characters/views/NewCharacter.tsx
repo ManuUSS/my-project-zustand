@@ -62,7 +62,7 @@ export const NewCharacter = () => {
                     >
                         <option value="alive">Vivo</option>
                         <option value="dead">Muerto</option>
-                        <option value="unknown">Muerto</option>
+                        <option value="unknown">Desconocido</option>
                     </select>
                 </div>
                 <div>
