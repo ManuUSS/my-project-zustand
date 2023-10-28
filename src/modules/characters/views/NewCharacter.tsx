@@ -6,6 +6,11 @@ export const NewCharacter = () => {
   
   const { register, handleSubmit, onNewCharacter, mutation } = useNewCharacter();
 
+  const classesOnPedindg = () => {
+    return mutation.isPending 
+        ? "bg-gray-400 text-gray-600 cursor-none hover:none"
+        : ""
+  }
 
   return (
     <section className="list-container p-4">
@@ -102,8 +107,8 @@ export const NewCharacter = () => {
                 <div className='flex justify-end mt-4'>
                     <button 
                         type="submit" 
-                        className="text-lg text-white bg-sky-500 hover:bg-sky-600 rounded-lg px-5 py-2.5 text-center dark:bg-sky-400 dark:hover:bg-sky-500"
                         disabled={ mutation.isPending }
+                        className={`text-lg text-white bg-sky-500 hover:bg-sky-600 rounded-lg px-5 py-2.5 text-center dark:bg-sky-400 dark:hover:bg-sky-500 flex items-center ${ classesOnPedindg() }`}
                     >
                         {
                             mutation.isPending && 
