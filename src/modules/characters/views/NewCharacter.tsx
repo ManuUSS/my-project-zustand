@@ -43,9 +43,26 @@ export const NewCharacter = () => {
                             }
                         })}
                     >
-                        <option value="Hunter X Hunter">Jujutsu Kaisen</option>
+                        <option value="Jujutsu Kaisen">Jujutsu Kaisen</option>
                         <option value="Demon Slayer">Demon Slayer</option>
                         <option value="Hunter X Hunter">Hunter X Hunter</option>
+                    </select>
+                </div>
+                <div>
+                    <label htmlFor="status" className="text-gray-900 dark:text-white">Estado actual:</label>
+                    <select 
+                        id="status" 
+                        className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        { ...register("status", {
+                            required: {
+                                value: true,
+                                message: "Este campo es requerido"
+                            }
+                        })}
+                    >
+                        <option value="alive">Vivo</option>
+                        <option value="dead">Muerto</option>
+                        <option value="unknown">Muerto</option>
                     </select>
                 </div>
                 <div>
