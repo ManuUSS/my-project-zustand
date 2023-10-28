@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { useQueryClient, useMutation } from '@tanstack/react-query'
 import { toast } from 'sonner';
 import moment from 'moment';
@@ -19,7 +19,6 @@ export const useNewCharacter = () => {
     const { register, watch, handleSubmit } = useForm<CharacterLike>({
         defaultValues
     });
-
     const queryClient = useQueryClient();
     const mutation = useMutation({
         mutationFn: charactersActions.newCharacter,
@@ -44,12 +43,16 @@ export const useNewCharacter = () => {
         }
     })
 
+    const onNewCharacter:SubmitHandler<CharacterLike> = async ( data ) => {
+        console.log( data );
+        //mutation.mutate( data );
+    }
 
     return {
         register,
         watch,
         handleSubmit,
-        mutation, 
+        onNewCharacter,
         queryClient
     }
 }

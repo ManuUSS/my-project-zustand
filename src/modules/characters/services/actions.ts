@@ -20,9 +20,9 @@ export const getCharacters = async ({ filterKey }:GetProductsOptions ):Promise<C
 }
 
 export const newCharacter = async ( character: CharacterLike ):Promise<CharacterResponse> => {
-    
-    const { data } = await charactersApi.post<CharacterResponse>('/characters', character );
+
     await delay( 5000 );
+    const { data } = await charactersApi.post<CharacterResponse>('/characters', character );
 
     return data;
 }
