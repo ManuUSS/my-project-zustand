@@ -7,7 +7,7 @@ export const MainLayout = ( ) => {
   const { theme } = useThemeStore();
 
   return (
-    <body className={ theme }>
+    <div className={ theme }>
         <Sidebar />
         <main
             className="float-right inline w-[calc(100%-16rem)] h-[calc(100%-77.53px)] dark:bg-gray-800"
@@ -15,6 +15,6 @@ export const MainLayout = ( ) => {
           <Outlet />
         </main>
         <Footer />
-    </body>
+    </div>
   )
 }

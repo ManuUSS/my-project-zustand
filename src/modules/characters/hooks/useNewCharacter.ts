@@ -56,6 +56,7 @@ export const useNewCharacter = () => {
         watch,
         handleSubmit,
         onNewCharacter,
-        queryClient
+        queryClient,
+        mutation
     }
 }
