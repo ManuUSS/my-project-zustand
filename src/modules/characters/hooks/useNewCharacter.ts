@@ -26,15 +26,15 @@ export const useNewCharacter = () => {
         mutationFn: charactersActions.newCharacter,
         onSuccess: ( character, _vars ) => {
             toast.success("Personaje agregado correctamente", {
-                description: `${ character.name } agregado ${ moment().format('MMMM Do YYYY, h:mm:ss a')}`
+                description: `${ character.name } agregado ${ moment().format('MMMM Do YYYY')}`
             });
             
             queryClient.invalidateQueries({
-                queryKey: ['characters', { filterKey: character.serie }]
+                queryKey: ['characters', {}]
             });
 
             queryClient.invalidateQueries({
-                queryKey: ['characters', {}]
+                queryKey: ['characters', { filterKey: character.serie }]
             });
 
             navigate( -1 );
@@ -42,7 +42,7 @@ export const useNewCharacter = () => {
         onError: ( _error, vars ) => {
             console.log( _error );
             toast.error("Ups, ha ocurrido un error al agregar el personaje", {
-                description: `${ vars.name } intento ${ moment().format('MMMM Do YYYY, h:mm:ss a')}`
+                description: `${ vars.name } intento ${ moment().format('MMMM Do YYYY')}`
             });
         }
     })
