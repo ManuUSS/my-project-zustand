@@ -35,24 +35,18 @@ export const useNewCharacter = () => {
             });
             return { optimisticCharacter }
         },
-        onSuccess: ( character, _vars, ctx ) => {
+        onSuccess: ( character, _vars ) => {
             toast.success("Personaje agregado correctamente", {
                 description: `${ character.name } agregado ${ moment().format('MMMM Do YYYY')}`
             });
             
-            queryClient.removeQueries({
-                queryKey: ['characters', ctx?.optimisticCharacter.id ]
+            queryClient.refetchQueries({
+                queryKey: ['characters', {}]
             });
 
-            queryClient.setQueryData<CharacterResponse[]>(
-                ['characters', { filterKey: character.serie }],
-                ( oldChars ) => {
-                    if( !oldChars ) return [ character ];
-
-                    return oldChars.map(( cacheChar ) => 
-                        ( cacheChar.id === ctx?.optimisticCharacter.id ) ? character : cacheChar
-                    )
-            })
+            queryClient.refetchQueries({
+                queryKey: ['characters', { filterKey: character.serie }]
+            });
             
 
             navigate( -1 );
