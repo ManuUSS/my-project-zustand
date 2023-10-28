@@ -19,6 +19,7 @@ export * as charactersActions from './services/actions'
 
 // <--- Hooks --->
 export { useCharacters } from "./hooks/useCharacters";
+export { useSearcher } from "./hooks/useSearcher";
 
 // <--- Interfaces --->
 export type { CharacterResponse, Status } from './interfaces/character';
