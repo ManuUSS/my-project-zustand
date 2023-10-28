@@ -9,7 +9,7 @@ import './index.css'
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <TanStackProvider>
-      <Toaster richColors />
+      <Toaster richColors position="top-right"/>
       <RouterProvider router={ router } />
     </TanStackProvider>
   </React.StrictMode>,
