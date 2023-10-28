@@ -1,5 +1,6 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useQueryClient, useMutation } from '@tanstack/react-query'
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import moment from 'moment';
 import { CharacterLike } from '../interfaces/character';
@@ -19,6 +20,7 @@ export const useNewCharacter = () => {
     const { register, watch, handleSubmit } = useForm<CharacterLike>({
         defaultValues
     });
+    const navigate = useNavigate();
     const queryClient = useQueryClient();
     const mutation = useMutation({
         mutationFn: charactersActions.newCharacter,
@@ -34,6 +36,8 @@ export const useNewCharacter = () => {
             queryClient.invalidateQueries({
                 queryKey: ['characters', {}]
             });
+
+            navigate( -1 );
         },
         onError: ( _error, vars ) => {
             console.log( _error );
@@ -44,8 +48,7 @@ export const useNewCharacter = () => {
     })
 
     const onNewCharacter:SubmitHandler<CharacterLike> = async ( data ) => {
-        console.log( data );
-        //mutation.mutate( data );
+        mutation.mutate( data );
     }
 
     return {
