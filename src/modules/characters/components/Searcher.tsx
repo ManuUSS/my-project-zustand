@@ -70,6 +70,18 @@ export const Searcher = () => {
                                     </div>
                                 </button>
                             </li>
+                            <li>
+                                <button 
+                                    type="button" 
+                                    className="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" 
+                                    role="menuitem"
+                                    onClick={ () => changeStatus({ label: 'Todos', value: '' })}
+                                >
+                                    <div className="inline-flex items-center">      
+                                        Todos
+                                    </div>
+                                </button>
+                            </li>
                         </ul>
                     </div>
                 </div>
