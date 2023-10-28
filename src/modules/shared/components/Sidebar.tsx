@@ -69,7 +69,7 @@ export const Sidebar = () => {
                     </li>
                     <li>
                         <NavLink 
-                            to="/new"
+                            to={ PATHS["New"] }
                              className={ ({ isActive }) => validateActiveLink( isActive )}
                         >
                             <PlusIcon className="w-5 text-sky-600 dark:text-sky-300"/>
