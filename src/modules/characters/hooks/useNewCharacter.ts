@@ -53,8 +53,8 @@ export const useNewCharacter = () => {
         },
         onError: ( _error, vars ) => {
             console.log( _error );
-            toast.error("Ups, ha ocurrido un error al agregar el personaje", {
-                description: `${ vars.name } intento ${ moment().format('MMMM Do YYYY')}`
+            toast.error(`Ups, ha ocurrido un error al agregar a ${ vars.name }`, {
+                description: `Intento al ${ moment().format('MM/DD/YYYY')}`
             });
         }
     })
