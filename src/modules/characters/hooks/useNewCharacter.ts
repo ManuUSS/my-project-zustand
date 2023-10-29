@@ -36,8 +36,8 @@ export const useNewCharacter = () => {
             return { optimisticCharacter }
         },
         onSuccess: ( character, _vars ) => {
-            toast.success("Personaje agregado correctamente", {
-                description: `${ character.name } agregado ${ moment().format('MMMM Do YYYY')}`
+            toast.success(`${ character.name } agregado correctamente`, {
+                description: `Personaje agregado ${ moment().format('MM/DD/YYYY')}`
             });
             
             queryClient.invalidateQueries({
