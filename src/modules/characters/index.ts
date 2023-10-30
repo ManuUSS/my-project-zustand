@@ -10,6 +10,7 @@ export { NewCharacter } from './views/NewCharacter';
 // <--- Components --->
 export { CharacterCard } from './components';
 export { ListHeader } from './components/ListHeader';
+export { CharacterForm } from './components/CharacterForm';
 
 // <--- Context --->
 export { useCharactersStore } from './context/CharactersContext';

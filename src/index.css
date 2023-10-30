@@ -24,6 +24,17 @@ h1 {
     min-height: calc( 100vh - 56.24px );
 }
 
+.button-disabled-form {
+    background-color: rgb(168 162 158);
+    color: rgb(87 83 78);
+    cursor: default;
+}
+
+.button-disabled-form:hover {
+    background-color: rgb(168 162 158) !important;
+    color: rgb(87 83 78) !important;
+}
+
 .fade-in {
     animation: 1s ease-in 0s fade-in;
 }
