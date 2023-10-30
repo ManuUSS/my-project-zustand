@@ -1,11 +1,11 @@
 import { CharacterLike, CharacterResponse, charactersApi } from "..";
 
-interface GetProductsOptions {
+interface GetCharacterOptions {
     filterKey?: string;
     id?: number;
 }
 
-export const getCharacters = async ({ filterKey }:GetProductsOptions ):Promise<CharacterResponse[]> => {
+export const getCharacters = async ({ filterKey }:GetCharacterOptions ):Promise<CharacterResponse[]> => {
     
     const params = new URLSearchParams();
     
