@@ -22,8 +22,8 @@ export const useNewCharacter = () => {
     const queryClient = useQueryClient();
     const mutation = useMutation({
         mutationFn: charactersActions.newCharacter,
-        onSuccess: ( character, _vars ) => {
-            
+        onSuccess: ( character ) => {
+
             toast.success(`${ character.name } agregado correctamente`, {
                 description: `Personaje agregado ${ moment().format('MM/DD/YYYY')}`
             });
