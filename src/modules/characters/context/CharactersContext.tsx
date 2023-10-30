@@ -11,13 +11,17 @@ export interface CharacterStore {
 
 type Actions = {
     setMainList: ( list:CharacterResponse[] ) => void;
-    modifyMainList: ( ) => void;
+    addToMainList: ( char: CharacterResponse ) => void;
+    filterMainList: ( ) => void;
     setJJKList: ( list:CharacterResponse[] ) => void;
-    modifyJJKList: () => void;
+    addToJJKList: ( char: CharacterResponse ) => void;
+    filterJJKList: () => void;
     setDemonSlayerList: ( list:CharacterResponse[] ) => void;
-    modifyDemonSlayerList: () => void;
+    addToDemonSlayerList: ( char: CharacterResponse ) => void;
+    filterDemonSlayerList: () => void;
     setHxHList: ( list:CharacterResponse[] ) => void;
-    modifyHxHList: () => void;
+    addToHxHList: ( char: CharacterResponse ) => void;
+    filterHxHList: () => void;
 }
 
 
@@ -29,17 +33,29 @@ export const useCharactersStore = create<CharacterStore & Actions>()(( set ) => 
     setMainList: ( list: CharacterResponse[] ) => {
         set(() => ({ mainList: list }))
     },
-    modifyMainList: () => {},
+    addToMainList: ( char: CharacterResponse ) => {
+        set(( ctx ) => ({ mainList: [ ...ctx.mainList, char ] }))
+    },
+    filterMainList: () => {},
     setJJKList: ( list: CharacterResponse[] ) => {
         set(() => ({ jjkList: list }))
     },
-    modifyJJKList: () => {},
+    addToJJKList: ( char: CharacterResponse ) => {
+        set(( ctx ) => ({ jjkList: [ ...ctx.jjkList, char ] }))
+    },
+    filterJJKList: () => {},
     setDemonSlayerList: ( list: CharacterResponse[] ) => {
         set(() => ({ demonSlayerList: list }))
     },
-    modifyDemonSlayerList: () => {},
+    addToDemonSlayerList: ( char: CharacterResponse ) => {
+        set(( ctx ) => ({ demonSlayerList: [ ...ctx.demonSlayerList, char ] }))
+    },
+    filterDemonSlayerList: () => {},
     setHxHList: ( list: CharacterResponse[] ) => {
         set(() => ({ hxhList: list }))
     },
-    modifyHxHList: () => {},
+    addToHxHList: ( char: CharacterResponse ) => {
+        set(( ctx ) => ({ hxhList: [ ...ctx.hxhList, char ] }))
+    },
+    filterHxHList: () => {},
 }))
