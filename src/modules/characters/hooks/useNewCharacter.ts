@@ -24,7 +24,7 @@ export const useNewCharacter = () => {
     // <--- Zustand Store | Characters --->
     const { addToMainList, addToJJKList, addToDemonSlayerList, addToHxHList } = useCharactersStore();
     // <--- Form properties and handlers --->
-    const { register, watch, handleSubmit } = useForm<CharacterLike>({
+    const { register, watch, handleSubmit, reset } = useForm<CharacterLike>({
         defaultValues
     });
     // <--- Current queryclient --->
@@ -108,6 +108,9 @@ export const useNewCharacter = () => {
             
             // <--- Updates the zustand state --->
             validateToAddCharacterSerie( character.serie, character );
+            
+            // <--- Resets the form to its initial values --->
+            reset();
         },
         onError: ( _error, vars ) => {
             console.log( _error );
