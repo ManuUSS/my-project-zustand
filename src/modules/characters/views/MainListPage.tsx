@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useCharacters, CharacterCard, ListHeader } from '..';
 import { Loader } from '../../shared/components';
-import { useCharactersStore } from '../../../plugins/CharactersContext';
+import { useCharactersStore } from '..';
 
 export const MainListPage = () => {
 
   const { isLoading } = useCharacters({});
   const characters = useCharactersStore(( state ) => state.mainList );
-  
+
   useEffect(() => {
     window.scrollTo(0,0)
   }, []);

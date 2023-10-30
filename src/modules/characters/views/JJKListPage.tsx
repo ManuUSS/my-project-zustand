@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { ListHeader, useCharacters } from '..';
 import { Loader } from '../../shared/components';
 import { CharacterCard } from '../components';
-import { useCharactersStore } from '../../../plugins/CharactersContext';
+import { useCharactersStore } from '..';
 
 
 export const JJKListPage = () => {

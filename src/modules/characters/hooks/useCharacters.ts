@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { charactersActions } from "..";
-import { useCharactersStore } from "../../../plugins/CharactersContext";
+import { useCharactersStore } from "..";
 
 interface Options {
     filterKey?: string;

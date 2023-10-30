@@ -11,6 +11,9 @@ export { NewCharacter } from './views/NewCharacter';
 export { CharacterCard } from './components';
 export { ListHeader } from './components/ListHeader';
 
+// <--- Context --->
+export { useCharactersStore } from './context/CharactersContext';
+
 // <--- API --->
 export { charactersApi } from "./api/charactersApi";
 

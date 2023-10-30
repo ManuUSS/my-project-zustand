@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { CharacterResponse, } from '../modules/characters';
+import { CharacterResponse, } from '..';
 
 export interface CharacterStore {
     mainList:        CharacterResponse[];

@@ -1,5 +1,5 @@
 import { ListHeader, useCharacters } from "..";
-import { useCharactersStore } from "../../../plugins/CharactersContext";
+import { useCharactersStore } from "..";
 import { Loader } from "../../shared/components";
 import { CharacterCard } from "../components";
 
