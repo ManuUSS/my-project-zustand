@@ -1,6 +1,5 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useQueryClient, useMutation } from '@tanstack/react-query'
-import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import moment from 'moment';
 import { CharacterLike, CharacterResponse, Status } from '../interfaces/character';
@@ -20,7 +19,6 @@ export const useNewCharacter = () => {
     const { register, watch, handleSubmit } = useForm<CharacterLike>({
         defaultValues
     });
-    const navigate = useNavigate();
     const queryClient = useQueryClient();
     const mutation = useMutation({
         mutationFn: charactersActions.newCharacter,
@@ -35,21 +33,36 @@ export const useNewCharacter = () => {
             });
             return { optimisticCharacter }
         },
-        onSuccess: ( character, _vars ) => {
+        onSuccess: ( character, _vars, ctx ) => {
             toast.success(`${ character.name } agregado correctamente`, {
                 description: `Personaje agregado ${ moment().format('MM/DD/YYYY')}`
             });
             
-            queryClient.invalidateQueries({
-                queryKey: ['characters', {}]
+            queryClient.removeQueries({
+                queryKey: ['characters', ctx?.optimisticCharacter.id]
             });
 
-            queryClient.invalidateQueries({
-                queryKey: ['characters', { filterKey: character.serie }]
-            });
-            
+            queryClient.setQueryData<CharacterResponse[]>(
+                ['characters', {}],
+                ( oldChars ) => {
+                  if ( !oldChars ) return []
+      
+                  return oldChars.map(( cacheChar ) => 
+                    ( cacheChar.id === ctx?.optimisticCharacter.id ) ? character : cacheChar
+                  )  
+                }
+            )
+            queryClient.setQueryData<CharacterResponse[]>(
+                ['characters', { filterKey: character.serie }],
+                ( oldChars ) => {
+                  if ( !oldChars ) return []
+      
+                  return oldChars.map(( cacheChar ) => 
+                    ( cacheChar.id === ctx?.optimisticCharacter.id ) ? character : cacheChar
+                  )  
+                }
+            )
 
-            navigate( -1 );
         },
         onError: ( _error, vars ) => {
             console.log( _error );
