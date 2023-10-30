@@ -28,7 +28,7 @@ export const NewCharacter = () => {
                 isPending={ mutation.isPending }
             />
             <div className="border rounded-md dark:border-gray-700">
-                <div className="flex items-center">
+                <div className="flex items-center rounded-t-md overflow-hidden">
                     {
                         watch("image") &&
                         (
