@@ -22,7 +22,7 @@ const defaultValues:CharacterLike = {
 export const useNewCharacter = () => {
 
     // <--- Zustand Store | Characters --->
-    const { addToMainList, addToJJKList, addToDemonSlayerList, addToHxHList } = useCharactersStore();
+    const { addToMainList } = useCharactersStore();
     // <--- Form properties and handlers --->
     const { register, watch, handleSubmit, reset } = useForm<CharacterLike>({
         defaultValues
@@ -42,7 +42,7 @@ export const useNewCharacter = () => {
                 ['characters', {  filterKey: charactertToAdd.serie }],
                 ( oldState ) => {
                     return !oldState 
-                    ? [ optimisticCharacter ]
+                    ? []
                     : [ ...oldState, optimisticCharacter ]
                 }
             );
@@ -52,7 +52,7 @@ export const useNewCharacter = () => {
                 ['characters', {}],
                 ( oldState ) => {
                     return !oldState 
-                    ? [ optimisticCharacter ]
+                    ? []
                     : [ ...oldState, optimisticCharacter ]
                 }
             );
@@ -71,21 +71,9 @@ export const useNewCharacter = () => {
                 queryKey: ['characters', ctx?.optimisticCharacter.id ]
             });
 
-            // <--- Set new data with cache filter key --->
-            queryClient.setQueryData<CharacterResponse[]>(
-            ['characters', { filterKey: character.serie }],
-            ( oldCharacters ) => {
-                if ( !oldCharacters ) {
-                    // The query is set as invalid
-                    queryClient.invalidateQueries({
-                        queryKey: ['characters', { filterKey: character.serie }]
-                    });
-                    return [];
-                }
-  
-                return oldCharacters.map(( cacheChar ) => 
-                    ( cacheChar.id === ctx?.optimisticCharacter.id ) ? character : cacheChar
-                )  
+            // <--- Invalidates the query to refresh the data --->
+            queryClient.invalidateQueries({
+                queryKey: ['characters', { filterKey: character.serie }]
             });
 
             // <--- Set new data in general list --->
@@ -97,17 +85,17 @@ export const useNewCharacter = () => {
                         queryClient.invalidateQueries({
                             queryKey: ['characters', {}]
                         });
-                        return [];
+                        return;
                     }
-      
+                    
+                    // <--- Updates the zustand state --->
+                    addToMainList( character );
+
                     return oldCharacters.map(( cacheChar ) => 
                         ( cacheChar.id === ctx?.optimisticCharacter.id ) ? character : cacheChar
                     )  
                 }
             )
-            
-            // <--- Updates the zustand state --->
-            validateToAddCharacterSerie( character.serie, character );
             
             // <--- Resets the form to its initial values --->
             reset();
@@ -120,36 +108,6 @@ export const useNewCharacter = () => {
             });
         }
     })
-
-    /**
-     * Verifies the character's serie and adds it to his correspondent list
-     * by modifying the local state on Zustand
-     * @param { serie } string 
-     * @param { character } CharacterResponse 
-     */
-    const validateToAddCharacterSerie = ( serie: string, character: CharacterResponse ) => {
-        // <--- Verifies character's serie --->
-        switch ( serie ) {
-            case "Jujutsu Kaisen" :
-                // <--- Modifies State's JJK List --->
-                addToJJKList( character );
-                break;
-            
-            case "Demon Slayer" :
-                // <--- Modifies State's Demon Slayer List --->
-                addToDemonSlayerList( character );
-                break;
-
-            case "Hunter X Hunter" :
-                // <--- Modifies State's Hunter X Hunter List --->
-                addToHxHList( character );
-                break;
-        }
-
-        // <--- Modifies State's Main List --->
-        addToMainList( character );
-
-    }
 
     /**
      * Handles the submit form event
