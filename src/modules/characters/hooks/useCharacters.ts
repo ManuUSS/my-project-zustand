@@ -7,9 +7,17 @@ interface Options {
     ctxSetKey?: "setMainList" | "setJJKList" | "setDemonSlayerList" | "setHxHList";
 }
 
+/**
+ * Perfoms a GET Request to API
+ * Modifies the local state
+ * @param { { filterKey, ctxSetKey } } string | enum 
+ * @returns isLoading, isError, isFetching
+ */
 export const useCharacters = ({ filterKey, ctxSetKey = "setMainList" }:Options) => {
   
+    // <--- Zustand Store | Characters --->
     const characterStore = useCharactersStore();
+    // <--- UseQuery | TansTack --->
     const { isLoading, isError, isFetching } = useQuery({
         queryKey: ['characters', { filterKey }],
         queryFn: () =>

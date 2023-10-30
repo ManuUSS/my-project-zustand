@@ -7,7 +7,7 @@ import { useCharactersStore } from '..';
 
 export const JJKListPage = () => {
 
-    const { isLoading } = useCharacters({ 
+    const { isFetching } = useCharacters({ 
         filterKey: "Jujutsu Kaisen",
         ctxSetKey: "setJJKList"
     });
@@ -21,7 +21,7 @@ export const JJKListPage = () => {
         <section className="list-container p-4">
             <ListHeader title='Jujutsu Kaisen' />
             {
-                isLoading 
+                isFetching 
                 ? ( <Loader /> )
                 :
                 <div className="grid grid-cols-1 md:grid-cols-4 md:gap-3 justify-items-center">
