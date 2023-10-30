@@ -2,7 +2,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useQueryClient, useMutation } from '@tanstack/react-query'
 import { toast } from 'sonner';
 import moment from 'moment';
-import { CharacterLike, CharacterResponse, Status } from '../interfaces/character';
+import { CharacterLike, Status } from '../interfaces/character';
 import { charactersActions } from '..';
 
 
@@ -22,46 +22,19 @@ export const useNewCharacter = () => {
     const queryClient = useQueryClient();
     const mutation = useMutation({
         mutationFn: charactersActions.newCharacter,
-        onMutate: ( characterToAdd ) => {
-            const optimisticCharacter = { id: Math.random(), ...characterToAdd };
-            queryClient.setQueryData<CharacterResponse[]>(
-                ['characters', { filterKey: characterToAdd.serie }],
-                ( old ) => {
-                    if( !old ) return [ optimisticCharacter ];
-
-                    return [ ...old, optimisticCharacter ]
-            });
-            return { optimisticCharacter }
-        },
-        onSuccess: ( character, _vars, ctx ) => {
+        onSuccess: ( character, _vars ) => {
+            
             toast.success(`${ character.name } agregado correctamente`, {
                 description: `Personaje agregado ${ moment().format('MM/DD/YYYY')}`
             });
             
-            queryClient.removeQueries({
-                queryKey: ['characters', ctx?.optimisticCharacter.id]
+            queryClient.invalidateQueries({
+                queryKey: ['characters', { filterKey: character.serie }]
             });
-
-            queryClient.setQueryData<CharacterResponse[]>(
-                ['characters', {}],
-                ( oldChars ) => {
-                  if ( !oldChars ) return []
-      
-                  return oldChars.map(( cacheChar ) => 
-                    ( cacheChar.id === ctx?.optimisticCharacter.id ) ? character : cacheChar
-                  )  
-                }
-            )
-            queryClient.setQueryData<CharacterResponse[]>(
-                ['characters', { filterKey: character.serie }],
-                ( oldChars ) => {
-                  if ( !oldChars ) return []
-      
-                  return oldChars.map(( cacheChar ) => 
-                    ( cacheChar.id === ctx?.optimisticCharacter.id ) ? character : cacheChar
-                  )  
-                }
-            )
+            
+            queryClient.invalidateQueries({
+                queryKey: ['characters', {}]
+            });
 
         },
         onError: ( _error, vars ) => {

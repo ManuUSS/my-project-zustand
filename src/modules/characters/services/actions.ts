@@ -21,6 +21,7 @@ export const getCharacters = async ({ filterKey }:GetProductsOptions ):Promise<C
 
 export const newCharacter = async ( character: CharacterLike ):Promise<CharacterResponse> => {
 
+    throw new Error("Ups");
     await delay( 5000 );
     const { data } = await charactersApi.post<CharacterResponse>('/characters', character );
 
