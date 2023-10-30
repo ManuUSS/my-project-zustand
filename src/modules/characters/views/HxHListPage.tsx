@@ -2,11 +2,16 @@ import { useEffect } from "react";
 import { ListHeader, useCharacters } from "..";
 import { Loader } from "../../shared/components";
 import { CharacterCard } from "../components";
+import { useCharactersStore } from "../../../plugins/CharactersContext";
 
 
 export const HxHListPage = () => {
 
-    const { isLoading, characters } = useCharacters({ filterKey: "Hunter X Hunter" });
+    const { isLoading } = useCharacters({ 
+        filterKey: "Hunter X Hunter",
+        ctxSetKey: "setHxHList" 
+    });
+    const characters = useCharactersStore(( state ) => state.hxhList );
 
     useEffect(() => {
         window.scrollTo(0,0)

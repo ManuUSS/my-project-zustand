@@ -1,10 +1,15 @@
 import { ListHeader, useCharacters } from "..";
+import { useCharactersStore } from "../../../plugins/CharactersContext";
 import { Loader } from "../../shared/components";
 import { CharacterCard } from "../components";
 
 
 export const DemonSlayerListPage = () => {
-    const { isLoading, characters } = useCharacters({ filterKey: "Demon Slayer" });
+    const { isLoading } = useCharacters({ 
+        filterKey: "Demon Slayer",
+        ctxSetKey: "setDemonSlayerList" 
+    });
+    const characters = useCharactersStore(( state ) => state.demonSlayerList );
 
     return (
         <section className="list-container p-4">

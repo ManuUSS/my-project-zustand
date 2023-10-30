@@ -14,7 +14,6 @@ export const getCharacters = async ({ filterKey }:GetProductsOptions ):Promise<C
     }
     const { data } = await charactersApi.get<CharacterResponse[]>('/characters', { params });
     await delay( 5000 );
-
     return data;
 
 }

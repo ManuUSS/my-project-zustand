@@ -2,11 +2,16 @@ import { useEffect } from 'react';
 import { ListHeader, useCharacters } from '..';
 import { Loader } from '../../shared/components';
 import { CharacterCard } from '../components';
+import { useCharactersStore } from '../../../plugins/CharactersContext';
 
 
 export const JJKListPage = () => {
 
-    const { isLoading, characters } = useCharacters({ filterKey: "Jujutsu Kaisen" });
+    const { isLoading } = useCharacters({ 
+        filterKey: "Jujutsu Kaisen",
+        ctxSetKey: "setJJKList"
+    });
+    const characters = useCharactersStore(( state ) => state.jjkList );
 
     useEffect(() => {
         window.scrollTo(0,0)
