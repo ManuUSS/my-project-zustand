@@ -11,9 +11,19 @@ interface Props {
 }
 
 /**
- * Form to create a new character
- * @param {{ handleSubmit, register, onNewCharacter, errors, isPending }} 
- * @returns JSX.Element
+ * This component represents a form for entering character information, such as name, series, status, description, and image.
+ * It handles form submission and displays validation errors if applicable.
+ *
+ * @component
+ *
+ * @param {Object} Props - The component's props.
+ * @param {Function} handleSubmit - The function to handle form submission.
+ * @param {Function} register - The function for registering form inputs.
+ * @param {Function} onNewCharacter - The function to call upon successful form submission.
+ * @param {Object} errors - Validation errors associated with form inputs.
+ * @param {boolean} isPending - Flag indicating if the form submission is pending.
+ *
+ * @return {JSX.Element} The rendered CharacterForm component.
  */
 export const CharacterForm:FC<Props> = ({ handleSubmit, register, onNewCharacter, errors, isPending }) => {
   
@@ -23,6 +33,7 @@ export const CharacterForm:FC<Props> = ({ handleSubmit, register, onNewCharacter
             onSubmit={ handleSubmit( onNewCharacter ) }
             noValidate
         >
+            {/* Name */}
             <div>
                 <label htmlFor="name" className="text-gray-900 dark:text-white">Nombre del personaje:</label>
                 <input 
@@ -41,6 +52,7 @@ export const CharacterForm:FC<Props> = ({ handleSubmit, register, onNewCharacter
                     { errors?.name?.message }
                 </p>
             </div>
+            {/* Serie */}
             <div>
                 <label htmlFor="serie" className="text-gray-900 dark:text-white">Serie a la que pertenece:</label>
                 <select 
@@ -61,6 +73,7 @@ export const CharacterForm:FC<Props> = ({ handleSubmit, register, onNewCharacter
                     { errors?.serie?.message }
                 </p>
             </div>
+            {/* Status */}
             <div>
                 <label htmlFor="status" className="text-gray-900 dark:text-white">Estado actual:</label>
                 <select 
@@ -81,6 +94,7 @@ export const CharacterForm:FC<Props> = ({ handleSubmit, register, onNewCharacter
                     { errors?.status?.message }
                 </p>
             </div>
+            {/* About */}
             <div>
                 <label htmlFor="about" className="text-gray-900 dark:text-white">Acerca de:</label>
                 <textarea 
@@ -103,6 +117,7 @@ export const CharacterForm:FC<Props> = ({ handleSubmit, register, onNewCharacter
                     { errors?.about?.message }
                 </p>
             </div>
+            {/* Image */}
             <div>
                 <label htmlFor="image" className="text-gray-900 dark:text-white">Imagen:</label>
                 <input 

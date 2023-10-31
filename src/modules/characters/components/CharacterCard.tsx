@@ -8,9 +8,14 @@ interface Props {
 }
 
 /**
- * Displays the information about a character, image, name, description, etc
- * @param { character } 
- * @returns JSX.Element
+ * This component displays information about a character, including their name, series, status, description, and image.
+ *
+ * @component
+ *
+ * @param {Object} Props - The component's props.
+ * @param {Object} character - An object representing the character's details.
+ *
+ * @return {JSX.Element} The rendered CharacterCard component.
  */
 export const CharacterCard:FC<Props> = ({ character }) => {
 

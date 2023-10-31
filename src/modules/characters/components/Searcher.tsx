@@ -2,6 +2,14 @@ import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { StopIcon } from '@heroicons/react/24/solid';
 import { useSearcher } from '..';
 
+/**
+ * This component provides a search bar and filter options for character search.
+ * Users can input a character's name and filter characters by their status (alive, dead, unknown, or all).
+ *
+ * @component
+ *
+ * @return {JSX.Element} The rendered Searcher component.
+ */
 export const Searcher = () => {
 
   const { filterStatus, dropDownVisible, changeStatus, showDropDown } = useSearcher();
