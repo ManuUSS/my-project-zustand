@@ -27,7 +27,7 @@ export const useCharacters = ({ filterKey, ctxSetKey = "setMainList" }:Options) 
                 return data;
             })        
         ,
-        staleTime: 1000 * 60 * 5
+        staleTime: 1000 * 60 * 15
     });
 
     return {
