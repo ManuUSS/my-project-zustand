@@ -13,7 +13,7 @@ export { ListHeader } from './components/ListHeader';
 export { CharacterForm } from './components/CharacterForm';
 
 // <--- Context --->
-export { useCharactersStore } from './context/CharactersContext';
+export { useCharactersStore } from './context/CharactersStore';
 
 // <--- API --->
 export { charactersApi } from "./api/charactersApi";
