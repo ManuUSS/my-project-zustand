@@ -2,17 +2,14 @@ import { StateCreator } from 'zustand';
 import { CharacterResponse } from '..';
 
 interface JJKSlice {
-    jjkList:         CharacterResponse[];
-}
-
-
-type Actions = {
+    jjkList: CharacterResponse[];
     setJJKList: ( list:CharacterResponse[] ) => void;
     addToJJKList: ( char: CharacterResponse ) => void;
     filterJJKList: () => void;
 }
 
-export const createJJSlice:StateCreator<JJKSlice & Actions> = ( set ) => ({
+
+export const createJJSlice:StateCreator<JJKSlice> = ( set ) => ({
     jjkList: [],
     setJJKList: ( list: CharacterResponse[] ) => {
         set(() => ({ jjkList: list }))
