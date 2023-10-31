@@ -1,5 +1,5 @@
-import { useQuery } from '@tanstack/react-query';
-import { charactersActions } from '..'
+import { useEffect, useState } from 'react';
+import { CharacterResponse, useCharactersStore } from '..'
 
 interface Props {
     characterId: number;
@@ -7,14 +7,21 @@ interface Props {
 
 export const useCharacter = ({ characterId }:Props) => {
 
-    const characterQuery = useQuery({
-        queryKey: ['characters', characterId ],
-        queryFn: () => charactersActions.getCharacter({ id: characterId }),
-        staleTime: 1000 * 60 * 10
-    });
+    const { mainList } = useCharactersStore();
+    const [ character, setCharacter ] = useState<CharacterResponse | undefined>( undefined );
+
+    useEffect(() => {
+        getCharactertById();
+    }, [])
+    
+
+    const getCharactertById = () => {
+        if( !mainList ) return;
+        setCharacter(mainList.find(( char ) => char.id === characterId ));
+    }
 
     return {
-        characterQuery
+        character
     }
 
 }
