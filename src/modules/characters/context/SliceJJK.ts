@@ -8,7 +8,11 @@ export interface JJKSlice {
     filterJJKList: () => void;
 }
 
-
+/**
+ * Creates a new slice for JJK List
+ * @param set JJKSlice | Partial<JJKSlice> 
+ * @returns Object
+ */
 export const createJJKSlice:StateCreator<JJKSlice> = ( set ) => ({
     jjkList: [],
     setJJKList: ( list: CharacterResponse[] ) => {
