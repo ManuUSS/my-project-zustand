@@ -9,7 +9,7 @@ import { DemonSlice, createDemonSlice } from './SliceDemon';
  * following the coding practices of Slices Pattern
  * @see (@link https://docs.pmnd.rs/zustand/guides/typescript#slices-pattern)
  */
-export const useCharactersStore = create<MainSlice & JJKSlice & DemonSlice & HxHSlice >()(( ... a ) => ({
+export const useCharactersStore = create<MainSlice & JJKSlice & DemonSlice & HxHSlice>()(( ... a ) => ({
     ...createMainSlice( ...a ),
     ...createJJKSlice( ...a ),
     ...createDemonSlice( ...a ),
