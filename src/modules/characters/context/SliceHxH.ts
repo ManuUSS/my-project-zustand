@@ -10,6 +10,8 @@ export interface HxHSlice {
 
 /**
  * Creates a new slice for Hunter X Hunter
+ * Follows the Slice Pattern set by Zustand Team
+ * @see (@link https://docs.pmnd.rs/zustand/guides/typescript#slices-pattern)
  * @param set HxHSlice | Partial<HxHSlice> 
  * @returns Object
  */

@@ -10,6 +10,8 @@ export interface DemonSlice {
 
 /**
  * Creates a new slice for Demon Slayer
+ * Follows the Slice Pattern set by Zustand Team
+ * @see (@link https://docs.pmnd.rs/zustand/guides/typescript#slices-pattern)
  * @param set DemonSlice | Partial<DemonSlice> 
  * @returns Object
  */
