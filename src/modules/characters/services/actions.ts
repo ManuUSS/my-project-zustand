@@ -26,6 +26,15 @@ export const getCharacters = async ({ filterKey }:GetCharacterOptions ):Promise<
 
 }
 
+export const getCharacter = async ({ id }:GetCharacterOptions ):Promise<CharacterResponse> => {
+    
+    // <--- Performs API petition --->
+    const { data } = await charactersApi.get<CharacterResponse>(`/characters/${ id }`);
+    await delay( 5000 );
+    return data;
+
+}
+
 /**
  * Performs a POST Petition to Characters API
  * @param { character } CharacterLike

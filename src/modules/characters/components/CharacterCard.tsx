@@ -21,6 +21,7 @@ interface Props {
 export const CharacterCard:FC<Props> = ({ character }) => {
 
     const { onPresetData } = useCharacter({ character });
+    
     const navigate = useNavigate();
     const validateStatus = ( status: Status ) => {
         if( status === "alive" )

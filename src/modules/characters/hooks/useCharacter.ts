@@ -1,30 +1,20 @@
-import { useQueryClient } from '@tanstack/react-query';
-import { CharacterResponse } from '..'
+import { useQuery } from '@tanstack/react-query';
+import { charactersActions } from '..'
 
 interface Props {
-    character?: CharacterResponse;
+    characterId: number;
 }
 
-export const useCharacter = ({ character }:Props) => {
+export const useCharacter = ({ characterId }:Props) => {
 
-    const queryClient = useQueryClient();
-
-    const onPresetData = () => {
-        if( !character ) return;
-        queryClient.setQueryData(
-            ['characters', character.id],
-            character
-        )
-    }
-
-    const getCharacterData = ( id: number ): CharacterResponse => {
-        const characterData = queryClient.getQueryData<CharacterResponse>(['characters', id ])!;
-        return characterData;
-    }
+    const characterQuery = useQuery({
+        queryKey: ['characters', characterId ],
+        queryFn: () => charactersActions.getCharacter({ id: characterId }),
+        staleTime: 1000 * 60 * 10
+    });
 
     return {
-        onPresetData,
-        getCharacterData
+        characterQuery
     }
 
 }
