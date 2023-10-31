@@ -1,5 +1,5 @@
-import { HandThumbUpIcon } from "@heroicons/react/24/solid";
-import { FC } from "react";
+import { HandThumbUpIcon } from '@heroicons/react/24/solid';
+import { FC } from 'react';
 
 interface Props {
     message: string;
@@ -12,9 +12,9 @@ export const ToasterSuccess:FC<Props> = ({ message, description }) => {
         <HandThumbUpIcon 
             width={ 15 } 
         />
-        <div className="flex flex-col gap-1">
-            <p className="font-bold text-lg">{ message }</p>
-            <p className="text-lg">{ description }</p>
+        <div className="flex flex-col gap-1 text-lg">
+            <p className="font-bold">{ message }</p>
+            <p>{ description }</p>
         </div>
     </div>
   )
