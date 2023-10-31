@@ -1,9 +1,11 @@
+import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useQueryClient, useMutation } from '@tanstack/react-query'
 import { toast } from 'sonner';
 import moment from 'moment';
 import { CharacterLike, CharacterResponse, Status } from '../interfaces/character';
 import { charactersActions, useCharactersStore } from '..';
+import { ToasterSuccess } from '../../shared/components/ToasterSuccess';
 
 // Defines the default values of the object that will be created
 const defaultValues:CharacterLike = {
@@ -62,10 +64,19 @@ export const useNewCharacter = () => {
         onSuccess: ( character, _vars, ctx ) => {
 
             // <--- Shows a success message when confirms the POST was successfully submitted -->
-            toast.success(`${ character.name } agregado correctamente`, {
-                description: `Personaje agregado ${ moment().format('MM/DD/YYYY')}`
-            });
-            
+            toast.custom(() => ( 
+                React.createElement( 
+                    ToasterSuccess, 
+                    { 
+                        message: `${ character.name } agregado correctamente`,
+                        description: `Personaje agregado ${ moment().format('MM/DD/YYYY')}`
+                    }
+                )),
+                {
+                  className: "fixed right-0",
+                }
+            );
+
             // <--- Clears the previous query key ---> 
             queryClient.removeQueries({
                 queryKey: ['characters', ctx?.optimisticCharacter.id ]
