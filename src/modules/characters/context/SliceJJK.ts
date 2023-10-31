@@ -1,7 +1,7 @@
 import { StateCreator } from 'zustand';
 import { CharacterResponse } from '..';
 
-interface JJKSlice {
+export interface JJKSlice {
     jjkList: CharacterResponse[];
     setJJKList: ( list:CharacterResponse[] ) => void;
     addToJJKList: ( char: CharacterResponse ) => void;

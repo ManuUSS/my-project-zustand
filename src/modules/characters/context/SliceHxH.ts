@@ -1,7 +1,7 @@
 import { StateCreator } from 'zustand';
 import { CharacterResponse } from '..';
 
-interface HxHSlice {
+export interface HxHSlice {
     hxhList: CharacterResponse[];
     setHxHList: ( list:CharacterResponse[] ) => void;
     addToHxHList: ( char: CharacterResponse ) => void;

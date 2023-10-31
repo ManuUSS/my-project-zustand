@@ -1,7 +1,7 @@
 import { StateCreator } from 'zustand';
 import { CharacterResponse } from '..';
 
-interface DemonSlice {
+export interface DemonSlice {
     demonSlayerList: CharacterResponse[];
     setDemonSlayerList: ( list:CharacterResponse[] ) => void;
     addToDemonSlayerList: ( char: CharacterResponse ) => void;
