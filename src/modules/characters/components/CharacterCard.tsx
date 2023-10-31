@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { EyeIcon } from '@heroicons/react/24/outline';
 import { StarIcon, StopIcon } from '@heroicons/react/24/solid';
 import { CharacterResponse, Status, useCharacter } from '..';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
     character: CharacterResponse
@@ -20,7 +21,7 @@ interface Props {
 export const CharacterCard:FC<Props> = ({ character }) => {
 
     const { onPresetData } = useCharacter({ character });
-
+    const navigate = useNavigate();
     const validateStatus = ( status: Status ) => {
         if( status === "alive" )
             return "text-green-500"
@@ -36,7 +37,10 @@ export const CharacterCard:FC<Props> = ({ character }) => {
             className="max-w-sm bg-white overflow-hidden border border-gray-200 rounded-lg shadow dark:bg-gray-700 dark:border-gray-800 fade-in"
             onMouseEnter={ onPresetData }
         >
-            <div className="overflow-hidden">
+            <div 
+                className="overflow-hidden"
+                onClick={() => navigate(`/character/${ character.id }`)}
+            >
                 <img 
                     className="rounded-t-lg object-cover h-52 w-full hover:scale-110 ease-in duration-300" 
                     src={ character.image } 

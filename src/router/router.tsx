@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
                 element: <NewCharacter />
             },
             {
-                path: "character/:id",
+                path: "/character/:id",
                 element: <CharacterPage />
             }
         ] 
