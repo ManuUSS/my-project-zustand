@@ -32,7 +32,7 @@ export const getCharacters = async ({ filterKey }:GetCharacterOptions ):Promise<
  * @returns { data } CharacterResponse
  */
 export const newCharacter = async ( character: CharacterLike ):Promise<CharacterResponse> => {
-
+    throw new Error("Jui")
     await delay( 5000 );
     
     // <--- Performs API petition --->

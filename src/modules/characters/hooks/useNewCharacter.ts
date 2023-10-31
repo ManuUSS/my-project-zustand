@@ -119,7 +119,7 @@ export const useNewCharacter = () => {
                 React.createElement( 
                     ToasterError, 
                     { 
-                        message: `${ vars.name } agregado correctamente`,
+                        message: `Ha ocurrido un error al agregar a ${ vars.name }`,
                         description: `Intento al ${ moment().format('MM/DD/YYYY')}`
                     }
                 )),
