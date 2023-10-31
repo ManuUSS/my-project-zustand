@@ -8,7 +8,11 @@ export interface MainSlice {
     filterMainList: () => void;
 }
 
-
+/**
+ * Creates a new slice for Main List (All characteres)
+ * @param set MainSlice | Partial<MainSlice> 
+ * @returns Object
+ */
 export const createMainSlice:StateCreator<MainSlice> = ( set ) => ({
     mainList: [],
     setMainList: ( list: CharacterResponse[] ) => {
