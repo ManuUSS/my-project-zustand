@@ -58,4 +58,4 @@ export const useCharactersStore = create<CharacterStore & Actions>()(( set ) => 
         set(( ctx ) => ({ hxhList: [ ...ctx.hxhList, char ] }))
     },
     filterHxHList: () => {},
-}))
+}));
