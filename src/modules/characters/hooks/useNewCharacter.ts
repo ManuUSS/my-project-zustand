@@ -6,6 +6,7 @@ import moment from 'moment';
 import { CharacterLike, CharacterResponse, Status } from '../interfaces/character';
 import { charactersActions, useCharactersStore } from '..';
 import { ToasterSuccess } from '../../shared/components/ToasterSuccess';
+import { ToasterError } from '../../shared/components/ToasterError';
 
 // Defines the default values of the object that will be created
 const defaultValues:CharacterLike = {
@@ -114,9 +115,18 @@ export const useNewCharacter = () => {
         onError: ( _error, vars ) => {
             console.log( _error );
             // <--- Shows an error message when the POST wasn't successfully submitted -->
-            toast.error(`Ups, ha ocurrido un error al agregar a ${ vars.name }`, {
-                description: `Intento al ${ moment().format('MM/DD/YYYY')}`
-            });
+            toast.custom(() => ( 
+                React.createElement( 
+                    ToasterError, 
+                    { 
+                        message: `${ vars.name } agregado correctamente`,
+                        description: `Intento al ${ moment().format('MM/DD/YYYY')}`
+                    }
+                )),
+                {
+                  className: "fixed right-0",
+                }
+            );
         }
     })
 
