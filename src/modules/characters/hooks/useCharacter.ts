@@ -6,6 +6,11 @@ interface Props {
     characterId: number;
 }
 
+/**
+ * Perfoms different functionalities
+ * @param {{ characterId }} number
+ * @returns Object
+ */
 export const useCharacter = ({ characterId }:Props) => {
 
     // <--- Main Store | Zustand --->
