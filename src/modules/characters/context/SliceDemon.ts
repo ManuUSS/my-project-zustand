@@ -8,6 +8,11 @@ export interface DemonSlice {
     filterDemonSlayerList: () => void;
 }
 
+/**
+ * Creates a new slice for Demon Slayer
+ * @param set DemonSlice | Partial<DemonSlice> 
+ * @returns Object
+ */
 export const createDemonSlice:StateCreator<DemonSlice> = ( set ) => ({
     demonSlayerList: [],
     setDemonSlayerList: ( list: CharacterResponse[] ) => {
