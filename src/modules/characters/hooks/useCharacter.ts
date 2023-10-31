@@ -17,8 +17,8 @@ export const useCharacter = ({ character }:Props) => {
         )
     }
 
-    const getCharacterData = ( id: number ): CharacterResponse | undefined => {
-        const characterData = queryClient.getQueryData<CharacterResponse>(['characters', id ]);
+    const getCharacterData = ( id: number ): CharacterResponse => {
+        const characterData = queryClient.getQueryData<CharacterResponse>(['characters', id ])!;
         return characterData;
     }
 

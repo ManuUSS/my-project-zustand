@@ -15,7 +15,7 @@ export const NewCharacter = () => {
         return "text-red-500"
 
     return "text-slate-400"
-}
+  }
 
   return (
     <section className="list-container p-4">
