@@ -25,7 +25,7 @@ export const CharacterPage = () => {
     <section className="list-container p-4">
         <ListHeader title={ character?.name || "" } hideSearcher />
         <div className='grid grid-cols-3'>
-            <div className="border rounded-md dark:border-gray-700 fade-in">
+            <div className="border rounded-md dark:border-gray-700 shadow-sm fade-in">
                 <div className="flex items-center rounded-t-md overflow-hidden">
                     <img 
                         className="object-cover h-80 w-full"
