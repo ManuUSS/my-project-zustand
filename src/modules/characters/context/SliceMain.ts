@@ -9,7 +9,7 @@ export interface MainSlice {
 }
 
 
-export const createJJSlice:StateCreator<MainSlice> = ( set ) => ({
+export const createMainSlice:StateCreator<MainSlice> = ( set ) => ({
     mainList: [],
     setMainList: ( list: CharacterResponse[] ) => {
         set(() => ({ mainList: list }))

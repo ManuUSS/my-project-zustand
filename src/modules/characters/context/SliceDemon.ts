@@ -8,7 +8,7 @@ export interface DemonSlice {
     filterDemonSlayerList: () => void;
 }
 
-export const createJJSlice:StateCreator<DemonSlice> = ( set ) => ({
+export const createDemonSlice:StateCreator<DemonSlice> = ( set ) => ({
     demonSlayerList: [],
     setDemonSlayerList: ( list: CharacterResponse[] ) => {
         set(() => ({ demonSlayerList: list }))

@@ -9,7 +9,7 @@ export interface HxHSlice {
 }
 
 
-export const createJJSlice:StateCreator<HxHSlice> = ( set ) => ({
+export const createHxHlice:StateCreator<HxHSlice> = ( set ) => ({
     hxhList: [],
     setHxHList: ( list: CharacterResponse[] ) => {
         set(() => ({ hxhList: list }))

@@ -9,7 +9,7 @@ export interface JJKSlice {
 }
 
 
-export const createJJSlice:StateCreator<JJKSlice> = ( set ) => ({
+export const createJJKSlice:StateCreator<JJKSlice> = ( set ) => ({
     jjkList: [],
     setJJKList: ( list: CharacterResponse[] ) => {
         set(() => ({ jjkList: list }))
