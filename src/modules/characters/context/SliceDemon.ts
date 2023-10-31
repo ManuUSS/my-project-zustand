@@ -7,18 +7,18 @@ interface DemonSlice {
 
 
 type Actions = {
-    setJJKList: ( list:CharacterResponse[] ) => void;
-    addToJJKList: ( char: CharacterResponse ) => void;
-    filterJJKList: () => void;
+    setDemonSlayerList: ( list:CharacterResponse[] ) => void;
+    addToDemonSlayerList: ( char: CharacterResponse ) => void;
+    filterDemonSlayerList: () => void;
 }
 
 export const createJJSlice:StateCreator<DemonSlice & Actions> = ( set ) => ({
-    jjkList: [],
-    setJJKList: ( list: CharacterResponse[] ) => {
-        set(() => ({ jjkList: list }))
+    demonSlayerList: [],
+    setDemonSlayerList: ( list: CharacterResponse[] ) => {
+        set(() => ({ demonSlayerList: list }))
     },
-    addToJJKList: ( char: CharacterResponse ) => {
-        set(( ctx ) => ({ jjkList: [ ...ctx.jjkList, char ] }))
+    addToDemonSlayerList: ( char: CharacterResponse ) => {
+        set(( ctx ) => ({ demonSlayerList: [ ...ctx.demonSlayerList, char ] }))
     },
-    filterJJKList: () => {},
+    filterDemonSlayerList: () => {},
 })
