@@ -12,8 +12,8 @@ export interface JJKSlice {
  * Creates a new slice for JJK List
  * Follows the Slice Pattern set by Zustand Team
  * @see (@link https://docs.pmnd.rs/zustand/guides/typescript#slices-pattern)
- * @param set JJKSlice | Partial<JJKSlice> 
- * @returns Object
+ * @param { set } JJKSlice | Partial<JJKSlice> 
+ * @returns { Object }
  */
 export const createJJKSlice:StateCreator<JJKSlice> = ( set ) => ({
     jjkList: [],
