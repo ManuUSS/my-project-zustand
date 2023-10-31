@@ -5,7 +5,7 @@ import { useNewCharacter } from '../hooks/useNewCharacter';
 
 export const NewCharacter = () => {
   
-  const { register, handleSubmit, onNewCharacter, mutation, watch } = useNewCharacter();
+  const { register, handleSubmit, onNewCharacter, mutation, watch, errors } = useNewCharacter();
 
   const validateStatus = ( status: Status ) => {
     if( status === "alive" )
@@ -25,6 +25,7 @@ export const NewCharacter = () => {
                 register={ register }
                 handleSubmit={ handleSubmit }
                 onNewCharacter={ onNewCharacter }
+                errors={ errors }
                 isPending={ mutation.isPending }
             />
             <div className="border rounded-md dark:border-gray-700">

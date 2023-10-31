@@ -1,15 +1,16 @@
 import { FC } from 'react'
-import { SubmitHandler, UseFormHandleSubmit, UseFormRegister } from 'react-hook-form'
+import { FieldErrors, SubmitHandler, UseFormHandleSubmit, UseFormRegister } from 'react-hook-form'
 import { CharacterLike } from '..'
 
 interface Props {
     handleSubmit: UseFormHandleSubmit<CharacterLike, undefined>;
     register: UseFormRegister<CharacterLike>;
     onNewCharacter: SubmitHandler<CharacterLike>;
+    errors: FieldErrors<CharacterLike>
     isPending: boolean;
 }
 
-export const CharacterForm:FC<Props> = ({ handleSubmit, register, onNewCharacter, isPending }) => {
+export const CharacterForm:FC<Props> = ({ handleSubmit, register, onNewCharacter, errors, isPending }) => {
   
     return (
         <form 
@@ -31,6 +32,9 @@ export const CharacterForm:FC<Props> = ({ handleSubmit, register, onNewCharacter
                         }
                     })}
                 />
+                <p className='text-red-600 text-sm font-semibold mt-1 ml-1 dark:text-red-400'>
+                    { errors?.name?.message }
+                </p>
             </div>
             <div>
                 <label htmlFor="serie" className="text-gray-900 dark:text-white">Serie a la que pertenece:</label>
@@ -48,6 +52,9 @@ export const CharacterForm:FC<Props> = ({ handleSubmit, register, onNewCharacter
                     <option value="Demon Slayer">Demon Slayer</option>
                     <option value="Hunter X Hunter">Hunter X Hunter</option>
                 </select>
+                <p className='text-red-600 text-sm font-semibold mt-1 ml-1 dark:text-red-400'>
+                    { errors?.serie?.message }
+                </p>
             </div>
             <div>
                 <label htmlFor="status" className="text-gray-900 dark:text-white">Estado actual:</label>
@@ -65,6 +72,9 @@ export const CharacterForm:FC<Props> = ({ handleSubmit, register, onNewCharacter
                     <option value="dead">Muerto</option>
                     <option value="unknown">Desconocido</option>
                 </select>
+                <p className='text-red-600 text-sm font-semibold mt-1 ml-1 dark:text-red-400'>
+                    { errors?.status?.message }
+                </p>
             </div>
             <div>
                 <label htmlFor="about" className="text-gray-900 dark:text-white">Acerca de:</label>
@@ -84,6 +94,9 @@ export const CharacterForm:FC<Props> = ({ handleSubmit, register, onNewCharacter
                         }
                     })}
                 />
+                <p className='text-red-600 text-sm font-semibold mt-1 ml-1 dark:text-red-400'>
+                    { errors?.about?.message }
+                </p>
             </div>
             <div>
                 <label htmlFor="image" className="text-gray-900 dark:text-white">Imagen:</label>
@@ -99,6 +112,9 @@ export const CharacterForm:FC<Props> = ({ handleSubmit, register, onNewCharacter
                         }
                     })}
                 />
+                <p className='text-red-600 text-sm font-semibold mt-1 ml-1 dark:text-red-400'>
+                    { errors?.image?.message }
+                </p>
             </div>
             <div className='flex justify-end mt-4'>
                 <button 

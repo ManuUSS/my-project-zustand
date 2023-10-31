@@ -24,7 +24,7 @@ export const useNewCharacter = () => {
     // <--- Zustand Store | Characters --->
     const { addToMainList } = useCharactersStore();
     // <--- Form properties and handlers --->
-    const { register, watch, handleSubmit, reset } = useForm<CharacterLike>({
+    const { register, watch, handleSubmit, reset, formState: { errors } } = useForm<CharacterLike>({
         defaultValues
     });
     // <--- Current queryclient --->
@@ -119,6 +119,7 @@ export const useNewCharacter = () => {
 
     return {
         register,
+        errors,
         watch,
         handleSubmit,
         onNewCharacter,
