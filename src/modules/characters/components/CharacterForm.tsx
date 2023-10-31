@@ -10,6 +10,11 @@ interface Props {
     isPending: boolean;
 }
 
+/**
+ * Form to create a new character
+ * @param {{ handleSubmit, register, onNewCharacter, errors, isPending }} 
+ * @returns JSX.Element
+ */
 export const CharacterForm:FC<Props> = ({ handleSubmit, register, onNewCharacter, errors, isPending }) => {
   
     return (
