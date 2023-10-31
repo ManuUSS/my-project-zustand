@@ -23,6 +23,7 @@ export * as charactersActions from './services/actions'
 
 // <--- Hooks --->
 export { useCharacters } from "./hooks/useCharacters";
+export { useCharacter } from "./hooks/useCharacter";
 export { useSearcher } from "./hooks/useSearcher";
 export { useNewCharacter } from "./hooks/useNewCharacter";
 
