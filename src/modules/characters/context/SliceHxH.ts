@@ -8,7 +8,11 @@ export interface HxHSlice {
     filterHxHList: () => void;
 }
 
-
+/**
+ * Creates a new slice for Hunter X Hunter
+ * @param set HxHSlice | Partial<HxHSlice> 
+ * @returns Object
+ */
 export const createHxHlice:StateCreator<HxHSlice> = ( set ) => ({
     hxhList: [],
     setHxHList: ( list: CharacterResponse[] ) => {
