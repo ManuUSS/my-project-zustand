@@ -3,6 +3,7 @@ import { CharacterResponse, Status } from '..';
 
 export interface HxHSlice {
     hxhList: CharacterResponse[];
+    hxhListCopy: CharacterResponse[];
     setHxHList: ( list:CharacterResponse[] ) => void;
     addToHxHList: ( char: CharacterResponse ) => void;
     filterHxHList: ( status?: Status, name?:string ) => void;
@@ -15,13 +16,41 @@ export interface HxHSlice {
  * @param { set } HxHSlice | Partial<HxHSlice> 
  * @returns { Object }
  */
-export const createHxHlice:StateCreator<HxHSlice> = ( set ) => ({
+export const createHxHlice:StateCreator<HxHSlice> = ( set, get ) => ({
     hxhList: [],
+    hxhListCopy: [],
     setHxHList: ( list: CharacterResponse[] ) => {
-        set(() => ({ hxhList: list }))
+        set(() => ({ hxhList: list, hxhListCopy: list }))
     },
     addToHxHList: ( char: CharacterResponse ) => {
-        set(( ctx ) => ({ hxhList: [ ...ctx.hxhList, char ] }))
+        set(( ctx ) => ({ hxhList: [ ...ctx.hxhList, char ], hxhListCopy: [ ...ctx.hxhList, char ] }))
     },
-    filterHxHList: ( status?: Status, name?:string ) => {},
+    filterHxHList: ( status?: Status, name?:string ) => {
+        // <--- No filters --->
+        if( !status && !name ) {
+            set(( ctx ) => ({ hxhListCopy: [ ...ctx.hxhList ] }));
+            return;
+        } 
+
+        let listFiltered:CharacterResponse[] = [];
+
+        // <--- Both filters --->
+        if( name && status ) {
+            listFiltered = get().hxhList.filter(( character ) => 
+                character.status === status || character.name.includes( name || "" ) 
+            );
+        }
+
+        // <--- Only name filter --->
+        if( name && !status ) {
+            listFiltered = get().hxhList.filter(( character ) =>  character.name.includes( name ));
+        }
+        
+        // <--- Only status filter --->
+        if( !name && status ) {
+            listFiltered = get().hxhList.filter(( character ) =>  character.status === status );
+        }
+
+        set(() => ({ hxhListCopy: listFiltered }));
+    },
 })
