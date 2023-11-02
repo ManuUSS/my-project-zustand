@@ -1,5 +1,5 @@
 import { StopIcon } from '@heroicons/react/24/solid';
-import { CharacterForm, ListHeader, Status } from '..';
+import { CharacterForm, CharacterPowerChip, ListHeader, Status } from '..';
 import { useNewCharacter } from '../hooks/useNewCharacter';
 
 
@@ -66,9 +66,7 @@ export const NewCharacter = () => {
                         {
                             watch("powers")?.map(
                                 ({ name }) => (
-                                    <div key={ name } className='bg-sky-100 text-sky-600 px-2 py-1 rounded-xl'>
-                                        <p className='text-md font-semibold'>{ name }</p>
-                                    </div>
+                                    <CharacterPowerChip key={ name } powerName={ name }/>
                                 )
                             )
                         }

@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { StopIcon } from '@heroicons/react/24/solid';
-import { ListHeader, Status, useCharacter } from '..';
+import { CharacterPowerChip, ListHeader, Status, useCharacter } from '..';
 
 export const CharacterPage = () => {
 
@@ -49,9 +49,7 @@ export const CharacterPage = () => {
                         {
                             character!.powers && character!.powers.map(
                                 ({ name }) => (
-                                    <div key={ name } className='bg-sky-100 text-sky-600 px-2 py-1 rounded-xl dark:bg-sky-800 dark:text-slate-300 '>
-                                        <p className='text-md font-semibold'>{ name }</p>
-                                    </div>
+                                    <CharacterPowerChip key={ name } powerName={ name }/>
                                 )
                             )
                         }

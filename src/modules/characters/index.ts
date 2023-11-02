@@ -8,8 +8,9 @@ export { NewCharacter } from './views/NewCharacter';
 export { CharacterPage } from './views/CharacterPage';
 
 // <--- Components --->
-export { CharacterCard } from './components';
 export { ListHeader } from './components/ListHeader';
+export { CharacterCard } from './components';
+export { CharacterPowerChip } from './components/CharacterPowerChip';
 export { CharacterForm } from './components/CharacterForm';
 
 // <--- Context --->
