@@ -3,6 +3,7 @@ import { CharacterResponse, Status } from '..';
 
 export interface JJKSlice {
     jjkList: CharacterResponse[];
+    jjkListCopy: CharacterResponse[];
     setJJKList: ( list:CharacterResponse[] ) => void;
     addToJJKList: ( char: CharacterResponse ) => void;
     filterJJKList: ( status?: Status, name?:string ) => void;
@@ -15,13 +16,41 @@ export interface JJKSlice {
  * @param { set } JJKSlice | Partial<JJKSlice> 
  * @returns { Object }
  */
-export const createJJKSlice:StateCreator<JJKSlice> = ( set ) => ({
+export const createJJKSlice:StateCreator<JJKSlice> = ( set, get ) => ({
     jjkList: [],
+    jjkListCopy: [],
     setJJKList: ( list: CharacterResponse[] ) => {
-        set(() => ({ jjkList: list }))
+        set(() => ({ jjkList: list, jjkListCopy: list }))
     },
     addToJJKList: ( char: CharacterResponse ) => {
-        set(( ctx ) => ({ jjkList: [ ...ctx.jjkList, char ] }))
+        set(( ctx ) => ({ jjkList: [ ...ctx.jjkList, char ], jjkListCopy: [ ...ctx.jjkList, char ] }))
     },
-    filterJJKList: ( status?: Status, name?:string ) => {},
+    filterJJKList: ( status?: Status, name?:string ) => {
+        // <--- No filters --->
+        if( !status && !name ) {
+            set(( ctx ) => ({ jjkListCopy: [ ...ctx.jjkList ] }));
+            return;
+        } 
+
+        let listFiltered:CharacterResponse[] = [];
+
+        // <--- Both filters --->
+        if( name && status ) {
+            listFiltered = get().jjkList.filter(( character ) => 
+                character.status === status || character.name.includes( name || "" ) 
+            );
+        }
+
+        // <--- Only name filter --->
+        if( name && !status ) {
+            listFiltered = get().jjkList.filter(( character ) =>  character.name.includes( name ));
+        }
+        
+        // <--- Only status filter --->
+        if( !name && status ) {
+            listFiltered = get().jjkList.filter(( character ) =>  character.status === status );
+        }
+
+        set(() => ({ jjkListCopy: listFiltered }));
+    },
 })
