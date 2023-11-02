@@ -11,7 +11,7 @@ export const HxHListPage = () => {
         filterKey: "Hunter X Hunter",
         ctxSetKey: "setHxHList" 
     });
-    const characters = useCharactersStore(( state ) => state.hxhList );
+    const characters = useCharactersStore(( state ) => state.hxhListCopy );
 
     useEffect(() => {
         window.scrollTo(0,0)
@@ -19,7 +19,10 @@ export const HxHListPage = () => {
 
     return (
         <section className="list-container p-4">
-            <ListHeader title="Hunter X Hunter" />
+            <ListHeader 
+                title="Hunter X Hunter" 
+                listModifier="filterHxHList"
+            />
             {
                 isLoading 
                 ? ( <Loader /> )

@@ -1,6 +1,11 @@
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { StopIcon } from '@heroicons/react/24/solid';
 import { useSearcher } from '..';
+import { FC } from 'react';
+
+interface Props {
+    listModifier?: "filterMainList" | "filterJJKList" | "filterDemonSlayerList" | "filterHxHList"
+}
 
 /**
  * This component provides a search bar and filter options for character search.
@@ -10,9 +15,9 @@ import { useSearcher } from '..';
  *
  * @return {JSX.Element} The rendered Searcher component.
  */
-export const Searcher = () => {
+export const Searcher:FC<Props> = ({ listModifier }) => {
 
-  const { filterStatus, dropDownVisible, changeStatus, showDropDown } = useSearcher();
+  const { filterStatus, dropDownVisible, changeStatus, showDropDown } = useSearcher({ listModifier });
 
   return (
     <div className='flex items-center'>

@@ -9,11 +9,14 @@ export const DemonSlayerListPage = () => {
         filterKey: "Demon Slayer",
         ctxSetKey: "setDemonSlayerList" 
     });
-    const characters = useCharactersStore(( state ) => state.demonSlayerList );
+    const characters = useCharactersStore(( state ) => state.demonSlayerListCopy );
 
     return (
         <section className="list-container p-4">
-            <ListHeader title="Demon Slayer" />
+            <ListHeader 
+                title="Demon Slayer" 
+                listModifier="filterDemonSlayerList"
+            />
             {
                 isLoading 
                 ? ( <Loader /> )

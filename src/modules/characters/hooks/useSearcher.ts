@@ -8,14 +8,18 @@ interface FilterProps {
 
 type DropDownOptions = 'visible' | 'hidden';
 
+interface Props {
+    listModifier?: "filterMainList" | "filterJJKList" | "filterDemonSlayerList" | "filterHxHList"
+}
+
 /**
  * This custom hook manages the state and behavior for filtering characters in a search component.
  *
  * @returns {Object} An object containing filterStatus, dropDownVisible, showDropDown, and changeStatus functions.
  */
-export const useSearcher = () => {
+export const useSearcher = ({ listModifier = "filterMainList" }:Props) => {
 
-    const filterList = useCharactersStore(( state ) => state.filterMainList );
+    const filterList = useCharactersStore(( state ) => state[ listModifier ] );
     // <--- Handlers filters status --->
     const [ filterStatus, setfilterStatus ] = useState<FilterProps>({ label: 'Todos', value: "" });
     const [ dropDownVisible, setdropDownVisible ] = useState<DropDownOptions>( 'hidden' );

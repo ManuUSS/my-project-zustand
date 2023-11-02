@@ -11,7 +11,7 @@ export const JJKListPage = () => {
         filterKey: "Jujutsu Kaisen",
         ctxSetKey: "setJJKList"
     });
-    const characters = useCharactersStore(( state ) => state.jjkList );
+    const characters = useCharactersStore(( state ) => state.jjkListCopy );
 
     useEffect(() => {
         window.scrollTo(0,0)
@@ -19,7 +19,10 @@ export const JJKListPage = () => {
 
     return (
         <section className="list-container p-4">
-            <ListHeader title='Jujutsu Kaisen' />
+            <ListHeader 
+                title='Jujutsu Kaisen' 
+                listModifier="filterJJKList"
+            />
             {
                 isFetching 
                 ? ( <Loader /> )

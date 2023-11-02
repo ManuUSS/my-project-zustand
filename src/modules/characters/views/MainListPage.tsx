@@ -15,7 +15,10 @@ export const MainListPage = () => {
 
   return (
       <section className="list-container p-4">
-        <ListHeader title='Lista de personajes' />
+        <ListHeader 
+          title='Lista de personajes' 
+          listModifier="filterMainList"
+        />
         {
           isLoading 
           ? ( <Loader /> )
