@@ -7,6 +7,7 @@ import { CharacterLike, CharacterResponse, Power, Status } from '../interfaces/c
 import { charactersActions, useCharactersStore } from '..';
 import { ToasterSuccess } from '../../shared/components/ToasterSuccess';
 import { ToasterError } from '../../shared/components/ToasterError';
+import { ToasterInfo } from '../../shared/components/ToasterInfo';
 
 // Defines the default values of the object that will be created
 const defaultValues:CharacterLike = {
@@ -142,7 +143,11 @@ export const useNewCharacter = () => {
     
     const onAddPower = () => {
         if( power.efectiveness > 10 ) {
-            return;
+            return toast.custom(() => (
+                createElement(
+                    ToasterInfo
+                )
+            ));;
         }
         const currentPowers = getValues("powers") || [];
         setValue("powers", [ ...currentPowers, power ]);
