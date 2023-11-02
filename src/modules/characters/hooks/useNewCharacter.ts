@@ -13,7 +13,7 @@ const defaultValues:CharacterLike = {
     serie: "",
     about: "",
     image: "",
-    status: Status.Unset,
+    status: ("") as Status.Unset,
     powers: []
 }
 
@@ -140,12 +140,16 @@ export const useNewCharacter = () => {
     }
     
     const onAddPower = () => {
-        if( power.efectiveness > 10 ) {
-            return toast.custom(() => (
+        if( power.efectiveness > 10 || power.efectiveness < 1 ) {
+            toast.custom(() => (
                 createElement(
-                    ToasterInfo
+                    ToasterInfo,
+                    {
+                        message: "El poder de escala máximo es 10 y mínimo 1"
+                    }
                 )
-            ));;
+            ));
+            return;
         }
         const currentPowers = getValues("powers") || [];
         setValue("powers", [ ...currentPowers, power ]);
