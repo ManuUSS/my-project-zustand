@@ -1,9 +1,9 @@
-import React from 'react';
+import { useState, ChangeEvent, createElement } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useQueryClient, useMutation } from '@tanstack/react-query'
 import { toast } from 'sonner';
 import moment from 'moment';
-import { CharacterLike, CharacterResponse, Status } from '../interfaces/character';
+import { CharacterLike, CharacterResponse, Power, Status } from '../interfaces/character';
 import { charactersActions, useCharactersStore } from '..';
 import { ToasterSuccess } from '../../shared/components/ToasterSuccess';
 import { ToasterError } from '../../shared/components/ToasterError';
@@ -14,7 +14,8 @@ const defaultValues:CharacterLike = {
     serie: "",
     about: "",
     image: "",
-    status: Status.Unset
+    status: Status.Unset,
+    powers: []
 }
 
 /**
@@ -27,9 +28,10 @@ export const useNewCharacter = () => {
     // <--- Zustand Store | Characters --->
     const { addToMainList } = useCharactersStore();
     // <--- Form properties and handlers --->
-    const { register, watch, handleSubmit, reset, formState: { errors } } = useForm<CharacterLike>({
+    const { register, watch, handleSubmit, reset, formState: { errors }, setValue, getValues } = useForm<CharacterLike>({
         defaultValues
     });
+    const [ power, setPower ] = useState<Power>({ name: "", efectiveness: 0 });
     // <--- Current queryclient --->
     const queryClient = useQueryClient();
     // <--- Mutations to update caches and state data --->
@@ -66,7 +68,7 @@ export const useNewCharacter = () => {
 
             // <--- Shows a success message when confirms the POST was successfully submitted -->
             toast.custom(() => ( 
-                React.createElement( 
+                createElement( 
                     ToasterSuccess, 
                     { 
                         message: `${ character.name } agregado correctamente`,
@@ -116,7 +118,7 @@ export const useNewCharacter = () => {
             console.log( _error );
             // <--- Shows an error message when the POST wasn't successfully submitted -->
             toast.custom(() => ( 
-                React.createElement( 
+                createElement( 
                     ToasterError, 
                     { 
                         message: `Ha ocurrido un error al agregar a ${ vars.name }`,
@@ -137,12 +139,24 @@ export const useNewCharacter = () => {
     const onNewCharacter:SubmitHandler<CharacterLike> = async ( data ) => {
         mutation.mutate( data );
     }
+    
+    const onAddPower = () => {
+        const currentPowers = getValues("powers") || [];
+        setValue("powers", [ ...currentPowers, power ])
+    }
+
+    const handleChangePower = ( event: ChangeEvent<HTMLInputElement> ) => {
+        const { target: { value, name }} = event;
+        setPower(( currentPower ) => ({ ...currentPower, [name]: value }));
+    }
 
     return {
         register,
         errors,
         watch,
         handleSubmit,
+        handleChangePower,
+        onAddPower,
         onNewCharacter,
         queryClient,
         mutation

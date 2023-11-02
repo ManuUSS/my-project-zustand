@@ -20,4 +20,4 @@ export enum Status {
     "Unset" = ""
 }
 
-export interface CharacterLike extends Omit<CharacterResponse, "id" | "powers" > {}
+export interface CharacterLike extends Omit<CharacterResponse, "id"> {}
