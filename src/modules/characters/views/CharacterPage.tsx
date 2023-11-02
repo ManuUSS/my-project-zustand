@@ -22,8 +22,8 @@ export const CharacterPage = () => {
   return (
     <section className="list-container p-4">
         <ListHeader title={ character?.name || "" } hideSearcher />
-        <div className='grid grid-cols-3 h-full'>
-            <div className="border rounded-md dark:border-gray-700 shadow-sm fade-in">
+        <article className='grid grid-cols-3 h-full'>
+            <div className="border rounded-md dark:bg-gray-700 dark:border-gray-800 shadow-sm fade-in">
                 <div className="flex items-center rounded-t-md overflow-hidden">
                     <img 
                         className="object-cover h-80 w-full"
@@ -49,7 +49,7 @@ export const CharacterPage = () => {
                         {
                             character!.powers && character!.powers.map(
                                 ({ name }) => (
-                                    <div key={ name } className='bg-sky-100 text-sky-600 px-2 py-1 rounded-xl'>
+                                    <div key={ name } className='bg-sky-100 text-sky-600 px-2 py-1 rounded-xl dark:bg-sky-800 dark:text-slate-300 '>
                                         <p className='text-md font-semibold'>{ name }</p>
                                     </div>
                                 )
@@ -58,7 +58,7 @@ export const CharacterPage = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </article>
     </section>
   )
 }
