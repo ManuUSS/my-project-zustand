@@ -35,7 +35,7 @@ export const CharacterForm:FC<Props> = (
   
     return (
         <form 
-            className="p-4 border rounded-md flex flex-col gap-3 text-lg dark:border-gray-600" 
+            className="p-4 col-span-2 border rounded-md flex flex-col gap-3 text-lg dark:border-gray-600" 
             onSubmit={ handleSubmit( onNewCharacter ) }
             noValidate
         >

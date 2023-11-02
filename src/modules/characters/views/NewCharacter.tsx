@@ -23,7 +23,7 @@ export const NewCharacter = () => {
   return (
     <section className="list-container p-4">
         <ListHeader title="Nuevo personaje" hideSearcher/>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-3 gap-4">
             <CharacterForm 
                 register={ register }
                 handleSubmit={ handleSubmit }
