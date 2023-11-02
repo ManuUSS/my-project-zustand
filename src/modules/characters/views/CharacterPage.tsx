@@ -6,7 +6,7 @@ export const CharacterPage = () => {
 
   const params = useParams();  
   const { id = '0' } = params;
-  const { character } = useCharacter({ characterId: +id });
+  const { data: character } = useCharacter({ characterId: +id });
   
   const validateStatus = ( status: Status ) => {
     if( status === "alive" )
@@ -18,9 +18,6 @@ export const CharacterPage = () => {
     return "text-slate-400"
   }
 
-  if( !character ) {
-    return <></>
-  }
 
   return (
     <section className="list-container p-4">

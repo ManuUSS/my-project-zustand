@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
-import { CharacterResponse, useCharactersStore } from '..'
-import { useNavigate } from 'react-router-dom';
+// import { useEffect, useState } from 'react';
+import { /* CharacterResponse */ charactersActions, /*useCharactersStore */ } from '..'
+// import { useNavigate } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 
 interface Props {
     characterId: number;
@@ -13,33 +14,15 @@ interface Props {
  */
 export const useCharacter = ({ characterId }:Props) => {
 
-    // <--- Main Store | Zustand --->
-    const { mainList } = useCharactersStore();
-    // <--- Local State --->
-    const [ character, setCharacter ] = useState<CharacterResponse | undefined>( undefined );
-    const navigate = useNavigate();
-    // <--- Triggers an effect --->
-    useEffect(() => {
-        getCharactertById();
-    }, [])
-    
-
-   /**
-    * Retrieves a character by their unique identifier (ID) and sets it as the currently selected character.
-    * If the character with the specified ID is not found, it navigates to the home page.
-    */
-    const getCharactertById = () => {
-        if( !mainList || !characterId ) return;
-        const characterToSet = mainList.find(( char ) => char.id === characterId );
-        if( !characterToSet )
-        navigate("/", {
-            replace: false
-        });
-        setCharacter(  characterToSet );
-    }
+    const { data, isFetching } = useQuery({
+        queryKey: ['characters', characterId ],
+        queryFn: () => charactersActions.getCharacter({ id: characterId }),
+        staleTime: 1000 * 60 * 10
+    });
 
     return {
-        character
+        data,
+        isFetching
     }
 
 }

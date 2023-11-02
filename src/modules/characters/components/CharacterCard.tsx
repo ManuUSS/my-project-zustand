@@ -3,6 +3,7 @@ import { EyeIcon } from '@heroicons/react/24/outline';
 import { StarIcon, StopIcon } from '@heroicons/react/24/solid';
 import { CharacterResponse, Status } from '..';
 import { useNavigate } from 'react-router-dom';
+import { useQueryClient } from '@tanstack/react-query';
 
 interface Props {
     character: CharacterResponse
@@ -20,6 +21,7 @@ interface Props {
  */
 export const CharacterCard:FC<Props> = ({ character }) => {
 
+    const clientQuery = useQueryClient();
     const navigate = useNavigate();
 
     const validateStatus = ( status: Status ) => {
@@ -32,9 +34,18 @@ export const CharacterCard:FC<Props> = ({ character }) => {
         return "text-slate-400"
     }
 
+    const onPresetData = () => {
+        clientQuery.setQueryData(
+            ['characters', character.id ],
+            character
+        )
+    }
+
+
     return (
         <article 
             className="max-w-sm bg-white overflow-hidden border border-gray-200 rounded-lg shadow dark:bg-gray-700 dark:border-gray-800 fade-in"
+            onMouseEnter={ onPresetData }
         >
             <div 
                 className="overflow-hidden"
