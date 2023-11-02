@@ -3,11 +3,9 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useQueryClient, useMutation } from '@tanstack/react-query'
 import { toast } from 'sonner';
 import moment from 'moment';
-import { CharacterLike, CharacterResponse, Power, Status } from '../interfaces/character';
 import { charactersActions, useCharactersStore } from '..';
-import { ToasterSuccess } from '../../shared/components/ToasterSuccess';
-import { ToasterError } from '../../shared/components/ToasterError';
-import { ToasterInfo } from '../../shared/components/ToasterInfo';
+import { CharacterLike, CharacterResponse, Power, Status } from '..';
+import { ToasterSuccess, ToasterError, ToasterInfo } from '../../shared/components';
 
 // Defines the default values of the object that will be created
 const defaultValues:CharacterLike = {

@@ -28,4 +28,5 @@ export { useSearcher } from "./hooks/useSearcher";
 export { useNewCharacter } from "./hooks/useNewCharacter";
 
 // <--- Interfaces --->
-export type { CharacterResponse, Status, CharacterLike } from './interfaces/character';
+export type { CharacterResponse, CharacterLike, Power } from './interfaces/character';
+export { Status } from './interfaces/character'; 
