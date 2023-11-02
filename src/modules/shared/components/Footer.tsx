@@ -5,7 +5,7 @@ export const Footer = () => {
   const { theme } = useThemeStore();
 
   return (
-    <footer className="w-[calc(100%-16rem)] float-right border-t border-gray-50 bg-white px-2 shadow-md dark:bg-gray-800 dark:border-gray-800 dark:border-[#1c2633]">
+    <footer className="w-[calc(100%-16rem)] float-right border-t bg-gray-50 border-gray-50 px-2 shadow-md dark:bg-[#212C3B] dark:border-gray-800">
         <div className="mx-auto p-4 md:py-4">
             <div className="sm:flex sm:items-center sm:justify-between sm:pr-1">
                 <p className="text-lg dark:text-slate-200">Manuel Ulate Sancho</p>
