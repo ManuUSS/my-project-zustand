@@ -1,11 +1,11 @@
 import { StateCreator } from 'zustand';
-import { CharacterResponse } from '..';
+import { CharacterResponse, Status } from '..';
 
 export interface JJKSlice {
     jjkList: CharacterResponse[];
     setJJKList: ( list:CharacterResponse[] ) => void;
     addToJJKList: ( char: CharacterResponse ) => void;
-    filterJJKList: () => void;
+    filterJJKList: ( status?: Status, name?:string ) => void;
 }
 
 /**
@@ -23,5 +23,5 @@ export const createJJKSlice:StateCreator<JJKSlice> = ( set ) => ({
     addToJJKList: ( char: CharacterResponse ) => {
         set(( ctx ) => ({ jjkList: [ ...ctx.jjkList, char ] }))
     },
-    filterJJKList: () => {},
+    filterJJKList: ( status?: Status, name?:string ) => {},
 })

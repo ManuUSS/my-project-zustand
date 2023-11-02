@@ -1,11 +1,11 @@
 import { StateCreator } from 'zustand';
-import { CharacterResponse } from '..';
+import { CharacterResponse, Status } from '..';
 
 export interface DemonSlice {
     demonSlayerList: CharacterResponse[];
     setDemonSlayerList: ( list:CharacterResponse[] ) => void;
     addToDemonSlayerList: ( char: CharacterResponse ) => void;
-    filterDemonSlayerList: () => void;
+    filterDemonSlayerList: ( status?: Status, name?:string ) => void;
 }
 
 /**
@@ -23,5 +23,5 @@ export const createDemonSlice:StateCreator<DemonSlice> = ( set ) => ({
     addToDemonSlayerList: ( char: CharacterResponse ) => {
         set(( ctx ) => ({ demonSlayerList: [ ...ctx.demonSlayerList, char ] }))
     },
-    filterDemonSlayerList: () => {},
+    filterDemonSlayerList: ( status?: Status, name?:string ) => {},
 })

@@ -1,11 +1,11 @@
 import { StateCreator } from 'zustand';
-import { CharacterResponse } from '..';
+import { CharacterResponse, Status } from '..';
 
 export interface HxHSlice {
     hxhList: CharacterResponse[];
     setHxHList: ( list:CharacterResponse[] ) => void;
     addToHxHList: ( char: CharacterResponse ) => void;
-    filterHxHList: () => void;
+    filterHxHList: ( status?: Status, name?:string ) => void;
 }
 
 /**
@@ -23,5 +23,5 @@ export const createHxHlice:StateCreator<HxHSlice> = ( set ) => ({
     addToHxHList: ( char: CharacterResponse ) => {
         set(( ctx ) => ({ hxhList: [ ...ctx.hxhList, char ] }))
     },
-    filterHxHList: () => {},
+    filterHxHList: ( status?: Status, name?:string ) => {},
 })
