@@ -1,11 +1,13 @@
 import { FC, ChangeEvent } from 'react';
 import { FieldErrors, SubmitHandler, UseFormHandleSubmit, UseFormRegister } from 'react-hook-form'
 import { CharacterLike } from '..'
+import { Power } from '../interfaces/character';
 
 interface Props {
     handleSubmit: UseFormHandleSubmit<CharacterLike, undefined>;
     handleChangePower: ( event: ChangeEvent<HTMLInputElement> ) => void;
     onAddPower: () => void;
+    power: Power;
     register: UseFormRegister<CharacterLike>;
     onNewCharacter: SubmitHandler<CharacterLike>;
     errors: FieldErrors<CharacterLike>
@@ -27,7 +29,9 @@ interface Props {
  *
  * @return {JSX.Element} The rendered CharacterForm component.
  */
-export const CharacterForm:FC<Props> = ({ handleSubmit, handleChangePower, onAddPower, register, onNewCharacter, errors, isPending }) => {
+export const CharacterForm:FC<Props> = (
+    { handleSubmit, handleChangePower, onAddPower, power, register, onNewCharacter, errors, isPending }
+) => {
   
     return (
         <form 
@@ -147,7 +151,8 @@ export const CharacterForm:FC<Props> = ({ handleSubmit, handleChangePower, onAdd
                         <input 
                             type="text"
                             id="name" 
-                            name="name" 
+                            name="name"
+                            value={ power.name } 
                             className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  
                             onChange={ handleChangePower }
                         />
@@ -155,15 +160,21 @@ export const CharacterForm:FC<Props> = ({ handleSubmit, handleChangePower, onAdd
                     <div className='flex-1'>
                         <label htmlFor="efectiveness" className="text-gray-900 dark:text-white">Escala:</label>
                         <input 
-                            type="text" 
+                            type="number" 
+                            max={ 10 }
                             id="efectiveness"
                             name="efectiveness" 
+                            value={ power.efectiveness }
                             className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  
                             onChange={ handleChangePower }
                         />
+                        <p className='text-gray-300 text-sm font-semibold mt-1 ml-1 dark:text-gray-400'>
+                            Máximo de escala 10
+                        </p>
                     </div>
                     <button
-                        className="self-end text-lg text-white bg-green-500 hover:bg-green-600 rounded-lg px-5 py-2.5 text-center dark:bg-green-400 dark:hover:bg-green-500 flex items-center"
+                        type='button'
+                        className="self-center text-lg text-white bg-green-500 hover:bg-green-600 rounded-lg px-5 py-2.5 text-center dark:bg-green-400 dark:hover:bg-green-500 flex items-center"
                         onClick={ onAddPower }
                     >
                         Agregar

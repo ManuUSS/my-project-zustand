@@ -141,8 +141,12 @@ export const useNewCharacter = () => {
     }
     
     const onAddPower = () => {
+        if( power.efectiveness > 10 ) {
+            return;
+        }
         const currentPowers = getValues("powers") || [];
-        setValue("powers", [ ...currentPowers, power ])
+        setValue("powers", [ ...currentPowers, power ]);
+        setPower({ name: "", efectiveness: 0 });
     }
 
     const handleChangePower = ( event: ChangeEvent<HTMLInputElement> ) => {
@@ -154,6 +158,7 @@ export const useNewCharacter = () => {
         register,
         errors,
         watch,
+        power,
         handleSubmit,
         handleChangePower,
         onAddPower,

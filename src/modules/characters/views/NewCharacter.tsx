@@ -5,7 +5,10 @@ import { useNewCharacter } from '../hooks/useNewCharacter';
 
 export const NewCharacter = () => {
   
-  const { register, handleSubmit, onNewCharacter, mutation, watch, errors } = useNewCharacter();
+  const { 
+    register, handleSubmit, handleChangePower, onAddPower, onNewCharacter, 
+    mutation, watch, errors, power 
+  } = useNewCharacter();
 
   const validateStatus = ( status: Status ) => {
     if( status === "alive" )
@@ -24,7 +27,10 @@ export const NewCharacter = () => {
             <CharacterForm 
                 register={ register }
                 handleSubmit={ handleSubmit }
+                handleChangePower={ handleChangePower }
                 onNewCharacter={ onNewCharacter }
+                onAddPower={ onAddPower }
+                power={ power }
                 errors={ errors }
                 isPending={ mutation.isPending }
             />
@@ -56,6 +62,17 @@ export const NewCharacter = () => {
                     <p className="mb-3 font-normal text-gray-700 dark:text-slate-300">
                         { watch("about") }
                     </p>
+                    <div className='flex flex-wrap gap-1'>
+                        {
+                            watch("powers")?.map(
+                                ({ name }) => (
+                                    <div key={ name } className='bg-sky-100 text-sky-600 px-2 py-1 rounded-xl'>
+                                        <p className='text-md font-semibold'>{ name }</p>
+                                    </div>
+                                )
+                            )
+                        }
+                    </div>
                 </div>
             </div>
         </div>
