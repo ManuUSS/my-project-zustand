@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Status, useCharactersStore } from '..';
 
 interface FilterProps {
     label: string;
@@ -14,7 +15,9 @@ type DropDownOptions = 'visible' | 'hidden';
  */
 export const useSearcher = () => {
 
-    const [ filterStatus, setfilterStatus ] = useState<FilterProps>({ label: 'Todos', value: ''});
+    const filterList = useCharactersStore(( state ) => state.filterMainList );
+    // <--- Handlers filters status --->
+    const [ filterStatus, setfilterStatus ] = useState<FilterProps>({ label: 'Todos', value: "" });
     const [ dropDownVisible, setdropDownVisible ] = useState<DropDownOptions>( 'hidden' );
 
     const showDropDown = () => {
@@ -25,6 +28,7 @@ export const useSearcher = () => {
 
     const changeStatus = ( status:FilterProps ) => {
         setfilterStatus( status );
+        filterList( status.value as Status );
         setdropDownVisible( 'hidden' );
     }
 

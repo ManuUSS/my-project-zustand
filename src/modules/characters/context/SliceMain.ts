@@ -1,11 +1,12 @@
 import { StateCreator } from 'zustand';
-import { CharacterResponse } from '..';
+import { CharacterResponse, Status } from '..';
 
 export interface MainSlice {
     mainList: CharacterResponse[];
+    mainListCopy: CharacterResponse[];
     setMainList: ( list:CharacterResponse[] ) => void;
     addToMainList: ( char: CharacterResponse ) => void;
-    filterMainList: () => void;
+    filterMainList: ( status?: Status, name?:string ) => void;
 }
 
 /**
@@ -15,13 +16,41 @@ export interface MainSlice {
  * @param { set } MainSlice | Partial<MainSlice> 
  * @returns { Object }
  */
-export const createMainSlice:StateCreator<MainSlice> = ( set ) => ({
+export const createMainSlice:StateCreator<MainSlice> = ( set, get ) => ({
     mainList: [],
+    mainListCopy: [],
     setMainList: ( list: CharacterResponse[] ) => {
-        set(() => ({ mainList: list }))
+        set(() => ({ mainList: list, mainListCopy: list }))
     },
     addToMainList: ( char: CharacterResponse ) => {
-        set(( ctx ) => ({ mainList: [ ...ctx.mainList, char ] }))
+        set(( ctx ) => ({ mainList: [ ...ctx.mainList, char ], mainListCopy: [ ...ctx.mainList, char ] }))
     },
-    filterMainList: () => {},
+    filterMainList: ( status?: Status, name?:string ) => {
+        // <--- No filters --->
+        if( !status && !name ) {
+            set(( ctx ) => ({ mainListCopy: [ ...ctx.mainList ] }));
+            return;
+        } 
+
+        let listFiltered:CharacterResponse[] = [];
+
+        // <--- Both filters --->
+        if( name && status ) {
+            listFiltered = get().mainList.filter(( character ) => 
+                character.status === status || character.name.includes( name || "" ) 
+            );
+        }
+
+        // <--- Only name filter --->
+        if( name && !status ) {
+            listFiltered = get().mainList.filter(( character ) =>  character.name.includes( name ));
+        }
+        
+        // <--- Only status filter --->
+        if( !name && status ) {
+            listFiltered = get().mainList.filter(( character ) =>  character.status === status );
+        }
+
+        set(() => ({ mainListCopy: listFiltered }));
+    },
 })

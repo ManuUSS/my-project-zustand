@@ -6,7 +6,7 @@ import { useCharactersStore } from '..';
 export const MainListPage = () => {
 
   const { isLoading } = useCharacters({});
-  const characters = useCharactersStore(( state ) => state.mainList );
+  const characters = useCharactersStore(( state ) => state.mainListCopy );
 
   useEffect(() => {
     window.scrollTo(0,0)
