@@ -10,7 +10,7 @@ type DropDownOptions = 'visible' | 'hidden';
 
 interface Props {
     listModifier?: "filterMainList" | "filterJJKList" | "filterDemonSlayerList" | "filterHxHList";
-    listState?: "mainFilterState" | "jjkFilterState" | "demonSlyerFilterState" | "hxhFilterState";
+    listState?: "mainFilterState" | "jjkFilterState" | "demonSlayerFilterState" | "hxhFilterState";
 }
 
 /**
@@ -23,7 +23,7 @@ export const useSearcher = ({ listModifier = "filterMainList", listState = "main
     const filterList = useCharactersStore(( state ) => state[ listModifier ] );
     const filterState = useCharactersStore(( state ) => state[ listState ] );
     // <--- Handlers filters status --->
-    const [ filterStatus, setfilterStatus ] = useState<FilterProps>({ label: 'Todos', value: "" });
+    const [ filterStatus, setfilterStatus ] = useState<FilterProps>( filterState );
     const [ dropDownVisible, setdropDownVisible ] = useState<DropDownOptions>( 'hidden' );
 
     const showDropDown = () => {

@@ -4,6 +4,7 @@ import { CharacterResponse, Status } from '..';
 export interface JJKSlice {
     jjkList: CharacterResponse[];
     jjkListCopy: CharacterResponse[];
+    jjkFilterState: { label: string, value: string };
     setJJKList: ( list:CharacterResponse[] ) => void;
     addToJJKList: ( char: CharacterResponse ) => void;
     filterJJKList: ( status?: Status, name?:string ) => void;
@@ -19,6 +20,7 @@ export interface JJKSlice {
 export const createJJKSlice:StateCreator<JJKSlice> = ( set, get ) => ({
     jjkList: [],
     jjkListCopy: [],
+    jjkFilterState: { label: "Todos", value: "" },
     setJJKList: ( list: CharacterResponse[] ) => {
         set(() => ({ jjkList: list, jjkListCopy: list }))
     },

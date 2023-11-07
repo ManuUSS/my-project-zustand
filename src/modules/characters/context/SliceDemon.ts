@@ -4,6 +4,7 @@ import { CharacterResponse, Status } from '..';
 export interface DemonSlice {
     demonSlayerList: CharacterResponse[];
     demonSlayerListCopy: CharacterResponse[];
+    demonSlayerFilterState: { label: string, value: string };
     setDemonSlayerList: ( list:CharacterResponse[] ) => void;
     addToDemonSlayerList: ( char: CharacterResponse ) => void;
     filterDemonSlayerList: ( status?: Status, name?:string ) => void;
@@ -19,6 +20,7 @@ export interface DemonSlice {
 export const createDemonSlice:StateCreator<DemonSlice> = ( set, get ) => ({
     demonSlayerList: [],
     demonSlayerListCopy: [],
+    demonSlayerFilterState: { label: "Todos", value: "" },
     setDemonSlayerList: ( list: CharacterResponse[] ) => {
         set(() => ({ demonSlayerList: list, demonSlayerListCopy: list }))
     },
