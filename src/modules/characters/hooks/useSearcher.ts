@@ -13,6 +13,8 @@ interface Props {
     listState?: "mainFilterState" | "jjkFilterState" | "demonSlayerFilterState" | "hxhFilterState";
 }
 
+type FilterHandler = "mainFilterStateSet" | "jjkFilterStateSet" | "demonSlayerFilterStateSet" | "hxhFilterStateSet";
+
 /**
  * This custom hook manages the state and behavior for filtering characters in a search component.
  *
@@ -20,8 +22,11 @@ interface Props {
  */
 export const useSearcher = ({ listModifier = "filterMainList", listState = "mainFilterState" }:Props) => {
 
+    const filterContextHandler:FilterHandler = `${ listState }Set`;
     const filterList = useCharactersStore(( state ) => state[ listModifier ] );
     const filterState = useCharactersStore(( state ) => state[ listState ] );
+    const filterStateHandler = useCharactersStore(( state ) => state[ filterContextHandler ] );
+    console.log( filterState );
     // <--- Handlers filters status --->
     const [ filterStatus, setfilterStatus ] = useState<FilterProps>( filterState );
     const [ dropDownVisible, setdropDownVisible ] = useState<DropDownOptions>( 'hidden' );
@@ -35,6 +40,7 @@ export const useSearcher = ({ listModifier = "filterMainList", listState = "main
     const changeStatus = ( status:FilterProps ) => {
         setfilterStatus( status );
         filterList( status.value as Status );
+        filterStateHandler( status );
         setdropDownVisible( 'hidden' );
     }
 

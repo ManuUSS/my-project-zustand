@@ -1,10 +1,11 @@
 import { StateCreator } from 'zustand';
-import { CharacterResponse, Status } from '..';
+import { CharacterResponse, Status, StatusCharacter } from '..';
 
 export interface MainSlice {
     mainList: CharacterResponse[];
     mainListCopy: CharacterResponse[];
-    mainFilterState: { label: string, value: string };
+    mainFilterState: StatusCharacter;
+    mainFilterStateSet: ( filter: StatusCharacter ) => void;
     setMainList: ( list:CharacterResponse[] ) => void;
     addToMainList: ( char: CharacterResponse ) => void;
     filterMainList: ( status?: Status, name?:string ) => void;
@@ -20,7 +21,6 @@ export interface MainSlice {
 export const createMainSlice:StateCreator<MainSlice> = ( set, get ) => ({
     mainList: [],
     mainListCopy: [],
-    mainFilterState: { label: "Todos", value: "" },
     setMainList: ( list: CharacterResponse[] ) => {
         set(() => ({ mainList: list, mainListCopy: list }))
     },
@@ -55,4 +55,8 @@ export const createMainSlice:StateCreator<MainSlice> = ( set, get ) => ({
 
         set(() => ({ mainListCopy: listFiltered }));
     },
+    mainFilterState: { label: "Todos", value: "" },
+    mainFilterStateSet: ( filter: StatusCharacter ) => {
+        set(() => ({ mainFilterState: filter }))
+    }
 })

@@ -1,5 +1,5 @@
 import { StateCreator } from 'zustand';
-import { CharacterResponse, Status } from '..';
+import { CharacterResponse, Status, StatusCharacter } from '..';
 
 export interface JJKSlice {
     jjkList: CharacterResponse[];
@@ -7,8 +7,8 @@ export interface JJKSlice {
     setJJKList: ( list:CharacterResponse[] ) => void;
     addToJJKList: ( char: CharacterResponse ) => void;
     filterJJKList: ( status?: Status, name?:string ) => void;
-    jjkFilterState: { label: string, value: string };
-    jjkFilterStateSet: { label: string, value: string };
+    jjkFilterState: StatusCharacter;
+    jjkFilterStateSet: ( filter: StatusCharacter ) => void;
 }
 
 /**
@@ -21,7 +21,6 @@ export interface JJKSlice {
 export const createJJKSlice:StateCreator<JJKSlice> = ( set, get ) => ({
     jjkList: [],
     jjkListCopy: [],
-    jjkFilterState: { label: "Todos", value: "" },
     setJJKList: ( list: CharacterResponse[] ) => {
         set(() => ({ jjkList: list, jjkListCopy: list }))
     },
@@ -56,4 +55,6 @@ export const createJJKSlice:StateCreator<JJKSlice> = ( set, get ) => ({
 
         set(() => ({ jjkListCopy: listFiltered }));
     },
+    jjkFilterState: { label: "Todos", value: "" },
+    jjkFilterStateSet: ( filter ) => { set(() => ({ jjkFilterState: filter })) }
 })

@@ -3,7 +3,8 @@ import { useSearcher } from '..';
 import { FC } from 'react';
 
 interface Props {
-    listModifier?: "filterMainList" | "filterJJKList" | "filterDemonSlayerList" | "filterHxHList"
+    listModifier?: "filterMainList" | "filterJJKList" | "filterDemonSlayerList" | "filterHxHList";
+    listState?: "mainFilterState" | "jjkFilterState" | "demonSlayerFilterState" | "hxhFilterState";
 }
 
 /**
@@ -14,9 +15,11 @@ interface Props {
  *
  * @return {JSX.Element} The rendered Searcher component.
  */
-export const Searcher:FC<Props> = ({ listModifier }) => {
+export const Searcher:FC<Props> = ({ listModifier, listState }) => {
 
-  const { filterStatus, dropDownVisible, changeStatus, showDropDown } = useSearcher({ listModifier });
+  const { 
+    filterStatus, dropDownVisible, changeStatus, showDropDown 
+  } = useSearcher({ listModifier, listState });
 
   return (
     <div className='flex items-center'>

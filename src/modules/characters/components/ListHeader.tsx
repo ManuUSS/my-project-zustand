@@ -6,6 +6,7 @@ interface Props {
     title: string;
     hideSearcher?: boolean;
     listModifier?: "filterMainList" | "filterJJKList" | "filterDemonSlayerList" | "filterHxHList";
+    listState?: "mainFilterState" | "jjkFilterState" | "demonSlayerFilterState" | "hxhFilterState";
 }
 
 /**
@@ -20,10 +21,10 @@ interface Props {
  *
  * @return {JSX.Element} The rendered ListHeader component.
  */
-export const ListHeader:FC<Props> = ({ title, hideSearcher = false, listModifier }) => {
+export const ListHeader:FC<Props> = ({ title, hideSearcher = false, listModifier, listState }) => {
     return (
         <div className="flex items-center justify-between px-4 mb-2">
-            {  !hideSearcher && <Searcher listModifier={ listModifier }/> }
+            {  !hideSearcher && <Searcher listModifier={ listModifier } listState={ listState }/> }
             <h1 className="text-center text-4xl dark:text-slate-100 grow-[2]">{ title }</h1>
             <ModeButton />
         </div>
