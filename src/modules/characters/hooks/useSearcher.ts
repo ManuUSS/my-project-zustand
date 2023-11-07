@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Status, useCharactersStore } from '..';
 
 interface FilterProps {
@@ -26,10 +26,16 @@ export const useSearcher = ({ listModifier = "filterMainList", listState = "main
     const filterList = useCharactersStore(( state ) => state[ listModifier ] );
     const filterState = useCharactersStore(( state ) => state[ listState ] );
     const filterStateHandler = useCharactersStore(( state ) => state[ filterContextHandler ] );
-    
+
     // <--- Handlers filters status --->
     const [ filterStatus, setfilterStatus ] = useState<FilterProps>( filterState );
+    const [ filterColor, setfilterColor ] = useState<string>( "" );
     const [ dropDownVisible, setdropDownVisible ] = useState<DropDownOptions>( 'hidden' );
+
+    useEffect(() => {
+        setfilterColor( handleFilterColor( filterStatus.value ) );
+    }, [ filterStatus ]);
+    
 
     const showDropDown = () => {
         ( dropDownVisible === "hidden" )
@@ -44,8 +50,18 @@ export const useSearcher = ({ listModifier = "filterMainList", listState = "main
         setdropDownVisible( 'hidden' );
     }
 
+    const handleFilterColor = ( status: string ):string => {
+
+        if( status === "alive" ) return "text-green-500";
+        else if( status === "dead" ) return "text-red-500";
+        else if( status === "unknown" ) return "text-slate-400";
+        
+        return "text-sky-500";
+    }
+
     return {
         filterStatus,
+        filterColor,
         dropDownVisible,
         showDropDown,
         changeStatus,

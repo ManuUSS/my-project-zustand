@@ -17,7 +17,7 @@ interface Props {
  */
 export const Searcher:FC<Props> = memo(({ listModifier, listState }) => {
   const { 
-    filterStatus, dropDownVisible, changeStatus, showDropDown 
+    filterStatus, filterColor, dropDownVisible, changeStatus, showDropDown 
   } = useSearcher({ listModifier, listState });
 
   return (
@@ -32,6 +32,9 @@ export const Searcher:FC<Props> = memo(({ listModifier, listState }) => {
                         type="button"
                         onClick={ showDropDown }
                     >
+                        <StopIcon
+                            className={`w-5 ${ filterColor } mr-1`}
+                        />    
                         { filterStatus.label }
                     </button>
                     <div 
@@ -93,7 +96,7 @@ export const Searcher:FC<Props> = memo(({ listModifier, listState }) => {
                                 >
                                     <div className="inline-flex items-center">
                                         <StopIcon
-                                            className="w-5 text-gray-100 dark:text-gray-800"
+                                            className="w-5 text-sky-500"
                                         />       
                                         Todos
                                     </div>
