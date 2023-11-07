@@ -28,7 +28,7 @@ export const CharacterPage = () => {
   return (
     <section className="list-container p-4">
         <ListHeader title={ character?.name || "" } hideSearcher />
-        <article className='grid grid-cols-3 gap-2 list-max mb-8'>
+        <article className='grid grid-cols-3 gap-4 list-max mb-8'>
             <div className="border rounded-md dark:bg-gray-700 dark:border-gray-800 shadow-sm fade-in">
                 <div className="flex items-center rounded-t-md overflow-hidden">
                     <img 
@@ -64,39 +64,33 @@ export const CharacterPage = () => {
             </div>
             <div className="col-span-2 flex flex-col gap-4">
                 <div 
-                    className='bg bg-cover bg-center rounded-md h-full'
-                    style={{ backgroundImage: "url(https://www.ivins.com/wp-content/uploads/2020/09/placeholder-1.png)" }}
+                    className='bg bg-cover bg-center rounded-md h-full border border-red-300'
                 >
                 
                 </div>
                 <div 
-                    className='bg bg-cover bg-center rounded-md h-full'
-                    style={{ backgroundImage: "url(https://www.ivins.com/wp-content/uploads/2020/09/placeholder-1.png)" }}
+                    className='bg bg-cover bg-center rounded-md h-full border border-red-300'
                 >    
                 </div>
                 <div 
-                    className='bg bg-cover bg-center rounded-md h-full'
-                    style={{ backgroundImage: "url(https://www.ivins.com/wp-content/uploads/2020/09/placeholder-1.png)" }}
+                    className='bg bg-cover bg-center rounded-md h-full border border-red-300'
                 >    
                 </div>
             </div>
         </article>
         <div className=''>
-            <p className="text-center text-2xl font-semibold mb-2">Personajes similares</p>
+            <p className="after:border-b text-center text-2xl font-semibold mb-2 dark:text-slate-100">Personajes similares</p>
             <div className='flex gap-4'>
                 <div 
-                    className='bg-no-repeat bg-cover rounded-md shadow-sm w-full min-h-[180px]'
-                    style={{ backgroundImage: "url(https://www.ivins.com/wp-content/uploads/2020/09/placeholder-1.png)" }}
+                    className='bg-no-repeat bg-cover rounded-md shadow-sm w-full min-h-[180px] border border-red-300'
                 >
                 </div>
                 <div 
-                    className='bg-no-repeat bg-cover rounded-md shadow-sm w-full min-h-[180px]'
-                    style={{ backgroundImage: "url(https://www.ivins.com/wp-content/uploads/2020/09/placeholder-1.png)" }}
+                    className='bg-no-repeat bg-cover rounded-md shadow-sm w-full min-h-[180px] border border-red-300'
                 >
                 </div>
                 <div 
-                    className='bg-no-repeat bg-cover rounded-md shadow-sm w-full min-h-[180px]'
-                    style={{ backgroundImage: "url(https://www.ivins.com/wp-content/uploads/2020/09/placeholder-1.png)" }}
+                    className='bg-no-repeat bg-cover rounded-md shadow-sm w-full min-h-[180px] border border-red-300'
                 >
                 </div>
             </div>
