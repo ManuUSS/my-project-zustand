@@ -21,12 +21,12 @@ type FilterHandler = "mainFilterStateSet" | "jjkFilterStateSet" | "demonSlayerFi
  * @returns {Object} An object containing filterStatus, dropDownVisible, showDropDown, and changeStatus functions.
  */
 export const useSearcher = ({ listModifier = "filterMainList", listState = "mainFilterState" }:Props) => {
-
+    
     const filterContextHandler:FilterHandler = `${ listState }Set`;
     const filterList = useCharactersStore(( state ) => state[ listModifier ] );
     const filterState = useCharactersStore(( state ) => state[ listState ] );
     const filterStateHandler = useCharactersStore(( state ) => state[ filterContextHandler ] );
-    console.log( filterState );
+    
     // <--- Handlers filters status --->
     const [ filterStatus, setfilterStatus ] = useState<FilterProps>( filterState );
     const [ dropDownVisible, setdropDownVisible ] = useState<DropDownOptions>( 'hidden' );

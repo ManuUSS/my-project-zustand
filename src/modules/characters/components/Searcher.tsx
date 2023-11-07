@@ -1,6 +1,6 @@
 import { StopIcon } from '@heroicons/react/24/solid';
 import { useSearcher } from '..';
-import { FC } from 'react';
+import { FC, memo } from 'react';
 
 interface Props {
     listModifier?: "filterMainList" | "filterJJKList" | "filterDemonSlayerList" | "filterHxHList";
@@ -15,8 +15,7 @@ interface Props {
  *
  * @return {JSX.Element} The rendered Searcher component.
  */
-export const Searcher:FC<Props> = ({ listModifier, listState }) => {
-
+export const Searcher:FC<Props> = memo(({ listModifier, listState }) => {
   const { 
     filterStatus, dropDownVisible, changeStatus, showDropDown 
   } = useSearcher({ listModifier, listState });
@@ -110,4 +109,4 @@ export const Searcher:FC<Props> = ({ listModifier, listState }) => {
         </form>
     </div>
   )
-}
+})
