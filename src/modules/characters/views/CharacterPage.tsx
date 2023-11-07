@@ -27,7 +27,11 @@ export const CharacterPage = () => {
 
   return (
     <section className="list-container p-4">
-        <ListHeader title={ character?.name || "" } hideSearcher />
+        <ListHeader 
+            title={ character?.name || "" } 
+            hideSearcher 
+            showBackButton
+        />
         <article className='grid grid-cols-3 gap-4 list-max mb-8'>
             <div className="border rounded-md dark:bg-gray-700 dark:border-gray-800 shadow-sm fade-in">
                 <div className="flex items-center rounded-t-md overflow-hidden">
