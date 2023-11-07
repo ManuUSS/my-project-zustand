@@ -44,7 +44,7 @@ export const CharacterCard:FC<Props> = ({ character }) => {
 
     return (
         <article 
-            className="max-w-sm bg-white overflow-hidden border border-gray-200 rounded-lg shadow dark:bg-gray-700 dark:border-gray-800 fade-in"
+            className="max-w-sm bg-gray-50 overflow-hidden border border-gray-200 rounded-lg shadow dark:bg-gray-700 dark:border-gray-800 fade-in"
             onMouseEnter={ onPresetData }
         >
             <div 
