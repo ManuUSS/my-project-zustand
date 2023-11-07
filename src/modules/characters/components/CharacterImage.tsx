@@ -15,7 +15,7 @@ export const CharacterImage:FC<Props> = ({ url }) => {
     
 
     const changeLoaded = async () => {
-        await charactersActions.delay( 1200 );
+        await charactersActions.delay( 800 );
         setIsLoaded( true );
     }
 
