@@ -9,7 +9,8 @@ interface FilterProps {
 type DropDownOptions = 'visible' | 'hidden';
 
 interface Props {
-    listModifier?: "filterMainList" | "filterJJKList" | "filterDemonSlayerList" | "filterHxHList"
+    listModifier?: "filterMainList" | "filterJJKList" | "filterDemonSlayerList" | "filterHxHList";
+    listState?: "mainFilterState" | "jjkFilterState" | "demonSlyerFilterState" | "hxhFilterState";
 }
 
 /**
@@ -17,9 +18,10 @@ interface Props {
  *
  * @returns {Object} An object containing filterStatus, dropDownVisible, showDropDown, and changeStatus functions.
  */
-export const useSearcher = ({ listModifier = "filterMainList" }:Props) => {
+export const useSearcher = ({ listModifier = "filterMainList", listState = "mainFilterState" }:Props) => {
 
     const filterList = useCharactersStore(( state ) => state[ listModifier ] );
+    const filterState = useCharactersStore(( state ) => state[ listState ] );
     // <--- Handlers filters status --->
     const [ filterStatus, setfilterStatus ] = useState<FilterProps>({ label: 'Todos', value: "" });
     const [ dropDownVisible, setdropDownVisible ] = useState<DropDownOptions>( 'hidden' );

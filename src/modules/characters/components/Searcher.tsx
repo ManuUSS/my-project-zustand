@@ -100,7 +100,7 @@ export const Searcher:FC<Props> = ({ listModifier }) => {
                         </ul>
                     </div>
                 </div>
-                <div className="relative">
+                <div>
                     <input type="search" id="location-search" className="w-64 p-2.5 z-20 text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Búsqueda por nombre..." />
                 </div>
             </div>

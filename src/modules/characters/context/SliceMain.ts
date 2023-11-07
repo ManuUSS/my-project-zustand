@@ -4,6 +4,7 @@ import { CharacterResponse, Status } from '..';
 export interface MainSlice {
     mainList: CharacterResponse[];
     mainListCopy: CharacterResponse[];
+    mainFilterState: { label: string, value: string };
     setMainList: ( list:CharacterResponse[] ) => void;
     addToMainList: ( char: CharacterResponse ) => void;
     filterMainList: ( status?: Status, name?:string ) => void;
@@ -19,6 +20,7 @@ export interface MainSlice {
 export const createMainSlice:StateCreator<MainSlice> = ( set, get ) => ({
     mainList: [],
     mainListCopy: [],
+    mainFilterState: { label: "Todos", value: "" },
     setMainList: ( list: CharacterResponse[] ) => {
         set(() => ({ mainList: list, mainListCopy: list }))
     },
