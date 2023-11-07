@@ -20,6 +20,10 @@ h1 {
     font-weight: 600;
 }
 
+.list-max {
+    min-height: calc( 100vh - 116px );
+}
+
 .list-container {
     min-height: calc( 100vh - 56.24px );
 }

@@ -28,7 +28,7 @@ export const CharacterPage = () => {
   return (
     <section className="list-container p-4">
         <ListHeader title={ character?.name || "" } hideSearcher />
-        <article className='grid grid-cols-3 h-full'>
+        <article className='grid grid-cols-3 border list-max'>
             <div className="border rounded-md dark:bg-gray-700 dark:border-gray-800 shadow-sm fade-in">
                 <div className="flex items-center rounded-t-md overflow-hidden">
                     <img 
@@ -61,6 +61,11 @@ export const CharacterPage = () => {
                         }
                     </div>
                 </div>
+            </div>
+            <div className="px-4 col-span-2 flex flex-col gap-4">
+                <div className='border border-red-300 h-full'></div>
+                <div className='border border-red-300 h-full'></div>
+                <div className='border border-red-300 h-full'></div>
             </div>
         </article>
     </section>
