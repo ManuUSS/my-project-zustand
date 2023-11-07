@@ -1,22 +1,28 @@
 import { useParams } from 'react-router-dom'
 import { StopIcon } from '@heroicons/react/24/solid';
 import { CharacterPowerChip, ListHeader, Status, useCharacter } from '..';
+import { useEffect } from 'react';
 
 export const CharacterPage = () => {
 
-  const params = useParams();  
-  const { id = '0' } = params;
-  const { data: character } = useCharacter({ characterId: +id });
-  
-  const validateStatus = ( status: Status ) => {
-    if( status === "alive" )
-        return "text-green-500"
+    const params = useParams();  
+    const { id = '0' } = params;
+    const { data: character } = useCharacter({ characterId: +id });
 
-    else if ( status === "dead" )
-        return "text-red-500"
+    useEffect(() => {
+        window.scrollTo(0,0);
+        document.title = `Zest | ${ character?.name }`;
+    }, []);
 
-    return "text-slate-400"
-  }
+    const validateStatus = ( status: Status ) => {
+        if( status === "alive" )
+            return "text-green-500"
+
+        else if ( status === "dead" )
+            return "text-red-500"
+
+        return "text-slate-400"
+    }
 
 
   return (

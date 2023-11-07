@@ -9,7 +9,8 @@ export const MainListPage = () => {
   const characters = useCharactersStore(( state ) => state.mainListCopy );
 
   useEffect(() => {
-    window.scrollTo(0,0)
+    window.scrollTo(0,0);
+    document.title = "Zest | Personajes";
   }, []);
   
 

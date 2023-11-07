@@ -14,7 +14,8 @@ export const HxHListPage = () => {
     const characters = useCharactersStore(( state ) => state.hxhListCopy );
 
     useEffect(() => {
-        window.scrollTo(0,0)
+        window.scrollTo(0,0);
+        document.title = "Zest | HxH";
     }, []);
 
     return (

@@ -1,6 +1,7 @@
 import { StopIcon } from '@heroicons/react/24/solid';
 import { CharacterForm, CharacterPowerChip, ListHeader, Status } from '..';
 import { useNewCharacter } from '../hooks/useNewCharacter';
+import { useEffect } from 'react';
 
 
 export const NewCharacter = () => {
@@ -9,6 +10,11 @@ export const NewCharacter = () => {
     register, handleSubmit, handleChangePower, onAddPower, onNewCharacter, 
     mutation, watch, errors, power 
   } = useNewCharacter();
+
+  useEffect(() => {
+    window.scrollTo(0,0);
+    document.title = "Zest | Nuevo personaje";
+  }, []);
 
   const validateStatus = ( status: Status ) => {
     if( status === "alive" )

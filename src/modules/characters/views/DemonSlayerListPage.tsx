@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { ListHeader, useCharacters } from "..";
 import { useCharactersStore } from "..";
 import { Loader } from "../../shared/components";
@@ -10,6 +11,11 @@ export const DemonSlayerListPage = () => {
         ctxSetKey: "setDemonSlayerList" 
     });
     const characters = useCharactersStore(( state ) => state.demonSlayerListCopy );
+
+    useEffect(() => {
+        window.scrollTo(0,0);
+        document.title = "Zest | Demon Slayer";
+    }, []);
 
     return (
         <section className="list-container p-4">

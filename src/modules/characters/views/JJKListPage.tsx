@@ -14,7 +14,8 @@ export const JJKListPage = () => {
     const characters = useCharactersStore(( state ) => state.jjkListCopy );
 
     useEffect(() => {
-        window.scrollTo(0,0)
+        window.scrollTo(0,0);
+        document.title = "Zest | JJK";
     }, []);
 
     return (
