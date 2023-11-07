@@ -28,7 +28,11 @@ export const NewCharacter = () => {
 
   return (
     <section className="list-container p-4">
-        <ListHeader title="Nuevo personaje" hideSearcher/>
+        <ListHeader 
+            title="Nuevo personaje" 
+            hideSearcher
+            showBackButton
+        />
         <div className="grid grid-cols-3 gap-4">
             <CharacterForm 
                 register={ register }
