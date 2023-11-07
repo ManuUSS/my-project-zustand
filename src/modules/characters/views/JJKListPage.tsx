@@ -22,6 +22,7 @@ export const JJKListPage = () => {
             <ListHeader 
                 title='Jujutsu Kaisen' 
                 listModifier="filterJJKList"
+                listState="jjkFilterState"
             />
             {
                 isFetching 

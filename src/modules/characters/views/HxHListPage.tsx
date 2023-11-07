@@ -22,6 +22,7 @@ export const HxHListPage = () => {
             <ListHeader 
                 title="Hunter X Hunter" 
                 listModifier="filterHxHList"
+                listState="hxhFilterState"
             />
             {
                 isLoading 

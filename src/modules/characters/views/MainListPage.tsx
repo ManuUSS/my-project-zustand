@@ -18,6 +18,7 @@ export const MainListPage = () => {
         <ListHeader 
           title='Lista de personajes' 
           listModifier="filterMainList"
+          listState="mainFilterState"
         />
         {
           isLoading 

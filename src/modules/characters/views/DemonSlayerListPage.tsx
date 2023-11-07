@@ -16,6 +16,7 @@ export const DemonSlayerListPage = () => {
             <ListHeader 
                 title="Demon Slayer" 
                 listModifier="filterDemonSlayerList"
+                listState="demonSlayerFilterState"
             />
             {
                 isLoading 
