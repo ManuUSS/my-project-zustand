@@ -4,10 +4,11 @@ import { CharacterResponse, Status } from '..';
 export interface JJKSlice {
     jjkList: CharacterResponse[];
     jjkListCopy: CharacterResponse[];
-    jjkFilterState: { label: string, value: string };
     setJJKList: ( list:CharacterResponse[] ) => void;
     addToJJKList: ( char: CharacterResponse ) => void;
     filterJJKList: ( status?: Status, name?:string ) => void;
+    jjkFilterState: { label: string, value: string };
+    jjkFilterStateSet: { label: string, value: string };
 }
 
 /**

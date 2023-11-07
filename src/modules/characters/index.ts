@@ -30,4 +30,5 @@ export { useNewCharacter } from "./hooks/useNewCharacter";
 
 // <--- Interfaces --->
 export type { CharacterResponse, CharacterLike, Power } from './interfaces/character';
+export type { StatusCharacter } from './interfaces/searcher';
 export { Status } from './interfaces/character'; 
