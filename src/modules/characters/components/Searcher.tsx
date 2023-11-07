@@ -1,4 +1,3 @@
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { StopIcon } from '@heroicons/react/24/solid';
 import { useSearcher } from '..';
 import { FC } from 'react';
@@ -102,13 +101,7 @@ export const Searcher:FC<Props> = ({ listModifier }) => {
                     </div>
                 </div>
                 <div className="relative">
-                    <input type="search" id="location-search" className="w-64 p-2.5 z-20 text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Nombre del personaje" />
-                    <button 
-                        type="submit" 
-                        className="absolute top-0 right-0 h-full p-2.5 font-medium text-white bg-sky-600 rounded-r-lg border border-sky-600 hover:bg-sky-700 focus:ring-4 dark:bg-blue-600 dark:hover:bg-blue-700 "
-                    >
-                        <MagnifyingGlassIcon width={ 15 }/>
-                    </button>
+                    <input type="search" id="location-search" className="w-64 p-2.5 z-20 text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Búsqueda por nombre..." />
                 </div>
             </div>
         </form>
