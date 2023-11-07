@@ -11,9 +11,9 @@ export const ErrorPage = () => {
             <div className="max-w-md">
                 <div className="text-5xl font-dark font-bold">404</div>
                 <p className="text-2xl md:text-3xl font-light leading-normal">
-                    Lo siento, no pudimos encontrar la página que buscas!
+                    Lo siento, no pudimos encontrar la página que buscas...
                 </p>
-                <p className="mb-8">Pero no te preoupes, puedes encontrar mucha diversión por acá.</p>
+                <p className="mb-8 text-lg">Pero no te preoupes, puedes encontrar mucha diversión por acá.</p>
                     
                 <Link
                     to="/"
