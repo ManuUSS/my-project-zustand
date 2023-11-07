@@ -50,4 +50,4 @@ export const newCharacter = async ( character: CharacterLike ):Promise<Character
     return data;
 }
 
-const delay = (ms:number) => new Promise(res => setTimeout(res, ms));
+export const delay = (ms:number) => new Promise(res => setTimeout(res, ms));

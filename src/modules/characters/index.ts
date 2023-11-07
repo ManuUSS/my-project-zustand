@@ -12,6 +12,7 @@ export { ListHeader } from './components/ListHeader';
 export { CharacterCard } from './components';
 export { CharacterPowerChip } from './components/CharacterPowerChip';
 export { CharacterForm } from './components/CharacterForm';
+export { CharacterImage } from './components/CharacterImage';
 
 // <--- Context --->
 export { useCharactersStore } from './context/CharactersStore';

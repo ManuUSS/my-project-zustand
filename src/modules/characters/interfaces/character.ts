@@ -6,6 +6,7 @@ export interface CharacterResponse {
     about:   string;
     status:  Status;
     powers?: Power[];
+    cover_photos?: string[];
 }
 
 export interface Power {

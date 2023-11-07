@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { StopIcon } from '@heroicons/react/24/solid';
-import { CharacterPowerChip, ListHeader, Status, useCharacter } from '..';
+import { CharacterImage, CharacterPowerChip, ListHeader, Status, useCharacter } from '..';
 import { useEffect } from 'react';
 
 export const CharacterPage = () => {
@@ -62,20 +62,12 @@ export const CharacterPage = () => {
                     </div>
                 </div>
             </div>
-            <div className="col-span-2 flex flex-col gap-4">
-                <div 
-                    className='bg bg-cover bg-center rounded-md h-full border border-red-300'
-                >
-                
-                </div>
-                <div 
-                    className='bg bg-cover bg-center rounded-md h-full border border-red-300'
-                >    
-                </div>
-                <div 
-                    className='bg bg-cover bg-center rounded-md h-full border border-red-300'
-                >    
-                </div>
+            <div className="col-span-2 grid grid-cols-2 grid-rows-3 gap-4">
+                {
+                    character?.cover_photos?.map(( photo ) => (
+                        <CharacterImage key={ photo } url={ photo } />
+                    ))
+                }
             </div>
         </article>
         <div className=''>

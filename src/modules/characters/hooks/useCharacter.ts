@@ -1,6 +1,4 @@
-// import { useEffect, useState } from 'react';
-import { /* CharacterResponse */ charactersActions, /*useCharactersStore */ } from '..'
-// import { useNavigate } from 'react-router-dom';
+import { charactersActions,} from '..'
 import { useQuery } from '@tanstack/react-query';
 
 interface Props {
