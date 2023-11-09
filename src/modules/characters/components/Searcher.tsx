@@ -51,7 +51,7 @@ export const Searcher:FC<Props> = memo(({ listModifier, listState }) => {
                                 >
                                     <div className="inline-flex items-center">     
                                         <StopIcon
-                                            className="w-5 text-green-500"
+                                            className="w-5 text-[#06d6a0]"
                                         />        
                                         Vivos
                                     </div>
@@ -66,7 +66,7 @@ export const Searcher:FC<Props> = memo(({ listModifier, listState }) => {
                                 >
                                     <div className="inline-flex items-center">
                                         <StopIcon
-                                            className="w-5 text-red-500"
+                                            className="w-5 text-[#ef233c]"
                                         />
                                         Muertos
                                     </div>
