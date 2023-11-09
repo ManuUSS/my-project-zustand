@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useCharacters, CharacterCard, ListHeader } from '..';
+import { useCharacters, CharacterCard, ListHeader, NoCharacters } from '..';
 import { Loader } from '../../shared/components';
 import { useCharactersStore } from '..';
 
@@ -36,6 +36,9 @@ export const MainListPage = () => {
               }
           </div>
         }
+        {
+            !isLoading && !characters.length && ( <NoCharacters /> )
+          }
       </section>
   )
 }

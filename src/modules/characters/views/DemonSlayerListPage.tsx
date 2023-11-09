@@ -1,12 +1,12 @@
 import { useEffect } from "react";
-import { ListHeader, useCharacters } from "..";
+import { ListHeader, NoCharacters, useCharacters } from "..";
 import { useCharactersStore } from "..";
 import { Loader } from "../../shared/components";
 import { CharacterCard } from "../components";
 
 
 export const DemonSlayerListPage = () => {
-    const { isLoading } = useCharacters({ 
+    const { isFetching } = useCharacters({ 
         filterKey: "Demon Slayer",
         ctxSetKey: "setDemonSlayerList" 
     });
@@ -25,7 +25,7 @@ export const DemonSlayerListPage = () => {
                 listState="demonSlayerFilterState"
             />
             {
-                isLoading 
+                isFetching 
                 ? ( <Loader /> )
                 :
                 <div className="grid grid-cols-1 md:grid-cols-4 md:gap-3 justify-items-center">
@@ -38,6 +38,9 @@ export const DemonSlayerListPage = () => {
                     ))
                     }
                 </div>
+            }
+            {
+                !isFetching && !characters.length && ( <NoCharacters /> )
             }
         </section>
     )
