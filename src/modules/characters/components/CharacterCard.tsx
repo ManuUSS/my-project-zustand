@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { EyeIcon } from '@heroicons/react/24/outline';
+import { EllipsisVerticalIcon } from '@heroicons/react/24/outline';
 import { StarIcon, StopIcon } from '@heroicons/react/24/solid';
 import { CharacterResponse, validateStatus } from '..';
 import { useNavigate } from 'react-router-dom';
@@ -72,7 +72,7 @@ export const CharacterCard:FC<Props> = ({ character }) => {
                         color='#fabf0c'
                         className="cursor-pointer"
                     />
-                    <EyeIcon 
+                    <EllipsisVerticalIcon
                         width={ 20 } 
                         className='text-gray-600 text-center dark:text-slate-300 cursor-pointer'
                     />
