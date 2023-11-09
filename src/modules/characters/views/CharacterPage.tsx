@@ -23,7 +23,7 @@ export const CharacterPage = () => {
             showBackButton
         />
         <article className='grid grid-cols-3 gap-4 list-max mb-8'>
-            <div className="border rounded-md dark:bg-gray-700 dark:border-gray-800 shadow-sm fade-in">
+            <div className="border bg-gray-50 rounded-md dark:bg-gray-700 dark:border-gray-800 shadow-sm fade-in">
                 <div className="flex items-center rounded-t-md overflow-hidden">
                     <img 
                         className="object-cover h-80 w-full"
