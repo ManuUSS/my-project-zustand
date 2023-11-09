@@ -45,7 +45,7 @@ export const ListHeader:FC<Props> = ({ title, hideSearcher = false, showBackButt
                     </button> 
                 )
             }
-            <h1 className="text-center text-4xl dark:text-slate-100 grow-[2]">{ title }</h1>
+            <h1 className="ml-[19.5rem] text-4xl dark:text-slate-100 grow-[2]">{ title }</h1>
             <ModeButton />
         </div>
     )
