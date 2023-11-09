@@ -6,9 +6,13 @@ interface GetCharacterOptions {
 }
 
 /**
- * Performs a GET Petition to Characters API
- * @param {{ filterKey }}
- * @returns { data } CharacterResponse
+ * Retrieves a list of characters from the API based on optional filtering criteria.
+ *
+ * @async
+ * @param {Object} options - The options object containing an optional filter key.
+ * @param {string} options.filterKey - (Optional) A filter key to specify a series for filtering characters.
+ * @returns {Promise<CharacterResponse[]>} A promise that resolves with an array of character information.
+ * @throws {Error} If there is an issue with the API request.
  */
 export const getCharacters = async ({ filterKey }:GetCharacterOptions ):Promise<CharacterResponse[]> => {
     
@@ -21,24 +25,38 @@ export const getCharacters = async ({ filterKey }:GetCharacterOptions ):Promise<
 
     // <--- Performs API petition --->
     const { data } = await charactersApi.get<CharacterResponse[]>('/characters', { params });
-    await delay( 5000 );
-    return data;
-
-}
-
-export const getCharacter = async ({ id }:GetCharacterOptions ):Promise<CharacterResponse> => {
-    
-    // <--- Performs API petition --->
-    const { data } = await charactersApi.get<CharacterResponse>(`/characters/${ id }`);
+    // <--- Simulates a delay --->
     await delay( 5000 );
     return data;
 
 }
 
 /**
- * Performs a POST Petition to Characters API
- * @param { character } CharacterLike
- * @returns { data } CharacterResponse
+ * Retrieves character information from the API based on the provided character ID.
+ *
+ * @async
+ * @param {Object} options - The options object containing the character ID.
+ * @param {string} options.id - The ID of the character to retrieve.
+ * @returns {Promise<CharacterResponse>} A promise that resolves with the character information.
+ * @throws {Error} If there is an issue with the API request.
+ */
+export const getCharacter = async ({ id }:GetCharacterOptions ):Promise<CharacterResponse> => {
+    
+    // <--- Performs API petition --->
+    const { data } = await charactersApi.get<CharacterResponse>(`/characters/${ id }`);
+    // <--- Simulates a delay --->
+    await delay( 5000 );
+    return data;
+
+}
+
+/**
+ * Creates a new character by sending the provided character data to the API.
+ *
+ * @async
+ * @param {CharacterLike} character - The character data to be created.
+ * @returns {Promise<CharacterResponse>} A promise that resolves with the newly created character information.
+ * @throws {Error} If there is an issue with the API request.
  */
 export const newCharacter = async ( character: CharacterLike ):Promise<CharacterResponse> => {
 
