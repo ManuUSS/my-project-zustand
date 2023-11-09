@@ -9,11 +9,11 @@ import { ToasterSuccess, ToasterError, ToasterInfo } from '../../shared/componen
 
 // Defines the default values of the object that will be created
 const defaultValues:CharacterLike = {
-    name: "Manuel Ulate",
-    serie: "Jujutsu Kaisen",
-    about: "El capitán Alexander Frost, un carismático aventurero del siglo XIX, surca los mares en busca de tesoros perdidos y secretos ancestrales. Con su mirada audaz y su fiel brújula, desafía las tormentas y desentraña misterios en cada puerto lejano. Su legado es una mezcla de coraje y misterio, convirtiéndolo en un personaje inmortal en las páginas de la historia ficticia",
-    image: "https://fictionhorizon.com/wp-content/uploads/2023/05/biscuit-oliva.jpg",
-    status: ("alive") as Status.Unset,
+    name: "",
+    serie: "",
+    about: "",
+    image: "",
+    status: ("") as Status.Unset,
     powers: [],
     cover_photos: [],
 }
