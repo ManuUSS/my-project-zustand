@@ -1,7 +1,7 @@
 import { FC, ChangeEvent } from 'react';
 import { FieldErrors, SubmitHandler, UseFormHandleSubmit, UseFormRegister } from 'react-hook-form'
-import { CharacterLike } from '..'
 import { Power } from '../interfaces/character';
+import { CharacterLike } from '..'
 
 interface Props {
     handleSubmit: UseFormHandleSubmit<CharacterLike, undefined>;
@@ -33,6 +33,12 @@ export const CharacterForm:FC<Props> = (
     { handleSubmit, handleChangePower, onAddPower, power, register, onNewCharacter, errors, isPending }
 ) => {
   
+    const validateValues = ( key: keyof CharacterLike ):string => {
+        return (errors[ key ] )
+        ? "border-red-500 dark:border-red-500"
+        : ""
+    }
+
     return (
         <form 
             className="p-4 col-span-2 border bg-gray-50 rounded-md flex flex-col gap-3 text-lg dark:border-gray-700 dark:bg-gray-700" 
@@ -43,7 +49,7 @@ export const CharacterForm:FC<Props> = (
             <div>
                 <label htmlFor="name" className="after:content-['*'] after:ml-0.5 after:text-red-500 text-gray-900 dark:text-white">Nombre del personaje</label>
                 <input 
-                    className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  
+                    className={`bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${ validateValues( "name" ) }`}  
                     type="text" 
                     id="name" 
                     aria-describedby="character-name" 
@@ -63,7 +69,7 @@ export const CharacterForm:FC<Props> = (
                 <label htmlFor="serie" className="after:content-['*'] after:ml-0.5 after:text-red-500 text-gray-900 dark:text-white">Serie a la que pertenece</label>
                 <select 
                     id="serie" 
-                    className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className={`bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${ validateValues( "serie" ) }`}
                     { ...register("serie", {
                         required: {
                             value: true,
@@ -84,7 +90,7 @@ export const CharacterForm:FC<Props> = (
                 <label htmlFor="status" className="after:content-['*'] after:ml-0.5 after:text-red-500 text-gray-900 dark:text-white">Estado actual</label>
                 <select 
                     id="status" 
-                    className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className={`bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${ validateValues( "status" ) }`}
                     { ...register("status", {
                         required: {
                             value: true,
@@ -105,7 +111,7 @@ export const CharacterForm:FC<Props> = (
                 <label htmlFor="about" className="after:content-['*'] after:ml-0.5 after:text-red-500 text-gray-900 dark:text-white">Acerca de</label>
                 <textarea 
                     id="about" 
-                    className="block p-2.5 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                    className={`block p-2.5 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${ validateValues( "about" ) }`} 
                     placeholder="Leave a comment..."
                     rows={ 4 } 
                     { ...register("about", {
@@ -169,7 +175,7 @@ export const CharacterForm:FC<Props> = (
                     type="text" 
                     id="image" 
                     aria-describedby="character-image" 
-                    className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  
+                    className={`bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${ validateValues( "image" ) }`}  
                     { ...register("image", {
                         required: {
                             value: true,
@@ -186,7 +192,7 @@ export const CharacterForm:FC<Props> = (
                 <label htmlFor="about" className="after:content-['*'] after:ml-0.5 after:text-red-500 text-gray-900 dark:text-white">Imagenes de cover</label>
                 <textarea 
                     id="about" 
-                    className="block p-2.5 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                    className={`block p-2.5 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${ validateValues( "cover_photos" ) }`} 
                     placeholder="Leave a comment..."
                     rows={ 4 } 
                     { ...register("cover_photos", {
@@ -196,6 +202,9 @@ export const CharacterForm:FC<Props> = (
                         }
                     })}
                 />
+                <p className='text-red-600 text-sm font-semibold mt-1 ml-1 dark:text-red-400'>
+                    { errors?.name?.message }
+                </p>
                 <p className='text-gray-300 text-sm font-semibold mt-1 ml-1 dark:text-gray-400'>
                     Agregue 6 links separados por ","
                 </p>
