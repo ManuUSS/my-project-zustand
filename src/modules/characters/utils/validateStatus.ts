@@ -18,3 +18,9 @@ export const validateStautsFilter = ( status: string ):string => {
     
     return "text-sky-500";
 }
+
+export const getStatusText = ( status:Status ) => {
+    if( status === "alive" ) return "Vivo"
+    else if ( status === "dead" ) return "Muerto"
+    return "Desconocido"
+}

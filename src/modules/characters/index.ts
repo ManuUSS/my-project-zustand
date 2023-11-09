@@ -31,7 +31,7 @@ export { useSearcher } from "./hooks/useSearcher";
 export { useNewCharacter } from "./hooks/useNewCharacter";
 
 // <--- Utils --->
-export { validateStatus, validateStautsFilter } from './utils/validateStatus';
+export { validateStatus, validateStautsFilter, getStatusText } from './utils/validateStatus';
 
 // <--- Interfaces --->
 export type { CharacterResponse, CharacterLike, Power } from './interfaces/character';

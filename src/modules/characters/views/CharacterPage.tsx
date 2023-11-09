@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { StopIcon } from '@heroicons/react/24/solid';
-import { CharacterImage, CharacterPowerChip, ListHeader, useCharacter, validateStatus } from '..';
+import { CharacterImage, CharacterPowerChip, ListHeader, getStatusText, useCharacter, validateStatus } from '..';
 import { useEffect } from 'react';
 
 export const CharacterPage = () => {
@@ -38,7 +38,7 @@ export const CharacterPage = () => {
                             <p className="dark:text-slate-300">{ character!.serie }</p>
                         </div>
                         <div className='flex gap-1 items-center'>
-                            <p className={ validateStatus( character!.status! ) }>{ character!.status.charAt(0).toUpperCase() + character!.status.substring( 1 )}</p>
+                            <p className={ validateStatus( character!.status! ) }>{ getStatusText( character!.status) }</p>
                             <StopIcon className={`w-5 ${ validateStatus( character!.status! )}`} />
                         </div>
                     </div>
