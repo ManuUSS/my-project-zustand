@@ -22,6 +22,7 @@ type FilterHandler = "mainFilterStateSet" | "jjkFilterStateSet" | "demonSlayerFi
  */
 export const useSearcher = ({ listModifier = "filterMainList", listState = "mainFilterState" }:Props) => {
     
+    // <--- Characters store handlers | Zustand --->
     const filterContextHandler:FilterHandler = `${ listState }Set`;
     const filterList = useCharactersStore(( state ) => state[ listModifier ] );
     const filterState = useCharactersStore(( state ) => state[ listState ] );
