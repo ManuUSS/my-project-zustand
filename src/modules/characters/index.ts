@@ -30,6 +30,9 @@ export { useCharacter } from "./hooks/useCharacter";
 export { useSearcher } from "./hooks/useSearcher";
 export { useNewCharacter } from "./hooks/useNewCharacter";
 
+// <--- Utils --->
+export { validateStatus } from './utils/validateStatus';
+
 // <--- Interfaces --->
 export type { CharacterResponse, CharacterLike, Power } from './interfaces/character';
 export type { StatusCharacter } from './interfaces/searcher';

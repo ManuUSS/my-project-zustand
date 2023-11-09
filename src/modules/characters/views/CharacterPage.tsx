@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { StopIcon } from '@heroicons/react/24/solid';
-import { CharacterImage, CharacterPowerChip, ListHeader, Status, useCharacter } from '..';
+import { CharacterImage, CharacterPowerChip, ListHeader, useCharacter, validateStatus } from '..';
 import { useEffect } from 'react';
 
 export const CharacterPage = () => {
@@ -13,16 +13,6 @@ export const CharacterPage = () => {
         window.scrollTo(0,0);
         document.title = `Zest | ${ character?.name }`;
     }, []);
-
-    const validateStatus = ( status: Status ) => {
-        if( status === "alive" )
-            return "text-green-500"
-
-        else if ( status === "dead" )
-            return "text-red-500"
-
-        return "text-slate-400"
-    }
 
 
   return (

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { EyeIcon } from '@heroicons/react/24/outline';
 import { StarIcon, StopIcon } from '@heroicons/react/24/solid';
-import { CharacterResponse, Status } from '..';
+import { CharacterResponse, validateStatus } from '..';
 import { useNavigate } from 'react-router-dom';
 import { useQueryClient } from '@tanstack/react-query';
 
@@ -23,16 +23,6 @@ export const CharacterCard:FC<Props> = ({ character }) => {
 
     const clientQuery = useQueryClient();
     const navigate = useNavigate();
-
-    const validateStatus = ( status: Status ) => {
-        if( status === "alive" )
-            return "text-green-500"
-
-        else if ( status === "dead" )
-            return "text-red-500"
-
-        return "text-slate-400"
-    }
 
     const onPresetData = () => {
         clientQuery.setQueryData(

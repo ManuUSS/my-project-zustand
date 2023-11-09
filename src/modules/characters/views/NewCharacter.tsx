@@ -1,5 +1,5 @@
 import { StopIcon } from '@heroicons/react/24/solid';
-import { CharacterForm, CharacterPowerChip, ListHeader, Status } from '..';
+import { CharacterForm, CharacterPowerChip, ListHeader, validateStatus } from '..';
 import { useNewCharacter } from '../hooks/useNewCharacter';
 import { useEffect } from 'react';
 
@@ -15,16 +15,6 @@ export const NewCharacter = () => {
     window.scrollTo(0,0);
     document.title = "Zest | Nuevo personaje";
   }, []);
-
-  const validateStatus = ( status: Status ) => {
-    if( status === "alive" )
-        return "text-green-500"
-
-    else if ( status === "dead" )
-        return "text-red-500"
-
-    return "text-slate-400"
-  }
 
   return (
     <section className="list-container p-4">
