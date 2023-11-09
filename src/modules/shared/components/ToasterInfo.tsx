@@ -10,7 +10,7 @@ export const ToasterInfo:FC<Props> = ({ message, description }) => {
   return (
     <div className="bg-sky-50 rounded-lg w-[32rem] text-sky-600 shadow-sm flex flex-row items-center gap-3 px-5 py-4">
         <InformationCircleIcon 
-            width={ 15 } 
+            width={ 18 } 
         />
         <div className="flex flex-col gap-1 text-lg">
             <p className="font-bold">{ message }</p>
