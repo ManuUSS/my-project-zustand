@@ -137,7 +137,19 @@ export const useNewCharacter = () => {
      * @param { data } CharacterLike
      */
     const onNewCharacter:SubmitHandler<CharacterLike> = async ( data ) => {
-        data.cover_photos = transformData( data );
+        const links = transformData( data );
+        if( links.length > 6 || links.length < 6 ){
+            toast.custom(() => (
+                createElement(
+                    ToasterInfo,
+                    {
+                        message: "Se aceptan únicamente 6 fotografías"
+                    }
+                )
+            ));
+            return;
+        }
+        data.cover_photos = links;
         mutation.mutate( data );
     }
     

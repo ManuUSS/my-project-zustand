@@ -197,7 +197,7 @@ export const CharacterForm:FC<Props> = (
                     })}
                 />
                 <p className='text-gray-300 text-sm font-semibold mt-1 ml-1 dark:text-gray-400'>
-                    Agregue los links separados por ","
+                    Agregue 6 links separados por ","
                 </p>
             </div>
             <div className='flex justify-end mt-4'>
