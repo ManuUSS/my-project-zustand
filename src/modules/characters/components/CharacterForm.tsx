@@ -41,7 +41,7 @@ export const CharacterForm:FC<Props> = (
         >
             {/* Name */}
             <div>
-                <label htmlFor="name" className="text-gray-900 dark:text-white">Nombre del personaje:</label>
+                <label htmlFor="name" className="text-gray-900 dark:text-white">Nombre del personaje</label>
                 <input 
                     className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  
                     type="text" 
@@ -60,7 +60,7 @@ export const CharacterForm:FC<Props> = (
             </div>
             {/* Serie */}
             <div>
-                <label htmlFor="serie" className="text-gray-900 dark:text-white">Serie a la que pertenece:</label>
+                <label htmlFor="serie" className="text-gray-900 dark:text-white">Serie a la que pertenece</label>
                 <select 
                     id="serie" 
                     className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -81,7 +81,7 @@ export const CharacterForm:FC<Props> = (
             </div>
             {/* Status */}
             <div>
-                <label htmlFor="status" className="text-gray-900 dark:text-white">Estado actual:</label>
+                <label htmlFor="status" className="text-gray-900 dark:text-white">Estado actual</label>
                 <select 
                     id="status" 
                     className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -102,7 +102,7 @@ export const CharacterForm:FC<Props> = (
             </div>
             {/* About */}
             <div>
-                <label htmlFor="about" className="text-gray-900 dark:text-white">Acerca de:</label>
+                <label htmlFor="about" className="text-gray-900 dark:text-white">Acerca de</label>
                 <textarea 
                     id="about" 
                     className="block p-2.5 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
@@ -123,31 +123,12 @@ export const CharacterForm:FC<Props> = (
                     { errors?.about?.message }
                 </p>
             </div>
-            {/* Image */}
-            <div>
-                <label htmlFor="image" className="text-gray-900 dark:text-white">Imagen:</label>
-                <input 
-                    type="text" 
-                    id="image" 
-                    aria-describedby="character-image" 
-                    className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  
-                    { ...register("image", {
-                        required: {
-                            value: true,
-                            message: "Este campo es requerido"
-                        }
-                    })}
-                />
-                <p className='text-red-600 text-sm font-semibold mt-1 ml-1 dark:text-red-400'>
-                    { errors?.image?.message }
-                </p>
-            </div>
             {/* Powers */}
             <div>
                 <p className="text-gray-900 dark:text-white">Poderes</p>
                 <div className='flex flex-row gap-2'>
                     <div className='flex-1'>
-                        <label htmlFor="name" className="text-gray-900 dark:text-white">Nombre:</label>
+                        <label htmlFor="name" className="text-gray-900 dark:text-white">Nombre</label>
                         <input 
                             type="text"
                             id="name" 
@@ -158,7 +139,7 @@ export const CharacterForm:FC<Props> = (
                         />
                     </div>
                     <div className='flex-1'>
-                        <label htmlFor="efectiveness" className="text-gray-900 dark:text-white">Escala:</label>
+                        <label htmlFor="efectiveness" className="text-gray-900 dark:text-white">Escala</label>
                         <input 
                             type="number" 
                             max={ 10 }
@@ -180,6 +161,44 @@ export const CharacterForm:FC<Props> = (
                         Agregar
                     </button>
                 </div>
+            </div>
+            {/* Image */}
+            <div>
+                <label htmlFor="image" className="text-gray-900 dark:text-white">Imagen principal</label>
+                <input 
+                    type="text" 
+                    id="image" 
+                    aria-describedby="character-image" 
+                    className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  
+                    { ...register("image", {
+                        required: {
+                            value: true,
+                            message: "Este campo es requerido"
+                        }
+                    })}
+                />
+                <p className='text-red-600 text-sm font-semibold mt-1 ml-1 dark:text-red-400'>
+                    { errors?.image?.message }
+                </p>
+            </div>
+             {/* Cover photos */}
+             <div>
+                <label htmlFor="about" className="text-gray-900 dark:text-white">Imagenes de cover</label>
+                <textarea 
+                    id="about" 
+                    className="block p-2.5 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                    placeholder="Leave a comment..."
+                    rows={ 4 } 
+                    { ...register("cover_photos", {
+                        required: {
+                            value: true,
+                            message: "Este campo es requerido"
+                        }
+                    })}
+                />
+                <p className='text-gray-300 text-sm font-semibold mt-1 ml-1 dark:text-gray-400'>
+                    Agregue los links separados por ","
+                </p>
             </div>
             <div className='flex justify-end mt-4'>
                 <button 
