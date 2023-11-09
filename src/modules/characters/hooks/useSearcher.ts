@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Status, useCharactersStore } from '..';
+import { Status, useCharactersStore, validateStautsFilter } from '..';
 
 interface FilterProps {
     label: string;
@@ -33,7 +33,7 @@ export const useSearcher = ({ listModifier = "filterMainList", listState = "main
     const [ dropDownVisible, setdropDownVisible ] = useState<DropDownOptions>( 'hidden' );
 
     useEffect(() => {
-        setfilterColor( handleFilterColor( filterStatus.value ) );
+        setfilterColor( validateStautsFilter( filterStatus.value ) );
     }, [ filterStatus ]);
     
 
@@ -50,14 +50,6 @@ export const useSearcher = ({ listModifier = "filterMainList", listState = "main
         setdropDownVisible( 'hidden' );
     }
 
-    const handleFilterColor = ( status: string ):string => {
-
-        if( status === "alive" ) return "text-green-500";
-        else if( status === "dead" ) return "text-red-500";
-        else if( status === "unknown" ) return "text-slate-400";
-        
-        return "text-sky-500";
-    }
 
     return {
         filterStatus,
