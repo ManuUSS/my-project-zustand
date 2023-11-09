@@ -37,12 +37,20 @@ export const useSearcher = ({ listModifier = "filterMainList", listState = "main
     }, [ filterStatus ]);
     
 
+    /**
+     * Toggles the visibility of the dropdown element between "visible" and "hidden".
+     */
     const showDropDown = () => {
         ( dropDownVisible === "hidden" )
         ? setdropDownVisible( "visible" )
         : setdropDownVisible( "hidden" );
     }
 
+    /**
+     * Changes the status filter and triggers associated actions.
+     *
+     * @param {FilterProps} status - The status filter to apply.
+     */
     const changeStatus = ( status:FilterProps ) => {
         setfilterStatus( status );
         filterList( status.value as Status );
