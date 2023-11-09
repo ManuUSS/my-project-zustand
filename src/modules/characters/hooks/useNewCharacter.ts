@@ -153,12 +153,23 @@ export const useNewCharacter = () => {
         mutation.mutate( data );
     }
     
+    /**
+     * Transforms character data into an array of strings by processing cover photos.
+     *
+     * @param {CharacterLike} data - The character data containing cover photos.
+     * @returns {string[]} An array of strings representing cover photos.
+     */
     const transformData = ( data:CharacterLike ): string[] => {
         let strn:any = data.cover_photos;
         strn = strn.replaceAll("\n", "").trim();
         return strn.split(',');
     }
 
+    /**
+     * Adds a new power to an array based on the input values.
+     *
+     * @function
+     */
     const onAddPower = () => {
         if( power.efectiveness > 10 || power.efectiveness < 1 ) {
             toast.custom(() => (
@@ -176,6 +187,11 @@ export const useNewCharacter = () => {
         setPower({ name: "", efectiveness: 0 });
     }
 
+    /**
+     * Updates the "power" state based on the input's value and name.
+     *
+     * @param {ChangeEvent<HTMLInputElement>} event - The event object containing the input data.
+     */
     const handleChangePower = ( event: ChangeEvent<HTMLInputElement> ) => {
         const { target: { value, name }} = event;
         setPower(( currentPower ) => ({ ...currentPower, [name]: value }));
