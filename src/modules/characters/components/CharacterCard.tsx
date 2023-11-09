@@ -48,7 +48,7 @@ export const CharacterCard:FC<Props> = ({ character }) => {
             onMouseEnter={ onPresetData }
         >
             <div 
-                className="overflow-hidden"
+                className="overflow-hidden cursor-pointer"
                 onClick={() => navigate(`/character/${ character.id }`)}
             >
                 <img 
