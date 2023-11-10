@@ -24,7 +24,7 @@ export const CharacterCard:FC<Props> = ({ character }) => {
     const clientQuery = useQueryClient();
     const navigate = useNavigate();
     const { hasCharacter } = useFavoriteStore();
-    const { onAddFavorite } = useCharacterFavorite();
+    const { onAddFavorite, onRemoveFavorite } = useCharacterFavorite();
 
     const onPresetData = () => {
         clientQuery.setQueryData(
@@ -71,8 +71,20 @@ export const CharacterCard:FC<Props> = ({ character }) => {
                 >
                     {
                         hasCharacter( character.name ) 
-                        ? ( <StarIconSolid width={ 20 } color="#fabf0c"/> )
-                        : ( <StarIconOutline width={ 20 } className="cursor-pointer text-gray-600" onClick={ () => onAddFavorite( character ) } /> )
+                        ? ( 
+                            <StarIconSolid 
+                                width={ 20 } 
+                                className="cursor-pointer text-[#fabf0c]"
+                                onClick={ () => onRemoveFavorite( character.name )}
+                            /> 
+                        )
+                        : ( 
+                            <StarIconOutline 
+                                width={ 20 } 
+                                className="cursor-pointer text-gray-600" 
+                                onClick={ () => onAddFavorite( character ) } 
+                            /> 
+                        )
                     }
                     <EllipsisVerticalIcon
                         width={ 20 } 
