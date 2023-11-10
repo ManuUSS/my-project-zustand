@@ -69,17 +69,24 @@ export const CharacterImage:FC<Props> = ({ url }) => {
             }
             {
                 isZoomed && (
-                    <div className="w-screen h-screen fixed top-0 left-0 right-0 z-50 p-10 backdrop-blur-md">
+                    <div 
+                        className="w-screen h-screen fixed top-0 left-0 right-0 z-50 p-10 backdrop-blur-md bg-neutral-900/30 cursor-pointer"
+                        onClick={ closeModal }
+                    >
                         <div 
-                            className="rounded-md bg-cover bg-no-repeat bg-center h-full flex flex-col p-4 gap-4 mx-auto w-[900px]"
+                            className="rounded-md bg-cover bg-no-repeat bg-center h-full flex flex-col p-4 gap-4 mx-auto w-[900px] cursor-auto"
                             style={{ backgroundImage: `url(${ url })`}}
                         >
                             <div className="flex justify-end">
-                                <XMarkIcon 
-                                    width={ 22 } 
-                                    className='text-red-500 cursor-pointer'
-                                    onClick={ closeModal }
-                                />
+                                <div
+                                    className='bg-gray-700/50 rounded-full p-2'
+                                >
+                                    <XMarkIcon 
+                                        width={ 16 } 
+                                        className='text-white cursor-pointer'
+                                        onClick={ closeModal }
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
