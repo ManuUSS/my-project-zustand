@@ -1,4 +1,5 @@
 
+
 // <--- Views --->
 export { MainListPage } from './views/MainListPage';
 export { JJKListPage } from './views/JJKListPage';
@@ -28,6 +29,7 @@ export * as charactersActions from './services/actions'
 // <--- Hooks --->
 export { useCharacters } from "./hooks/useCharacters";
 export { useCharacter } from "./hooks/useCharacter";
+export { useCharacterFavorite } from "./hooks/useCharacterFavorite";
 export { useSearcher } from "./hooks/useSearcher";
 export { useNewCharacter } from "./hooks/useNewCharacter";
 
