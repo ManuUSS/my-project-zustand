@@ -15,6 +15,8 @@ export const FavoriteListPage = () => {
       <section className="list-container p-4">
         <ListHeader 
           title='Lista de favoritos' 
+          hideSearcher
+          showBackButton
         />
         <div className="grid grid-cols-1 md:grid-cols-4 md:gap-3 justify-items-center">
             {
