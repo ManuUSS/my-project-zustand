@@ -81,7 +81,7 @@ export const CharacterCard:FC<Props> = ({ character }) => {
                         : ( 
                             <StarIconOutline 
                                 width={ 20 } 
-                                className="cursor-pointer text-gray-600" 
+                                className="cursor-pointer text-gray-400 dark:text-gray-600" 
                                 onClick={ () => onAddFavorite( character ) } 
                             /> 
                         )
