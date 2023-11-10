@@ -17,6 +17,7 @@ export { NoCharacters } from './components/NoCharacters';
 
 // <--- Context --->
 export { useCharactersStore } from './context/CharactersStore';
+export { useFavoriteStore } from './context/FavoritesStore';
 
 // <--- API --->
 export { charactersApi } from "./api/charactersApi";

@@ -10,6 +10,7 @@ export interface FavoriteStore {
     setfavoriteList: ( list:CharacterResponse[] ) => void;
     addTofavoriteList: ( char: CharacterResponse ) => void;
     filterfavoriteList: ( status?: Status, name?:string ) => void;
+    hasCharacter: ( charName: string ) => boolean;
 }
 
 /**
@@ -56,7 +57,10 @@ export const useFavoriteStore = create<FavoriteStore>()( persist(( set, get ) =>
         set(() => ({ favoriteListCopy: listFiltered }));
     },
     favoriteFilterState: { label: "Todos", value: "" },
-    favoriteFilterStateSet: ( filter: StatusCharacter ) => set(() => ({ favoriteFilterState: filter }))
+    favoriteFilterStateSet: ( filter: StatusCharacter ) => set(() => ({ favoriteFilterState: filter })),
+    hasCharacter: ( charName: string ):boolean => {
+        return get().favoriteList.some(({ name }) => name === charName );
+    }
     }), {
         name: "favorite-list-store"
 
