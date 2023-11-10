@@ -8,7 +8,7 @@ interface Props {
 
 export const ToasterFavorite:FC<Props> = ({ message, description }) => {
   return (
-    <div className="bg-sky-50 rounded-lg w-[32rem] text-sky-600 shadow-sm flex flex-row items-center gap-3 px-5 py-4">
+    <div className="bg-yellow-50 rounded-lg w-[32rem] text-yellow-600 shadow-sm flex flex-row items-center gap-3 px-5 py-4">
         <StarIcon 
             width={ 18 }
             color="#fabf0c"

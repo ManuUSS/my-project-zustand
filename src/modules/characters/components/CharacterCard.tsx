@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { EllipsisVerticalIcon, StarIcon as StarIconOutline } from '@heroicons/react/24/outline';
 import { StarIcon as StarIconSolid, StopIcon } from '@heroicons/react/24/solid';
-import { CharacterResponse, useFavoriteStore, validateStatus } from '..';
+import { CharacterResponse, useCharacterFavorite, useFavoriteStore, validateStatus } from '..';
 import { useNavigate } from 'react-router-dom';
 import { useQueryClient } from '@tanstack/react-query';
 
@@ -24,6 +24,7 @@ export const CharacterCard:FC<Props> = ({ character }) => {
     const clientQuery = useQueryClient();
     const navigate = useNavigate();
     const { hasCharacter } = useFavoriteStore();
+    const { onAddFavorite } = useCharacterFavorite();
 
     const onPresetData = () => {
         clientQuery.setQueryData(
@@ -71,7 +72,7 @@ export const CharacterCard:FC<Props> = ({ character }) => {
                     {
                         hasCharacter( character.name ) 
                         ? ( <StarIconSolid width={ 20 } color="#fabf0c"/> )
-                        : ( <StarIconOutline width={ 20 } className="cursor-pointer text-gray-600" /> )
+                        : ( <StarIconOutline width={ 20 } className="cursor-pointer text-gray-600" onClick={ () => onAddFavorite( character ) } /> )
                     }
                     <EllipsisVerticalIcon
                         width={ 20 } 
