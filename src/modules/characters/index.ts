@@ -5,6 +5,7 @@ export { MainListPage } from './views/MainListPage';
 export { JJKListPage } from './views/JJKListPage';
 export { HxHListPage } from './views/HxHListPage';
 export { DemonSlayerListPage } from './views/DemonSlayerListPage';
+export { FavoriteListPage } from './views/FavoriteListPage';
 export { NewCharacter } from './views/NewCharacter';
 export { CharacterPage } from './views/CharacterPage';
 

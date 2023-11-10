@@ -28,6 +28,10 @@ export const router = createBrowserRouter([
                 element: <HxHListPage />
             },
             {
+                path: PATHS["Favorite"],
+                element: <Fav />
+            },
+            {
                 path: PATHS["New"],
                 element: <NewCharacter />
             },

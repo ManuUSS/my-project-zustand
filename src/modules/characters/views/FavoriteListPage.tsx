@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { CharacterCard, ListHeader, NoCharacters, useFavoriteStore } from '..';
 
-export const MainListPage = () => {
+export const FavoriteListPage = () => {
 
   const characters = useFavoriteStore(( state ) => state.favoriteList );
 
@@ -15,8 +15,6 @@ export const MainListPage = () => {
       <section className="list-container p-4">
         <ListHeader 
           title='Lista de favoritos' 
-          listModifier="filterMainList"
-          listState="mainFilterState"
         />
         <div className="grid grid-cols-1 md:grid-cols-4 md:gap-3 justify-items-center">
             {
