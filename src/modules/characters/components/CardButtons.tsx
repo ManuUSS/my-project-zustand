@@ -2,6 +2,7 @@ import { EllipsisVerticalIcon, EyeIcon, PencilIcon, StarIcon as StarIconOutline,
 import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid';
 import { CharacterResponse, useCharacterFavorite, useFavoriteStore } from '..';
 import { FC, useState } from 'react';
+import { toast } from 'sonner';
 
 interface Props {
     character: CharacterResponse;
@@ -15,9 +16,21 @@ export const CardButtons:FC<Props> = ({  character, className, hideEllipsis = fa
     const { onAddFavorite, onRemoveFavorite } = useCharacterFavorite();
     const [ menuOptions, setMenuOptions ] = useState<string>("hidden");
 
-
     const toggleMenu = () => {
         menuOptions === "hidden" ? setMenuOptions("visible") : setMenuOptions("hidden")
+    }
+
+    const onDelete = () => {
+        toast('Hola', {
+            action: {
+                label: 'Eliminar',
+                onClick: () => console.log('Eliminado...')
+            },
+            cancel: {
+                label: 'Cancelar',
+                onClick: () => console.log('Cancelando')
+            }
+        })
     }
 
     return (
@@ -53,7 +66,7 @@ export const CardButtons:FC<Props> = ({  character, className, hideEllipsis = fa
                         />
                         <div 
                             id="dropdown-menu-options" 
-                            className={`${ menuOptions } absolute z-10 -top-[90px] -right-[5px] bg-white rounded-lg shadow-md w-44 dark:bg-gray-700`}
+                            className={`${ menuOptions } absolute z-10 -top-[90px] -right-[5px] bg-white rounded-lg shadow-md border w-44 dark:bg-gray-700 dark:border-gray-600`}
                         >   
                             <ul className="py-2 text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button-2">
                                 <li>
@@ -89,6 +102,7 @@ export const CardButtons:FC<Props> = ({  character, className, hideEllipsis = fa
                                         type="button" 
                                         className="inline-flex w-full px-4 py-2 text-red-500 hover:bg-gray-100 dark:hover:bg-gray-600" 
                                         role="menuitem"
+                                        onClick={ onDelete }
                                     >
                                         <div className="inline-flex items-center gap-2">
                                             <TrashIcon
