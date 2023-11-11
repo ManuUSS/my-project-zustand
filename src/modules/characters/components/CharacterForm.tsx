@@ -39,6 +39,11 @@ export const CharacterForm:FC<Props> = (
         : ""
     }
 
+    const classesOnFetching = () => {
+        return isPending ? "!bg-gray-300 !text-gray-700 !border-none dark:!bg-gray-300 dark:!text-gray-700" : ""
+    }
+ 
+
     return (
         <form 
             className="p-4 col-span-2 border bg-gray-50 rounded-md flex flex-col gap-3 text-lg dark:border-gray-700 dark:bg-gray-700" 
@@ -213,7 +218,7 @@ export const CharacterForm:FC<Props> = (
                 <button 
                     type="submit" 
                     disabled={ isPending }
-                    className="text-lg text-white bg-sky-500 hover:bg-sky-600 rounded-lg px-5 py-2.5 text-center dark:bg-sky-400 dark:hover:bg-sky-500 flex items-center"
+                    className={`text-lg text-white bg-sky-500 hover:bg-sky-600 rounded-lg px-5 py-2.5 text-center dark:bg-sky-400 dark:hover:bg-sky-500 flex items-center ${ classesOnFetching() }`}
                 >
                     {
                         isPending && 
