@@ -1,7 +1,7 @@
 import { EllipsisVerticalIcon, EyeIcon, PencilIcon, StarIcon as StarIconOutline, TrashIcon } from '@heroicons/react/24/outline';
 import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid';
 import { CharacterResponse, useCharacterFavorite, useFavoriteStore } from '..';
-import { FC, createElement, useState } from 'react';
+import { FC, createElement, useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import { ToasterAction } from '../../shared/components';
 
@@ -16,6 +16,15 @@ export const CardButtons:FC<Props> = ({  character, className, hideEllipsis = fa
     const { hasCharacter } = useFavoriteStore();
     const { onAddFavorite, onRemoveFavorite } = useCharacterFavorite();
     const [ menuOptions, setMenuOptions ] = useState<string>("hidden");
+
+    useEffect(() => {
+      
+      return () => {
+        setMenuOptions("hidden");
+      }
+      
+    }, [])
+    
 
     const toggleMenu = () => {
         menuOptions === "hidden" ? setMenuOptions("visible") : setMenuOptions("hidden")
