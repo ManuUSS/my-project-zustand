@@ -27,7 +27,7 @@ export const Searcher:FC<Props> = memo(({ listModifier, listState }) => {
                 <div>
                     <button 
                         id="dropdown-button-2" 
-                        data-dropdown-toggle="dropdown-search-city" 
+                        data-dropdown-toggle="dropdown-search-character" 
                         className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 font-medium text-center text-gray-500 border border-gray-300 rounded-l-lg hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white dark:border-gray-600" 
                         type="button"
                         onClick={ showDropDown }
@@ -38,7 +38,7 @@ export const Searcher:FC<Props> = memo(({ listModifier, listState }) => {
                         { filterStatus.label }
                     </button>
                     <div 
-                        id="dropdown-search-city" 
+                        id="dropdown-search-character" 
                         className={`${ dropDownVisible } absolute z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700`}
                     >
                         <ul className="py-2 text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button-2">
