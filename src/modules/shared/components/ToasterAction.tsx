@@ -16,13 +16,13 @@ export const ToasterAction:FC<Props> = ({ message, description, t }) => {
         </div>
         <div className='flex gap-2'>
             <button 
-                className='px-3 py-2 bg-green-50 text-green-600 border border-green-600 rounded-lg'
+                className='text-sky-500 border border-sky-500 rounded-lg px-5 py-2.5 text-center flex items-center'
                 onClick={ () => toast.dismiss( t ) }
             >
                 Cancelar
             </button>
             <button 
-                className='px-3 py-2 bg-red-50 text-red-600 border border-red-600 rounded-lg'>Eliminar</button>
+                className='text-white bg-sky-500 rounded-lg px-5 py-2.5 text-center flex items-center'>Eliminar</button>
         </div>
     </div>
   )
