@@ -16,6 +16,7 @@ export { CharacterPowerChip } from './components/CharacterPowerChip';
 export { CharacterForm } from './components/CharacterForm';
 export { CharacterImage } from './components/CharacterImage';
 export { NoCharacters } from './components/NoCharacters';
+export { CardButtons } from './components/CardButtons';
 
 // <--- Context --->
 export { useCharactersStore } from './context/CharactersStore';
