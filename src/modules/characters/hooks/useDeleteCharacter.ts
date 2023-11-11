@@ -59,6 +59,7 @@ export const useDeleteCharacter = () => {
     }
 
     return {
-        onDeleteCharacter
+        onDeleteCharacter,
+        isFetching: mutation.isPending
     }
 }

@@ -28,6 +28,7 @@ export const CardButtons:FC<Props> = ({  character, className, hideEllipsis = fa
                 {
                     message: `¿Seguro que desea eliminar a ${ character.name }?`,
                     description: 'Esta acción es irreversible',
+                    charId: character.id,
                     t
                 }
             )   

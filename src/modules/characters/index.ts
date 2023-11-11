@@ -34,6 +34,7 @@ export { useCharacter } from "./hooks/useCharacter";
 export { useCharacterFavorite } from "./hooks/useCharacterFavorite";
 export { useSearcher } from "./hooks/useSearcher";
 export { useNewCharacter } from "./hooks/useNewCharacter";
+export { useDeleteCharacter } from "./hooks/useDeleteCharacter";
 
 // <--- Utils --->
 export { validateStatus, validateStautsFilter, getStatusText } from './utils/validateStatus';
