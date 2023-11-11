@@ -27,7 +27,7 @@ export const CharacterPage = () => {
                 <div className="flex items-center rounded-t-md overflow-hidden relative">
                 <CardButtons 
                     character={ character! } 
-                    className='absolute top-2 right-2 bg-gray-700/50 rounded-full p-2' 
+                    className='absolute top-2 right-2 bg-gray-900/80 rounded-full p-2' 
                     hideEllipsis 
                 />
                     <img 
