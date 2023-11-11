@@ -6,23 +6,24 @@ import { FC } from 'react';
 interface Props {
     character: CharacterResponse;
     className?: string;
+    hideEllipsis?: boolean;
 }
 
-export const CardButtons:FC<Props> = ({  character, className }) => {
+export const CardButtons:FC<Props> = ({  character, className, hideEllipsis }) => {
 
     const { hasCharacter } = useFavoriteStore();
     const { onAddFavorite, onRemoveFavorite } = useCharacterFavorite();
 
     return (
         <div
-            className="flex justify-between items-center"
+            className={`flex justify-between items-center ${ className }`}
         >
             {
                 hasCharacter( character.name ) 
                 ? ( 
                     <StarIconSolid 
                         width={ 20 } 
-                        className={`cursor-pointer text-[#fabf0c] ${ className }`}
+                        className="cursor-pointer text-[#fabf0c]"
                         onClick={ () => onRemoveFavorite( character.name )}
                     /> 
                 )
@@ -34,10 +35,15 @@ export const CardButtons:FC<Props> = ({  character, className }) => {
                     /> 
                 )
             }
-            <EllipsisVerticalIcon
-                width={ 20 } 
-                className='text-gray-600 text-center dark:text-slate-300 cursor-pointer'
-            />
+            {
+                !hideEllipsis && (
+                    <EllipsisVerticalIcon
+                        width={ 20 } 
+                        className='text-gray-600 text-center dark:text-slate-300 cursor-pointer'
+                    />
+                )
+            }
+            
         </div>
     )
 }

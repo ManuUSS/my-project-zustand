@@ -24,7 +24,8 @@ export const CharacterPage = () => {
         />
         <div className='grid grid-cols-3 gap-4 list-max mb-8'>
             <article className="border bg-gray-50 rounded-md dark:bg-gray-700 dark:border-gray-800 shadow-sm fade-in">
-                <div className="flex items-center rounded-t-md overflow-hidden">
+                <div className="flex items-center rounded-t-md overflow-hidden relative">
+                <CardButtons character={ character! } className='absolute top-2 right-2 bg-gray-700/50 rounded-full p-2' hideEllipsis />
                     <img 
                         className="object-cover h-80 w-full"
                         src={ character!.image } 
@@ -54,7 +55,6 @@ export const CharacterPage = () => {
                             )
                         }
                     </div>
-                    <CardButtons character={ character! } className='mt-6' />
                 </div>
             </article>
             <div className="col-span-2 grid grid-cols-2 grid-rows-3 gap-4">
