@@ -68,4 +68,11 @@ export const newCharacter = async ( character: CharacterLike ):Promise<Character
     return data;
 }
 
+export const deleteCharacter = async ({ id }:GetCharacterOptions ) => {
+    // <--- Performs API petition --->
+    await charactersApi.delete<CharacterResponse>(`/characters/${ id }`);
+    // <--- Simulates a delay --->
+    await delay( 5000 );
+}
+
 export const delay = (ms:number) => new Promise(res => setTimeout(res, ms));
