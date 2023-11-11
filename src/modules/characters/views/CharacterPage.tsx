@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { StopIcon } from '@heroicons/react/24/solid';
-import { CharacterImage, CharacterPowerChip, ListHeader, getStatusText, useCharacter, validateStatus } from '..';
+import { CardButtons, CharacterImage, CharacterPowerChip, ListHeader, getStatusText, useCharacter, validateStatus } from '..';
 import { useEffect } from 'react';
 
 export const CharacterPage = () => {
@@ -22,8 +22,8 @@ export const CharacterPage = () => {
             hideSearcher 
             showBackButton
         />
-        <article className='grid grid-cols-3 gap-4 list-max mb-8'>
-            <div className="border bg-gray-50 rounded-md dark:bg-gray-700 dark:border-gray-800 shadow-sm fade-in">
+        <div className='grid grid-cols-3 gap-4 list-max mb-8'>
+            <article className="border bg-gray-50 rounded-md dark:bg-gray-700 dark:border-gray-800 shadow-sm fade-in">
                 <div className="flex items-center rounded-t-md overflow-hidden">
                     <img 
                         className="object-cover h-80 w-full"
@@ -54,8 +54,9 @@ export const CharacterPage = () => {
                             )
                         }
                     </div>
+                    <CardButtons character={ character! } className='mt-6' />
                 </div>
-            </div>
+            </article>
             <div className="col-span-2 grid grid-cols-2 grid-rows-3 gap-4">
                 {
                     character?.cover_photos?.map(( photo ) => (
@@ -63,7 +64,7 @@ export const CharacterPage = () => {
                     ))
                 }
             </div>
-        </article>
+        </div>
         <div className=''>
             <p className="after:border-b text-center text-2xl font-semibold mb-2 dark:text-slate-100">Personajes similares</p>
             <div className='flex gap-4'>

@@ -5,9 +5,10 @@ import { FC } from 'react';
 
 interface Props {
     character: CharacterResponse;
+    className?: string;
 }
 
-export const CardButtons:FC<Props> = ({  character }) => {
+export const CardButtons:FC<Props> = ({  character, className }) => {
 
     const { hasCharacter } = useFavoriteStore();
     const { onAddFavorite, onRemoveFavorite } = useCharacterFavorite();
@@ -21,7 +22,7 @@ export const CardButtons:FC<Props> = ({  character }) => {
                 ? ( 
                     <StarIconSolid 
                         width={ 20 } 
-                        className="cursor-pointer text-[#fabf0c]"
+                        className={`cursor-pointer text-[#fabf0c] ${ className }`}
                         onClick={ () => onRemoveFavorite( character.name )}
                     /> 
                 )
