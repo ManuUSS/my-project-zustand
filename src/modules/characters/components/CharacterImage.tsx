@@ -47,7 +47,7 @@ export const CharacterImage:FC<Props> = ({ url }) => {
                 isLoaded 
                 ? (        
                     <div 
-                        className='rounded-md min-h-[180px] cursor-zoom-in overflow-hidden'
+                        className='rounded-md h-[200px] cursor-zoom-in overflow-hidden'
                         onClick={ handleZoom }
                     >
                         <img 
