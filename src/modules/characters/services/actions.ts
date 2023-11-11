@@ -1,4 +1,4 @@
-import { CharacterLike, CharacterResponse, charactersApi, useCharactersStore } from "..";
+import { CharacterLike, CharacterResponse, charactersApi } from "..";
 
 interface GetCharacterOptions {
     filterKey?: string;
@@ -68,17 +68,14 @@ export const newCharacter = async ( character: CharacterLike ):Promise<Character
     return data;
 }
 
-export const deleteCharacter = async ({ id }:GetCharacterOptions ) => {
-    
-    const characters = useCharactersStore(( store ) => store.mainList );
-    const characterDeleted = characters.find(({ id }) => id === id )!;
+export const deleteCharacter = async ( character: CharacterResponse ) => {
 
     // <--- Performs API petition --->
-    await charactersApi.delete<CharacterResponse>(`/characters/${ id }`);
+    await charactersApi.delete(`/characters/${ character.id }`);
     // <--- Simulates a delay --->
     await delay( 5000 );
 
-    return characterDeleted
+    return character;
 }
 
 export const delay = (ms:number) => new Promise(res => setTimeout(res, ms));

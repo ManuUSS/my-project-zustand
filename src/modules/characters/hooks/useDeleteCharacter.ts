@@ -5,7 +5,11 @@ import moment from "moment";
 import { createElement } from "react";
 import { ToasterSuccess } from "../../shared/components";
 
-export const useDeleteCharacter = () => {
+interface Props {
+    t?: string | number;
+}
+
+export const useDeleteCharacter = ({ t }:Props ) => {
     
     // <--- Current queryclient --->
     const queryClient = useQueryClient();
@@ -14,6 +18,7 @@ export const useDeleteCharacter = () => {
     const mutation = useMutation({
         mutationFn: charactersActions.deleteCharacter,
         onSuccess: ( charDeleted ) => {
+            toast.dismiss( t );
             // <--- Shows a success message when confirms the POST was successfully submitted -->
             toast.custom(() => ( 
                 createElement( 
@@ -22,10 +27,7 @@ export const useDeleteCharacter = () => {
                         message: `${ charDeleted.name } eliminado correctamente`,
                         description: `Personaje eliminado ${ moment().format('MM/DD/YYYY')}`
                     }
-                )),
-                {
-                  className: "fixed right-0",
-                }
+                ))
             );
             
             removeFromList( charDeleted.id );
@@ -54,8 +56,8 @@ export const useDeleteCharacter = () => {
         }
     })
 
-    const onDeleteCharacter = async ( id: number  ) => {
-        mutation.mutate( { id } );
+    const onDeleteCharacter = async ( character: CharacterResponse ) => {
+       mutation.mutate( character );
     }
 
     return {

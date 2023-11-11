@@ -1,20 +1,20 @@
 import { FC } from 'react';
 import { toast } from 'sonner';
-import { useDeleteCharacter } from '../../characters';
+import { CharacterResponse, useDeleteCharacter } from '../../characters';
 
 interface Props {
     message: string;
-    charId: number;
+    character: CharacterResponse;
     t: string | number;
     description?: string;
 }
 
-export const ToasterAction:FC<Props> = ({ message, charId, description, t }) => {
+export const ToasterAction:FC<Props> = ({ message, character, description, t }) => {
 
-    const { onDeleteCharacter, isFetching } = useDeleteCharacter();
+    const { onDeleteCharacter, isFetching } = useDeleteCharacter({ t });
 
     const classesOnFetching = () => {
-        return isFetching ? "bg-gray-300 text-gray-700" : ""
+        return isFetching ? "!bg-gray-300 !text-gray-700 !border-none" : ""
     }
 
     return (
@@ -25,7 +25,7 @@ export const ToasterAction:FC<Props> = ({ message, charId, description, t }) => 
             </div>
             <div className='flex gap-2'>
                 <button 
-                    disabled={ isFetching }
+                    disabled={ isFetching } 
                     className={`text-sky-500 border border-sky-500 rounded-lg px-4 py-2 text-center flex items-center ${ classesOnFetching() }`}
                     onClick={ () => toast.dismiss( t ) }
                 >
@@ -34,7 +34,7 @@ export const ToasterAction:FC<Props> = ({ message, charId, description, t }) => 
                 <button 
                     disabled={ isFetching }
                     className={`text-white bg-sky-500 rounded-lg px-4 py-2 text-center flex items-center ${ classesOnFetching() }`}
-                    onClick={ () => onDeleteCharacter( charId ) }
+                    onClick={ () => onDeleteCharacter( character ) }
                 >
                     {
                         isFetching && 
