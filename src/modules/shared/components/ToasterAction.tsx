@@ -14,7 +14,7 @@ export const ToasterAction:FC<Props> = ({ message, character, description, t }) 
     const { onDeleteCharacter, isFetching } = useDeleteCharacter({ t });
 
     const classesOnFetching = () => {
-        return isFetching ? "!bg-gray-300 !text-gray-700 !border-none" : ""
+        return isFetching ? "!bg-gray-300 !text-gray-700 !border-none hover:!bg-gray-300" : ""
     }
 
     return (
@@ -26,14 +26,14 @@ export const ToasterAction:FC<Props> = ({ message, character, description, t }) 
             <div className='flex gap-2'>
                 <button 
                     disabled={ isFetching } 
-                    className={`text-sky-500 border border-sky-500 rounded-lg px-4 py-2 text-center flex items-center ${ classesOnFetching() }`}
+                    className={`text-sky-500 border border-sky-500 rounded-lg px-4 py-2 text-center flex items-center hover:bg-gray-100 ${ classesOnFetching() }`}
                     onClick={ () => toast.dismiss( t ) }
                 >
                     Cancelar
                 </button>
                 <button 
                     disabled={ isFetching }
-                    className={`text-white bg-sky-500 rounded-lg px-4 py-2 text-center flex items-center ${ classesOnFetching() }`}
+                    className={`text-white bg-sky-500 rounded-lg px-4 py-2 text-center flex items-center hover:bg-sky-600 ${ classesOnFetching() }`}
                     onClick={ () => onDeleteCharacter( character ) }
                 >
                     {
