@@ -1,8 +1,9 @@
 import { EllipsisVerticalIcon, EyeIcon, PencilIcon, StarIcon as StarIconOutline, TrashIcon } from '@heroicons/react/24/outline';
 import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid';
 import { CharacterResponse, useCharacterFavorite, useFavoriteStore } from '..';
-import { FC, useState } from 'react';
+import { FC, createElement, useState } from 'react';
 import { toast } from 'sonner';
+import { ToasterAction } from '../../shared/components';
 
 interface Props {
     character: CharacterResponse;
@@ -21,16 +22,19 @@ export const CardButtons:FC<Props> = ({  character, className, hideEllipsis = fa
     }
 
     const onDelete = () => {
-        toast('Hola', {
-            action: {
-                label: 'Eliminar',
-                onClick: () => console.log('Eliminado...')
-            },
-            cancel: {
-                label: 'Cancelar',
-                onClick: () => console.log('Cancelando')
-            }
-        })
+        toast.custom(( t ) => (
+            createElement(
+                ToasterAction,
+                {
+                    message: `¿Seguro que desea eliminar a ${ character.name }?`,
+                    description: 'Esta acción es irreversible',
+                    t
+                }
+            )   
+        ),{
+            duration: 150000000
+        }
+        )
     }
 
     return (
