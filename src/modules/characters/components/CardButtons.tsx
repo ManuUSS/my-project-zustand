@@ -6,11 +6,10 @@ import { FC } from 'react';
 interface Props {
     character: CharacterResponse;
     className?: string;
-    starIconOutlineColor?: string;
     hideEllipsis?: boolean;
 }
 
-export const CardButtons:FC<Props> = ({  character, className, hideEllipsis = false, starIconOutlineColor }) => {
+export const CardButtons:FC<Props> = ({  character, className, hideEllipsis = false }) => {
 
     const { hasCharacter } = useFavoriteStore();
     const { onAddFavorite, onRemoveFavorite } = useCharacterFavorite();
@@ -31,7 +30,7 @@ export const CardButtons:FC<Props> = ({  character, className, hideEllipsis = fa
                 : ( 
                     <StarIconOutline 
                         width={ 20 } 
-                        className={`cursor-pointer text-gray-400 dark:text-gray-600 ${ starIconOutlineColor && `text-${ starIconOutlineColor } dark:text-${ starIconOutlineColor }`}`} 
+                        className='cursor-pointer text-gray-400 dark:text-gray-600' 
                         onClick={ () => onAddFavorite( character ) } 
                     /> 
                 )
