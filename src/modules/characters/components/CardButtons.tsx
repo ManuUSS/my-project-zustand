@@ -4,6 +4,7 @@ import { CharacterResponse, useCharacterFavorite, useFavoriteStore } from '..';
 import { FC, createElement, useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import { ToasterAction } from '../../shared/components';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
     character: CharacterResponse;
@@ -14,6 +15,7 @@ interface Props {
 export const CardButtons:FC<Props> = ({  character, className, hideEllipsis = false }) => {
 
     const { hasCharacter } = useFavoriteStore();
+    const navigate = useNavigate();
     const { onAddFavorite, onRemoveFavorite } = useCharacterFavorite();
     const [ menuOptions, setMenuOptions ] = useState<string>("hidden");
 
@@ -102,6 +104,7 @@ export const CardButtons:FC<Props> = ({  character, className, hideEllipsis = fa
                                         type="button" 
                                         className="inline-flex w-full px-4 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" 
                                         role="menuitem"
+                                        onClick={ () => navigate(`/character/${ character.id }`) }
                                     >
                                         <div className="inline-flex items-center gap-2">
                                             <EyeIcon
