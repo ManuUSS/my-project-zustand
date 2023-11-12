@@ -7,6 +7,7 @@ import { ToasterFavorite, ToasterInfo } from '../../shared/components';
 
 export const useCharacterFavorite = () => {
     
+    // <--- Favorites store handlers | Zustand --->
     const addFavoriteState = useFavoriteStore(( state ) => state.addTofavoriteList );
     const removeFavoriteState = useFavoriteStore(( state ) => state.removeFromFavoriteList );
 
