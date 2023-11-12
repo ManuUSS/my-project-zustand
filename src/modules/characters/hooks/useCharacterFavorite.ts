@@ -10,8 +10,15 @@ export const useCharacterFavorite = () => {
     const addFavoriteState = useFavoriteStore(( state ) => state.addTofavoriteList );
     const removeFavoriteState = useFavoriteStore(( state ) => state.removeFromFavoriteList );
 
+    /**
+     * Handles the addition of a character to favorites and displays a custom toast notification.
+     *
+     * @param {CharacterResponse} char - The character to be added to favorites.
+     */
     const onAddFavorite = ( char: CharacterResponse ) => {
+        // <--- Modifies local state --->
         addFavoriteState( char );
+        // <--- Display a custom toast notification --->
         toast.custom(() => (
             createElement(
                 ToasterFavorite,
