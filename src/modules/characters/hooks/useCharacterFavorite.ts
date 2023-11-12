@@ -30,8 +30,15 @@ export const useCharacterFavorite = () => {
         ));
     }
 
+    /**
+     * Handles the remove of a character to favorites and displays a custom toast notification.
+     *
+     * @param { string } charName - The character to be added to favorites.
+     */
     const onRemoveFavorite = ( charName: string ) => {
+        // <--- Modifies local state --->
         removeFavoriteState( charName );
+        // <--- Display a custom toast notification --->
         toast.custom(() => (
             createElement(
                 ToasterInfo,
