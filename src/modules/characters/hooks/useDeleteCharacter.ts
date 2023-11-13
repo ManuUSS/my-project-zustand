@@ -19,7 +19,7 @@ export const useDeleteCharacter = ({ t }:Props ) => {
     const mutation = useMutation({
         mutationFn: charactersActions.deleteCharacter,
         onSuccess: ( charDeleted ) => {
-            // toast.dismiss( t );
+            toast.dismiss( t );
             // <--- Shows a success message when confirms the POST was successfully submitted -->
             toast.custom(() => ( 
                 createElement( 
