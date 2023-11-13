@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { CharacterResponse, charactersActions, useCharactersStore } from ".."
+import { CharacterResponse, charactersActions, useCharactersStore, useFavoriteStore } from ".."
 import { toast } from "sonner";
 import moment from "moment";
 import { createElement } from "react";
@@ -14,6 +14,7 @@ export const useDeleteCharacter = ({ t }:Props ) => {
     // <--- Current queryclient --->
     const queryClient = useQueryClient();
     const removeFromList = useCharactersStore(( store ) => store.removeFromMainList )
+    const removeFromFavorites = useFavoriteStore(( store ) => store.removeFromFavoriteList )
 
     const mutation = useMutation({
         mutationFn: charactersActions.deleteCharacter,
@@ -31,7 +32,7 @@ export const useDeleteCharacter = ({ t }:Props ) => {
             );
             
             removeFromList( charDeleted.id );
-
+            removeFromFavorites( charDeleted.name );
             // <--- Invalidates the query to refresh the data --->
             queryClient.invalidateQueries({
                 queryKey: ['characters', { filterKey: charDeleted.serie }]
