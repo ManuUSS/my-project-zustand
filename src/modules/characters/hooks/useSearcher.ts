@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { Status, useCharactersStore, validateStautsFilter } from '..';
 
 interface FilterProps {
@@ -30,6 +30,7 @@ export const useSearcher = ({ listModifier = "filterMainList", listState = "main
 
     // <--- Handlers filters status --->
     const [ filterStatus, setfilterStatus ] = useState<FilterProps>( filterState );
+    const [ filterName, setfilterName ] = useState<string>( "" );
     const [ filterColor, setfilterColor ] = useState<string>( "" );
     const [ dropDownVisible, setdropDownVisible ] = useState<DropDownOptions>( 'hidden' );
 
@@ -59,13 +60,24 @@ export const useSearcher = ({ listModifier = "filterMainList", listState = "main
         setdropDownVisible( 'hidden' );
     }
 
+    /**
+     * 
+     * @param { ChangeEvent<HTMLInputElement> } event
+     */
+    const changeSearchName = ( event: ChangeEvent<HTMLInputElement >) => {
+        const { target: { value }} = event;
+        filterList( undefined, value );
+        setfilterName( value );
+    }
+
 
     return {
         filterStatus,
         filterColor,
+        filterName,
         dropDownVisible,
         showDropDown,
         changeStatus,
-
+        changeSearchName
     }
 }
