@@ -7,6 +7,7 @@ export { HxHListPage } from './views/HxHListPage';
 export { DemonSlayerListPage } from './views/DemonSlayerListPage';
 export { FavoriteListPage } from './views/FavoriteListPage';
 export { NewCharacter } from './views/NewCharacter';
+export { EditCharacter } from './views/EditCharacter';
 export { CharacterPage } from './views/CharacterPage';
 
 // <--- Components --->
