@@ -66,8 +66,8 @@ export const useEditCharacter = ({ defaultValues }:Props ) => {
                 createElement( 
                     ToasterSuccess, 
                     { 
-                        message: `${ character.name } agregado correctamente`,
-                        description: `Personaje agregado ${ moment().format('MM/DD/YYYY')}`
+                        message: `${ character.name } actualizado correctamente`,
+                        description: `Personaje actualizado ${ moment().format('MM/DD/YYYY')}`
                     }
                 )),
                 {
@@ -116,7 +116,7 @@ export const useEditCharacter = ({ defaultValues }:Props ) => {
                 createElement( 
                     ToasterError, 
                     { 
-                        message: `Ha ocurrido un error al agregar a ${ vars.name }`,
+                        message: `Ha ocurrido un error al actualizar a ${ vars.name }`,
                         description: `Intento al ${ moment().format('MM/DD/YYYY')}`
                     }
                 )),
