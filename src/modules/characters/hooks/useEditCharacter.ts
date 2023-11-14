@@ -23,7 +23,7 @@ export const useEditCharacter = ({ defaultValues }:Props ) => {
     // <--- Zustand Store | Characters --->
     const { addToMainList } = useCharactersStore();
     // <--- Form properties and handlers --->
-    const { register, watch, handleSubmit, reset, formState: { errors }, setValue, getValues } = useForm<CharacterLike>({
+    const { register, watch, handleSubmit, reset, formState: { errors }, setValue, getValues } = useForm<CharacterResponse>({
         defaultValues
     });
     const [ power, setPower ] = useState<Power>({ name: "", efectiveness: 0 });
@@ -31,15 +31,15 @@ export const useEditCharacter = ({ defaultValues }:Props ) => {
     const queryClient = useQueryClient();
     // <--- Mutations to update caches and state data --->
     const mutation = useMutation({
-        mutationFn: charactersActions.newCharacter,
-        onMutate: ( charactertToAdd ) => {
+        mutationFn: ( character:CharacterResponse ) => charactersActions.editCharacter( character, defaultValues.id ),
+        onMutate: ( charactertToUpdate ) => {
 
             // Optimistic success
-            const optimisticCharacter = { id: Math.random(), ...charactertToAdd }
+            const optimisticCharacter = { ...charactertToUpdate }
 
             // Sets the new characters into query client data
             queryClient.setQueryData<CharacterResponse[]>(
-                ['characters', {  filterKey: charactertToAdd.serie }],
+                ['characters', {  filterKey: charactertToUpdate.serie }],
                 ( oldState ) => {
                     return !oldState 
                     ? []
@@ -129,9 +129,9 @@ export const useEditCharacter = ({ defaultValues }:Props ) => {
 
     /**
      * Handles the submit form event
-     * @param { data } CharacterLike
+     * @param { data } CharacterResponse
      */
-    const onNewCharacter:SubmitHandler<CharacterLike> = async ( data ) => {
+    const onNewCharacter:SubmitHandler<CharacterResponse> = async ( data ) => {
         const links = transformData( data );
         if( links.length > 6 || links.length < 6 ){
             toast.custom(() => (
