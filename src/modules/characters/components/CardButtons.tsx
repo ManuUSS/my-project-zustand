@@ -90,6 +90,7 @@ export const CardButtons:FC<Props> = ({  character, className, hideEllipsis = fa
                                         type="button" 
                                         className="inline-flex w-full px-4 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" 
                                         role="menuitem"
+                                        onClick={ () => navigate(`/edit-character/${ character.id }`) }
                                     >
                                         <div className="inline-flex items-center gap-2 gap-2">     
                                             <PencilIcon
