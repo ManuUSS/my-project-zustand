@@ -30,9 +30,12 @@ export const useEditCharacter = () => {
     const { register, watch, handleSubmit, reset, formState: { errors }, setValue, getValues } = useForm<CharacterResponse>({
         defaultValues
     });
+    
     const [ power, setPower ] = useState<Power>({ name: "", efectiveness: 0 });
+    
     // <--- Current queryclient --->
     const queryClient = useQueryClient();
+
     // <--- Mutations to update caches and state data --->
     const mutation = useMutation({
         mutationFn: ( character:CharacterResponse ) => charactersActions.editCharacter( character, defaultValues!.id ),
