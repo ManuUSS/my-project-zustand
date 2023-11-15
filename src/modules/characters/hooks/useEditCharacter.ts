@@ -1,27 +1,31 @@
 import { useState, ChangeEvent, createElement } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { useQueryClient, useMutation } from '@tanstack/react-query'
+import { useQueryClient, useMutation, useQuery } from '@tanstack/react-query';
 import { toast } from 'sonner';
 import moment from 'moment';
 import { charactersActions, useCharactersStore } from '..';
 import { CharacterLike, CharacterResponse, Power } from '..';
 import { ToasterSuccess, ToasterError, ToasterInfo } from '../../shared/components';
+import { useParams } from 'react-router-dom';
 
-
-
-interface Props {
-    defaultValues: CharacterResponse;
-}
 
 /**
  * Perfoms different opperations, it's in charge to handle form submit,
  * updates cache's and state's data and also display toaster messages considering UX.
  * @returns { register, watch, handleSubmit, onNewCharacter, queryClient, mutation }
  */
-export const useEditCharacter = ({ defaultValues }:Props ) => {
+export const useEditCharacter = () => {
 
     // <--- Zustand Store | Characters --->
     const { addToMainList } = useCharactersStore();
+    const params = useParams();  
+    const { id = '0' } = params;
+    const { data:defaultValues } = useQuery({
+        queryKey: ['characters', Number(id) ],
+        queryFn: () => charactersActions.getCharacter({ id:+id }),
+        staleTime: 1000 * 60 * 10
+    });
+
     // <--- Form properties and handlers --->
     const { register, watch, handleSubmit, reset, formState: { errors }, setValue, getValues } = useForm<CharacterResponse>({
         defaultValues
@@ -31,7 +35,7 @@ export const useEditCharacter = ({ defaultValues }:Props ) => {
     const queryClient = useQueryClient();
     // <--- Mutations to update caches and state data --->
     const mutation = useMutation({
-        mutationFn: ( character:CharacterResponse ) => charactersActions.editCharacter( character, defaultValues.id ),
+        mutationFn: ( character:CharacterResponse ) => charactersActions.editCharacter( character, defaultValues!.id ),
         onMutate: ( charactertToUpdate ) => {
 
             // Optimistic success
@@ -131,7 +135,7 @@ export const useEditCharacter = ({ defaultValues }:Props ) => {
      * Handles the submit form event
      * @param { data } CharacterResponse
      */
-    const onNewCharacter:SubmitHandler<CharacterResponse> = async ( data ) => {
+    const onEditCharacter:SubmitHandler<CharacterResponse> = async ( data ) => {
         const links = transformData( data );
         if( links.length > 6 || links.length < 6 ){
             toast.custom(() => (
@@ -201,7 +205,7 @@ export const useEditCharacter = ({ defaultValues }:Props ) => {
         handleSubmit,
         handleChangePower,
         onAddPower,
-        onNewCharacter,
+        onEditCharacter,
         queryClient,
         mutation
     }

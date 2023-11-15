@@ -1,16 +1,16 @@
 import { FC, ChangeEvent } from 'react';
 import { FieldErrors, SubmitHandler, UseFormHandleSubmit, UseFormRegister } from 'react-hook-form'
-import { Power } from '../interfaces/character';
+import { CharacterResponse, Power } from '../interfaces/character';
 import { CharacterLike } from '..'
 
 interface Props {
-    handleSubmit: UseFormHandleSubmit<CharacterLike, undefined>;
+    handleSubmit: UseFormHandleSubmit<any, undefined>;
     handleChangePower: ( event: ChangeEvent<HTMLInputElement> ) => void;
     onAddPower: () => void;
     power: Power;
-    register: UseFormRegister<CharacterLike>;
-    onNewCharacter: SubmitHandler<CharacterLike>;
-    errors: FieldErrors<CharacterLike>
+    register: UseFormRegister<any>;
+    onNewCharacter: SubmitHandler<any>;
+    errors: FieldErrors<CharacterLike | CharacterResponse>
     isPending: boolean;
 }
 

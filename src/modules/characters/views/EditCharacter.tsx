@@ -1,20 +1,20 @@
 import { StopIcon } from '@heroicons/react/24/solid';
 import { CharacterForm, CharacterPowerChip, ListHeader, validateStatus } from '..';
-import { useNewCharacter } from '../hooks/useNewCharacter';
 import { useEffect } from 'react';
+import { useEditCharacter } from '../hooks/useEditCharacter';
 
 
 export const EditCharacter = () => {
   
-  const { 
-    register, handleSubmit, handleChangePower, onAddPower, onNewCharacter, 
-    mutation, watch, errors, power 
-  } = useNewCharacter();
+    const { 
+        register, handleSubmit, handleChangePower, onAddPower, onEditCharacter, 
+        mutation, watch, errors, power 
+    } = useEditCharacter();
 
-  useEffect(() => {
-    window.scrollTo(0,0);
-    document.title = "Zest | Nuevo personaje";
-  }, []);
+    useEffect(() => {
+        window.scrollTo(0,0);
+        document.title = "Zest | Nuevo personaje";
+    }, []);
 
   return (
     <section className="list-container p-4">
@@ -28,7 +28,7 @@ export const EditCharacter = () => {
                 register={ register }
                 handleSubmit={ handleSubmit }
                 handleChangePower={ handleChangePower }
-                onNewCharacter={ onNewCharacter }
+                onNewCharacter={ onEditCharacter }
                 onAddPower={ onAddPower }
                 power={ power }
                 errors={ errors }
