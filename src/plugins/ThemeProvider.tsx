@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 export interface ThemeStore {
     theme: Theme;
@@ -10,10 +11,10 @@ type Actions = {
     changeTheme: ( theme:Theme ) => void;
 }
 
-export const useThemeStore = create<ThemeStore & Actions>()(( set ) => ({
-    theme: localStorage.getItem('theme') as Theme || 'light',
-    changeTheme: ( theme: Theme ) => {
-        set(() => ({ theme: theme }));
-        localStorage.setItem( 'theme', theme );
-    }
-}));
+export const useThemeStore = create<ThemeStore & Actions>()( persist(( set ) => ({
+    theme: 'light',
+    changeTheme: ( theme: Theme ) => { set(() => ({ theme: theme }))}
+    }), {
+        name: "zest-theme"
+    })
+);

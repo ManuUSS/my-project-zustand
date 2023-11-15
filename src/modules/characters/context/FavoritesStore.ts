@@ -68,6 +68,5 @@ export const useFavoriteStore = create<FavoriteStore>()( persist(( set, get ) =>
     }
     }), {
         name: "favorite-list-store"
-
     })
 )
