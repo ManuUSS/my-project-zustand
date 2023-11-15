@@ -192,7 +192,7 @@ export const useEditCharacter = ({ defaultValues }:Props ) => {
         setPower(( currentPower ) => ({ ...currentPower, [name]: value }));
     }
 
-    // 
+    
     return {
         register,
         errors,
