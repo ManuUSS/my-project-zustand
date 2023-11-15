@@ -7,9 +7,19 @@ interface Props {
     character: CharacterResponse;
 }
 
-export const CharacterFavoriteButton:FC<Props> = ({ character }) => {
+/**
+ * Renders a favorite button for a character that allows users to add or remove the character from their favorites.
+ *
+ * @component
+ * @param {Props} props - The component properties.
+ * @param {Character} props.character - The character for which the favorite status is determined.
+ * @returns {JSX.Element} The rendered favorite button.
+ */
+export const CharacterFavoriteButton:FC<Props> = ({ character }):JSX.Element => {
 
+    // <--- Uses the Favorite Store | Zustand ---> 
     const { hasCharacter } = useFavoriteStore();
+    // <--- Destructure properties from custom hook ---> 
     const { onAddFavorite, onRemoveFavorite } = useCharacterFavorite();
 
     return (
