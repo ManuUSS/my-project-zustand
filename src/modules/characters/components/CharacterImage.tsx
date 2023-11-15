@@ -6,11 +6,14 @@ interface Props {
     url: string;
 }
 
-export const CharacterImage:FC<Props> = ({ url }) => {
+export const CharacterImage:FC<Props> = ({ url }):JSX.Element => {
 
+    // <--- Loading image state ---> 
     const [ isLoaded, setIsLoaded ] = useState<boolean>( false );
+    // <--- Zoomed image state ---> 
     const [ isZoomed, setIsZoomed ] = useState<boolean>( false );
 
+    // <--- State handlers ---> 
     useEffect(() => {
         changeLoaded();
     }, [])
@@ -27,17 +30,29 @@ export const CharacterImage:FC<Props> = ({ url }) => {
 
     }, [ isZoomed ])
     
-
-    const changeLoaded = async () => {
-        await charactersActions.delay( 800 );
+    /**
+     * Makes a delay to wait while image is loading
+     * @async
+     * @returns {Promise<void>}
+     */
+    const changeLoaded = async ():Promise<void> => {
+        await charactersActions.delay( 1000 );
         setIsLoaded( true );
     }
 
-    const handleZoom = () => {
+    /**
+     * Changes local zoomed state to true
+     * @returns {void}
+     */
+    const handleZoom = ():void => {
         setIsZoomed( true );
     }
 
-    const closeModal = () => {
+    /**
+     * Changes local zoomed state to false
+     * @returns {void}
+     */
+    const closeModal = ():void => {
         setIsZoomed( false );
     }
 
