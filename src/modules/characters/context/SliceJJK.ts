@@ -25,7 +25,13 @@ export const createJJKSlice:StateCreator<JJKSlice> = ( set, get ) => ({
         set(() => ({ jjkList: list, jjkListCopy: list }))
     },
     addToJJKList: ( char: CharacterResponse ) => {
-        set(( ctx ) => ({ jjkList: [ ...ctx.jjkList, char ], jjkListCopy: [ ...ctx.jjkList, char ] }))
+        set(
+            ( ctx ) => 
+            ({ 
+                jjkList: [ ...ctx.jjkList, char ], 
+                jjkListCopy: [ ...ctx.jjkList, char ] 
+            })
+        )
     },
     filterJJKList: ( status?: Status, name?:string ) => {
 

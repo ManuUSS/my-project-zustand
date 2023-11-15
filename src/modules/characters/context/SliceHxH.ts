@@ -26,7 +26,13 @@ export const createHxHlice:StateCreator<HxHSlice> = ( set, get ) => ({
         set(() => ({ hxhList: list, hxhListCopy: list }))
     },
     addToHxHList: ( char: CharacterResponse ) => {
-        set(( ctx ) => ({ hxhList: [ ...ctx.hxhList, char ], hxhListCopy: [ ...ctx.hxhList, char ] }))
+        set(
+            ( ctx ) => 
+            ({ 
+                hxhList: [ ...ctx.hxhList, char ], 
+                hxhListCopy: [ ...ctx.hxhList, char ] 
+            })
+        )
     },
     filterHxHList: ( status?: Status, name?:string ) => {
         // <--- No filters --->

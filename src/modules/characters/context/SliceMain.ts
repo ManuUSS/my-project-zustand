@@ -26,7 +26,13 @@ export const createMainSlice:StateCreator<MainSlice> = ( set, get ) => ({
         set(() => ({ mainList: list, mainListCopy: list }))
     },
     addToMainList: ( char: CharacterResponse ) => {
-        set(( ctx ) => ({ mainList: [ ...ctx.mainList, char ], mainListCopy: [ ...ctx.mainList, char ] }))
+        set(
+            ( ctx ) => 
+            ({ 
+                mainList: [ ...ctx.mainList, char ], 
+                mainListCopy: [ ...ctx.mainList, char ] 
+            })
+        )
     },
     removeFromMainList: ( id: number ) => {
         const currentChars = get().mainList.filter(( char ) => char.id !== id );
