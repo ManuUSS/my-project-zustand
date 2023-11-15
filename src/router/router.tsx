@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { PATHS } from './routes';
-import { JJKListPage, MainListPage, HxHListPage, DemonSlayerListPage, NewCharacter, CharacterPage, FavoriteListPage } from '../modules/characters';
+import { JJKListPage, MainListPage, HxHListPage, DemonSlayerListPage, NewCharacter, CharacterPage, FavoriteListPage, EditCharacter } from '../modules/characters';
 import { MainLayout } from '../layouts';
 import { ErrorPage } from '../ErrorPage';
 
@@ -34,6 +34,10 @@ export const router = createBrowserRouter([
             {
                 path: PATHS["New"],
                 element: <NewCharacter />
+            },
+            {
+                path: PATHS["Edit"],
+                element: <EditCharacter />
             },
             {
                 path: "/character/:id",
