@@ -11,9 +11,12 @@ interface Props {
 
 export const CharacterEllipsisButton:FC<Props> = ({ character }) => {
 
+    // <--- Router functionalities --->
     const navigate = useNavigate();
+    // <--- Pop Over State handler --->
     const [ menuOptions, setMenuOptions ] = useState<string>("hidden");
 
+    // <--- State handler --->
     useEffect(() => {
       
       return () => {
@@ -23,11 +26,25 @@ export const CharacterEllipsisButton:FC<Props> = ({ character }) => {
     }, [])
     
 
-    const toggleMenu = () => {
-        menuOptions === "hidden" ? setMenuOptions("visible") : setMenuOptions("hidden")
-    }
+    /**
+     * Toggles the visibility state of a menu between "visible" and "hidden".
+     *
+     * @function
+     * @returns {void}
+     */
+    const toggleMenu = (): void => {
+        // Toggle the menu visibility between "visible" and "hidden".
+        menuOptions === "hidden" ? setMenuOptions("visible") : setMenuOptions("hidden");
+    };
 
-    const onDelete = () => {
+    /**
+     * Initiates a confirmation toast for deleting a character.
+     * Displays a custom toast notification with a confirmation message and character details.
+     *
+     * @function
+     * @returns {void}
+     */
+    const onDelete = ():void => {
         toast.custom(( t ) => (
             createElement(
                 ToasterAction,
