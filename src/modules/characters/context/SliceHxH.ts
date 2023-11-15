@@ -39,19 +39,19 @@ export const createHxHlice:StateCreator<HxHSlice> = ( set, get ) => ({
 
         // <--- Both filters --->
         if( name && status ) {
-            listFiltered = get().hxhList.filter(( character ) => 
-                character.status === status || character.name.includes( name || "" ) 
+            listFiltered = get().hxhList.filter(({ status:statusChar, name:nameChar }) => 
+                statusChar === status && nameChar.toLowerCase().includes( name || "" ) 
             );
         }
 
         // <--- Only name filter --->
         if( name && !status ) {
-            listFiltered = get().hxhList.filter(( character ) =>  character.name.includes( name ));
+            listFiltered = get().hxhList.filter(({ name:nameChar }) => nameChar.toLowerCase().includes( name ));
         }
         
         // <--- Only status filter --->
         if( !name && status ) {
-            listFiltered = get().hxhList.filter(( character ) =>  character.status === status );
+            listFiltered = get().hxhList.filter(({ status:statusChar }) => statusChar === status );
         }
 
         set(() => ({ hxhListCopy: listFiltered }));

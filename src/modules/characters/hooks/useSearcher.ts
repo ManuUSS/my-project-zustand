@@ -66,7 +66,7 @@ export const useSearcher = ({ listModifier = "filterMainList", listState = "main
      */
     const changeSearchName = ( event: ChangeEvent<HTMLInputElement >) => {
         const { target: { value }} = event;
-        filterList( undefined, value );
+        filterList( filterStatus.value as Status, value.toLowerCase() );
         setfilterName( value );
     }
 

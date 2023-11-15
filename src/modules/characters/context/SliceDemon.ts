@@ -45,19 +45,20 @@ export const createDemonSlice:StateCreator<DemonSlice> = ( set, get ) => ({
 
         // <--- Both filters --->
         if( name && status ) {
-            listFiltered = get().demonSlayerList.filter(( character ) => 
-                character.status === status || character.name.includes( name || "" ) 
+            listFiltered = get().demonSlayerList.filter(({ status:statusChar, name:nameChar }) => 
+                statusChar === status && nameChar.toLowerCase().includes( name || "" ) 
             );
         }
 
         // <--- Only name filter --->
         if( name && !status ) {
-            listFiltered = get().demonSlayerList.filter(( character ) =>  character.name.includes( name ));
+            listFiltered = get()
+                .demonSlayerList.filter(({ name:nameChar }) => nameChar.toLowerCase().includes( name ));
         }
         
         // <--- Only status filter --->
         if( !name && status ) {
-            listFiltered = get().demonSlayerList.filter(( character ) =>  character.status === status );
+            listFiltered = get().demonSlayerList.filter(({ status:statusChar }) => statusChar === status );
         }
 
         set(() => ({ demonSlayerListCopy: listFiltered }));

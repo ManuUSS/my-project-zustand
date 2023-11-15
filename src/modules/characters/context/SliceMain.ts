@@ -43,19 +43,22 @@ export const createMainSlice:StateCreator<MainSlice> = ( set, get ) => ({
 
         // <--- Both filters --->
         if( name && status ) {
-            listFiltered = get().mainList.filter(( character ) => 
-                character.status === status || character.name.includes( name || "" ) 
+            console.log('first')
+            listFiltered = get().mainList.filter(( { status: statusChar, name:nameChar } ) => 
+                statusChar === status && nameChar.toLowerCase().includes( name || "" ) 
             );
         }
 
         // <--- Only name filter --->
         if( name && !status ) {
-            listFiltered = get().mainList.filter(( character ) =>  character.name.includes( name ));
+            listFiltered = get()
+                .mainList
+                .filter(({ name:nameChar }) => nameChar.toLowerCase().includes( name! ));
         }
         
         // <--- Only status filter --->
         if( !name && status ) {
-            listFiltered = get().mainList.filter(( character ) =>  character.status === status );
+            listFiltered = get().mainList.filter(({ status: statusChar }) => statusChar === status );
         }
 
         set(() => ({ mainListCopy: listFiltered }));

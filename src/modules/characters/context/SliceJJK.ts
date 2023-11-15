@@ -28,6 +28,7 @@ export const createJJKSlice:StateCreator<JJKSlice> = ( set, get ) => ({
         set(( ctx ) => ({ jjkList: [ ...ctx.jjkList, char ], jjkListCopy: [ ...ctx.jjkList, char ] }))
     },
     filterJJKList: ( status?: Status, name?:string ) => {
+
         // <--- No filters --->
         if( !status && !name ) {
             set(( ctx ) => ({ jjkListCopy: [ ...ctx.jjkList ] }));
@@ -38,19 +39,20 @@ export const createJJKSlice:StateCreator<JJKSlice> = ( set, get ) => ({
 
         // <--- Both filters --->
         if( name && status ) {
-            listFiltered = get().jjkList.filter(( character ) => 
-                character.status === status || character.name.includes( name || "" ) 
-            );
+            listFiltered = get()
+                .jjkList.filter(({ status: statusChar, name:nameChar }) => 
+                    statusChar === status && nameChar.toLowerCase().includes( name || "" ) 
+                );
         }
 
         // <--- Only name filter --->
         if( name && !status ) {
-            listFiltered = get().jjkList.filter(( character ) =>  character.name.includes( name ));
+            listFiltered = get().jjkList.filter(({ name:nameChar }) => nameChar.toLowerCase().includes( name! ));
         }
         
         // <--- Only status filter --->
         if( !name && status ) {
-            listFiltered = get().jjkList.filter(( character ) =>  character.status === status );
+            listFiltered = get().jjkList.filter(({ status: statusChar }) => statusChar === status );
         }
 
         set(() => ({ jjkListCopy: listFiltered }));
