@@ -14,7 +14,7 @@ interface Props {
  * Handles different actions related to characters
  * 
  * @component
- * @param { Props } Props - The component properties.
+ * @param {Props} Props - The component properties.
  * @param {Character} props.character - The character for which the favorite status is determined.  
  * @returns {JSX.Element}
  */

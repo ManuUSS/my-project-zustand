@@ -15,10 +15,9 @@ interface Props {
  *
  * @param {Object} Props - The component's props.
  * @param {Object} character - An object representing the character's details.
- *
  * @return {JSX.Element} The rendered CharacterCard component.
  */
-export const CharacterCard:FC<Props> = ({ character }) => {
+export const CharacterCard:FC<Props> = ({ character }):JSX.Element => {
 
     const clientQuery = useQueryClient();
     const navigate = useNavigate();

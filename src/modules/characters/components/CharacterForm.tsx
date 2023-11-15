@@ -31,15 +31,25 @@ interface Props {
  */
 export const CharacterForm:FC<Props> = (
     { handleSubmit, handleChangePower, onAddPower, power, register, onNewCharacter, errors, isPending }
-) => {
-  
+):JSX.Element => {
+    
+    /**
+     * Adds new classes when a form field has errors
+     * 
+     * @param {keyof CharacterLike} key - Property that is currently watched
+     * @returns {string} - Tailwind classes
+     */
     const validateValues = ( key: keyof CharacterLike ):string => {
         return (errors[ key ] )
         ? "border-red-500 dark:border-red-500"
         : ""
     }
 
-    const classesOnFetching = () => {
+    /**
+     * Adds new classes when an API Call is fetching
+     * @returns {string} - Tailwind classes
+     */
+    const classesOnFetching = ():string => {
         return isPending ? "!bg-gray-300 !text-gray-700 !border-none dark:!bg-gray-300 dark:!text-gray-700" : ""
     }
  
