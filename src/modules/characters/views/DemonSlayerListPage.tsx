@@ -1,8 +1,8 @@
-import { useEffect } from "react";
-import { ListHeader, NoCharacters, useCharacters } from "..";
-import { useCharactersStore } from "..";
-import { Loader } from "../../shared/components";
-import { CharacterCard } from "../components";
+import { useEffect } from 'react';
+import { ListHeader, NoCharacters, useCharacters } from '..';
+import { useCharactersStore } from '..';
+import { Loader } from '../../shared/components';
+import { CharacterCard } from '../components';
 
 
 export const DemonSlayerListPage = () => {

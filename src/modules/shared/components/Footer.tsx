@@ -1,5 +1,4 @@
-import { useThemeStore } from "../../../plugins/ThemeProvider"
-
+import { useThemeStore } from '../../../plugins/ThemeProvider';
 
 export const Footer = () => {
   const { theme } = useThemeStore();

@@ -1,6 +1,6 @@
 import { useThemeStore } from '../../../plugins/ThemeProvider';
-import svg from "../../../assets/not-results.svg";
-import svg_black from "../../../assets/not-results-black.svg";
+import svg from '../../../assets/not-results.svg';
+import svg_black from '../../../assets/not-results-black.svg';
 
 export const NoCharacters = () => {
 

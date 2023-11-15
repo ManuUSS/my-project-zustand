@@ -1,6 +1,6 @@
+import { useEffect } from 'react';
 import { StopIcon } from '@heroicons/react/24/solid';
 import { CharacterForm, CharacterPowerChip, ListHeader, validateStatus } from '..';
-import { useEffect } from 'react';
 import { useEditCharacter } from '../hooks/useEditCharacter';
 
 

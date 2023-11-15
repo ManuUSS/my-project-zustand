@@ -1,8 +1,8 @@
-import { useEffect } from "react";
-import { ListHeader, NoCharacters, useCharacters } from "..";
-import { Loader } from "../../shared/components";
-import { CharacterCard } from "../components";
-import { useCharactersStore } from "..";
+import { useEffect } from 'react';
+import { ListHeader, NoCharacters, useCharacters } from '..';
+import { Loader } from '../../shared/components';
+import { CharacterCard } from '../components';
+import { useCharactersStore } from '..';
 
 
 export const HxHListPage = () => {

@@ -1,8 +1,8 @@
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 import { ModeButton } from '../../shared/components';
 import { Searcher } from './Searcher';
-import { ArrowLeftIcon } from '@heroicons/react/24/outline';
-import { useNavigate } from 'react-router-dom';
 
 interface Props {
     title: string;

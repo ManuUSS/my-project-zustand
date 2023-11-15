@@ -1,6 +1,6 @@
-import { PlusIcon, UsersIcon, CheckBadgeIcon, StarIcon } from "@heroicons/react/24/outline";
-import { NavLink } from "react-router-dom";
-import { PATHS } from "../../../router/routes";
+import { NavLink } from 'react-router-dom';
+import { PlusIcon, UsersIcon, CheckBadgeIcon, StarIcon } from '@heroicons/react/24/outline';
+import { PATHS } from '../../../router/routes';
 
 /**
  * 

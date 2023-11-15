@@ -1,6 +1,6 @@
+import { FC, memo } from 'react';
 import { StopIcon } from '@heroicons/react/24/solid';
 import { useSearcher } from '..';
-import { FC, memo } from 'react';
 
 interface Props {
     listModifier?: "filterMainList" | "filterJJKList" | "filterDemonSlayerList" | "filterHxHList";

@@ -1,9 +1,9 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { CharacterResponse, charactersActions, useCharactersStore, useFavoriteStore } from ".."
-import { toast } from "sonner";
-import moment from "moment";
-import { createElement } from "react";
-import { ToasterSuccess } from "../../shared/components";
+import { createElement } from 'react';
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { toast } from 'sonner';
+import moment from 'moment';
+import { ToasterSuccess } from '../../shared/components';
+import { CharacterResponse, charactersActions, useCharactersStore, useFavoriteStore } from '..'
 
 interface Props {
     t?: string | number;
