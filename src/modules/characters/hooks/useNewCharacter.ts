@@ -1,8 +1,8 @@
 import { useState, ChangeEvent, createElement } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useQueryClient, useMutation } from '@tanstack/react-query'
+import dayjs from 'dayjs';
 import { toast } from 'sonner';
-import moment from 'moment';
 import { charactersActions, useCharactersStore } from '..';
 import { CharacterLike, CharacterResponse, Power, Status } from '..';
 import { ToasterSuccess, ToasterError, ToasterInfo } from '../../shared/components';
@@ -72,7 +72,7 @@ export const useNewCharacter = () => {
                     ToasterSuccess, 
                     { 
                         message: `${ character.name } agregado correctamente`,
-                        description: `Personaje agregado ${ moment().format('MM/DD/YYYY')}`
+                        description: `Personaje agregado ${ dayjs().format('MM/DD/YYYY')}`
                     }
                 )),
                 {
@@ -122,7 +122,7 @@ export const useNewCharacter = () => {
                     ToasterError, 
                     { 
                         message: `Ha ocurrido un error al agregar a ${ vars.name }`,
-                        description: `Intento al ${ moment().format('MM/DD/YYYY')}`
+                        description: `Intento al ${ dayjs().format('MM/DD/YYYY')}`
                     }
                 )),
                 {

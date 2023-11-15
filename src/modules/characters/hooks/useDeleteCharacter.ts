@@ -1,7 +1,7 @@
 import { createElement } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { toast } from 'sonner';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { ToasterSuccess } from '../../shared/components';
 import { CharacterResponse, charactersActions, useCharactersStore, useFavoriteStore } from '..'
 
@@ -26,7 +26,7 @@ export const useDeleteCharacter = ({ t }:Props ) => {
                     ToasterSuccess, 
                     { 
                         message: `${ charDeleted.name } eliminado correctamente`,
-                        description: `Personaje eliminado ${ moment().format('MM/DD/YYYY')}`
+                        description: `Personaje eliminado ${ dayjs().format('MM/DD/YYYY')}`
                     }
                 ))
             );

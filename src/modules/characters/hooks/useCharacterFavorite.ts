@@ -1,6 +1,6 @@
 import { createElement } from 'react';
 import { toast } from 'sonner';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { CharacterResponse, useFavoriteStore } from '..';
 import { ToasterFavorite, ToasterInfo } from '../../shared/components';
 
@@ -31,7 +31,7 @@ export const useCharacterFavorite = () => {
                 ToasterFavorite,
                 {
                     message: `${ char.name } agregado a favoritos`,
-                    description: `Personaje agregado ${ moment().format('MM/DD/YYYY')}`
+                    description: `Personaje agregado ${ dayjs().format('MM/DD/YYYY')}`
                 }
             )
         ));
@@ -51,7 +51,7 @@ export const useCharacterFavorite = () => {
                 ToasterInfo,
                 {
                     message: `${ charName } eliminado de favoritos`,
-                    description: `Personaje eliminado ${ moment().format('MM/DD/YYYY')}`
+                    description: `Personaje eliminado ${ dayjs().format('MM/DD/YYYY')}`
                 }
             )
         ));

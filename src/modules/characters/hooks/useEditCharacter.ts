@@ -3,7 +3,7 @@ import { useQueryClient, useMutation, useQuery } from '@tanstack/react-query';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import { toast } from 'sonner';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { charactersActions, useCharactersStore } from '..';
 import { CharacterLike, CharacterResponse, Power } from '..';
 import { ToasterSuccess, ToasterError, ToasterInfo } from '../../shared/components';
@@ -74,7 +74,7 @@ export const useEditCharacter = () => {
                     ToasterSuccess, 
                     { 
                         message: `${ character.name } actualizado correctamente`,
-                        description: `Personaje actualizado ${ moment().format('MM/DD/YYYY')}`
+                        description: `Personaje actualizado ${ dayjs().format('MM/DD/YYYY')}`
                     }
                 )),
                 {
@@ -124,7 +124,7 @@ export const useEditCharacter = () => {
                     ToasterError, 
                     { 
                         message: `Ha ocurrido un error al actualizar a ${ vars.name }`,
-                        description: `Intento al ${ moment().format('MM/DD/YYYY')}`
+                        description: `Intento al ${ dayjs().format('MM/DD/YYYY')}`
                     }
                 )),
                 {
