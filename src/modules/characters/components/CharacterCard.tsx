@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { StopIcon } from '@heroicons/react/24/solid';
-import { CardButtons, CharacterResponse, validateStatus } from '..';
+import { CardButtons, CardHeaderInfo, CharacterResponse, validateStatus } from '..';
 import { useNavigate } from 'react-router-dom';
 import { useQueryClient } from '@tanstack/react-query';
 
@@ -47,10 +47,10 @@ export const CharacterCard:FC<Props> = ({ character }):JSX.Element => {
             </div>
             <div className="p-5">
                 <div className="flex justify-between items-center mb-2">
-                    <div>
-                        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-slate-200">{ character.name }</h5>
-                        <p className="dark:text-slate-300">{ character.serie }</p>
-                    </div>
+                    <CardHeaderInfo 
+                        charName={ character.name }
+                        charSerie={ character.serie }
+                    />
                     <StopIcon 
                         className={`w-5 ${ validateStatus( character.status )}`} 
                     />

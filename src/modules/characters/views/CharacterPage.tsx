@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { StopIcon } from '@heroicons/react/24/solid';
-import { CharacterFavoriteButton, CharacterImage, CharacterPowerChip, ListHeader, getStatusText, useCharacter, validateStatus } from '..';
+import { CardHeaderInfo, CharacterFavoriteButton, CharacterImage, CharacterPowerChip, ListHeader, getStatusText, useCharacter, validateStatus } from '..';
 
 export const CharacterPage = () => {
 
@@ -36,10 +36,10 @@ export const CharacterPage = () => {
                 </div>
                 <div className="p-5">
                     <div className="flex justify-between items-center mb-2">
-                        <div>
-                            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-slate-200">{ character!.name }</h5>
-                            <p className="dark:text-slate-300">{ character!.serie }</p>
-                        </div>
+                        <CardHeaderInfo 
+                            charName={ character!.name }
+                            charSerie={ character!.serie }
+                        />
                         <div className='flex gap-1 items-center'>
                             <p className={ validateStatus( character!.status! ) }>{ getStatusText( character!.status) }</p>
                             <StopIcon className={`w-5 ${ validateStatus( character!.status! )}`} />

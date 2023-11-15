@@ -18,6 +18,7 @@ export { CharacterForm } from './components/CharacterForm';
 export { CharacterImage } from './components/CharacterImage';
 export { NoCharacters } from './components/NoCharacters';
 export { CardButtons } from './components/CardButtons';
+export { CardHeaderInfo } from './components/CardHeaderInfo';
 export { CharacterFavoriteButton } from './components/CharacterFavoriteButton';
 
 // <--- Context --->
