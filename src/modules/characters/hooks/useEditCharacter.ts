@@ -109,7 +109,7 @@ export const useEditCharacter = () => {
             
             navigate('/');
         },
-        onError: ( _error, vars ) => {
+        onError: ( _error, vars, ctx ) => {
             console.log( _error );
             // <--- Shows an error message when the POST wasn't successfully submitted -->
             toast.custom(() => ( 
@@ -122,6 +122,16 @@ export const useEditCharacter = () => {
                 )),
                 {
                   className: "fixed right-0",
+                }
+            );
+
+            // Sets the new characters into query client data
+            queryClient.setQueryData<CharacterResponse[]>(
+                ['characters', {}],
+                ( oldState ) => {
+                    if( !oldState ) return [];
+
+                    return oldState.filter(( cacheChar ) => ( cacheChar.id !== ctx?.optimisticCharacter.id ))
                 }
             );
         }
