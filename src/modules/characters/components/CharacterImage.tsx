@@ -51,7 +51,7 @@ export const CharacterImage:FC<Props> = ({ url }):JSX.Element => {
                     className={`object-cover h-full w-full fade-in`}
                     src={ isLoaded ? url : img_holder } 
                     alt="character-photo"
-                    onLoad={ () => setIsLoaded(true) }
+                    onLoad={ () => setIsLoaded( true ) }
                 /> 
             </div>  
             {
