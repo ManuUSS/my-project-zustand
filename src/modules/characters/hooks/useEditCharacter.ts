@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, createElement } from 'react';
 import { useQueryClient, useMutation, useQuery } from '@tanstack/react-query';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'sonner';
 import dayjs from 'dayjs';
 import { charactersActions, useCharactersStore } from '..';
@@ -17,7 +17,8 @@ import { ToasterSuccess, ToasterError, ToasterInfo } from '../../shared/componen
 export const useEditCharacter = () => {
 
     // <--- Zustand Store | Characters --->
-    const { addToMainList } = useCharactersStore();
+    const { addToMainList, removeFromMainList } = useCharactersStore();
+    const navigate = useNavigate();
     const params = useParams();  
     const { id = '0' } = params;
     const { data:defaultValues } = useQuery({
@@ -27,7 +28,7 @@ export const useEditCharacter = () => {
     });
 
     // <--- Form properties and handlers --->
-    const { register, watch, handleSubmit, reset, formState: { errors }, setValue, getValues } = useForm<CharacterResponse>({
+    const { register, watch, handleSubmit, formState: { errors }, setValue, getValues } = useForm<CharacterResponse>({
         defaultValues
     });
     
@@ -42,25 +43,17 @@ export const useEditCharacter = () => {
         onMutate: ( charactertToUpdate ) => {
 
             // Optimistic success
-            const optimisticCharacter = { ...charactertToUpdate }
-
-            // Sets the new characters into query client data
-            queryClient.setQueryData<CharacterResponse[]>(
-                ['characters', {  filterKey: charactertToUpdate.serie }],
-                ( oldState ) => {
-                    return !oldState 
-                    ? []
-                    : [ ...oldState, optimisticCharacter ]
-                }
-            );
+            const optimisticCharacter = { ...charactertToUpdate };
             
             // Sets the new characters into query client data
             queryClient.setQueryData<CharacterResponse[]>(
                 ['characters', {}],
                 ( oldState ) => {
-                    return !oldState 
-                    ? []
-                    : [ ...oldState, optimisticCharacter ]
+                    if( !oldState )
+                    return [];
+                    
+                    const oldCache = oldState.filter(( { id } ) => id !== optimisticCharacter.id );
+                    return [ ...oldCache, optimisticCharacter ]
                 }
             );
 
@@ -105,6 +98,7 @@ export const useEditCharacter = () => {
                     }
                     
                     // <--- Updates the zustand state --->
+                    removeFromMainList( character.id );
                     addToMainList( character );
 
                     return oldCharacters.map(( cacheChar ) => 
@@ -113,8 +107,7 @@ export const useEditCharacter = () => {
                 }
             )
             
-            // <--- Resets the form to its initial values --->
-            reset();
+            navigate('/');
         },
         onError: ( _error, vars ) => {
             console.log( _error );
@@ -139,6 +132,7 @@ export const useEditCharacter = () => {
      * @param { data } CharacterResponse
      */
     const onEditCharacter:SubmitHandler<CharacterResponse> = async ( data ) => {
+        console.log( data );
         const links = transformData( data );
         if( links.length > 6 || links.length < 6 ){
             toast.custom(() => (
@@ -162,9 +156,14 @@ export const useEditCharacter = () => {
      * @returns {string[]} An array of strings representing cover photos.
      */
     const transformData = ( data:CharacterLike ): string[] => {
-        let strn:any = data.cover_photos;
-        strn = strn.replaceAll("\n", "").trim();
-        return strn.split(',');
+        let strn:string | string[] = data.cover_photos!;
+        if( typeof strn === "string" ) {
+            // @ts-ignore
+            strn = strn.replaceAll("\n", "").trim();
+            // @ts-ignore
+            return strn.split(',');
+        }
+        return strn;
     }
 
     /**

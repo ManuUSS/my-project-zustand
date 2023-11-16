@@ -72,12 +72,12 @@ export const newCharacter = async ( character: CharacterLike ):Promise<Character
  * Creates a new character by sending the provided character data to the API.
  *
  * @async
- * @param {CharacterLike} character - The character data to be created.
+ * @param {CharacterResponse} character - The character data to be created.
  * @param {number} id - The character's id.
  * @returns {Promise<CharacterResponse>} A promise that resolves with the newly created character information.
  * @throws {Error} If there is an issue with the API request.
  */
-export const editCharacter = async ( character: CharacterLike, id: number ):Promise<CharacterResponse> => {
+export const editCharacter = async ( character: CharacterResponse, id: number ):Promise<CharacterResponse> => {
 
     await delay( 5000 );
     
