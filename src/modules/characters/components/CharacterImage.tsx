@@ -1,6 +1,5 @@
 import { FC, useState, useEffect } from 'react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
-import img_holder from '../../../assets/placeholder-wire-image.webp';
 
 interface Props {
     url: string;
@@ -44,16 +43,28 @@ export const CharacterImage:FC<Props> = ({ url }):JSX.Element => {
     return (
         <>
             <div 
-                className={`rounded-md h-[190px] cursor-zoom-in overflow-hidden ${ isLoaded ? "" : "animate-pulse"}`}
+                className={`rounded-md h-[190px] cursor-zoom-in overflow-hidden ${ !isLoaded && "hidden" }`}
                 onClick={ handleZoom }
             >
                 <img 
                     className={`object-cover h-full w-full fade-in`}
-                    src={ isLoaded ? url : img_holder } 
+                    src={ url } 
                     alt="character-photo"
                     onLoad={ () => setIsLoaded( true ) }
                 /> 
             </div>  
+            { 
+                !isLoaded &&
+                (
+                    <div 
+                        className='flex items-center justify-center animate-pulse rounded-md h-[180px] bg-gray-300 dark:bg-gray-700 fade-out'
+                    >
+                        <svg className="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+                            <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/>
+                        </svg>
+                    </div>
+                )
+            }
             {
                 isZoomed && (
                     <div 
