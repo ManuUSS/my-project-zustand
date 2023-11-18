@@ -187,6 +187,18 @@ export const useNewCharacter = () => {
     }
 
     /**
+     * Deletes a power from current powers array.
+     * Modifies form state
+     * 
+     * @param {string} powerName 
+     */
+    const onDeletePower = ( powerName: string ) => {
+        const currentPowers = getValues("powers");
+        const filtPowers = currentPowers?.filter(( power ) => power.name !== powerName ) || [];
+        setValue("powers", [ ...filtPowers ]);
+    }
+
+    /**
      * Updates the "power" state based on the input's value and name.
      *
      * @param {ChangeEvent<HTMLInputElement>} event - The event object containing the input data.
@@ -204,6 +216,7 @@ export const useNewCharacter = () => {
         handleSubmit,
         handleChangePower,
         onAddPower,
+        onDeletePower,
         onNewCharacter,
         queryClient,
         mutation

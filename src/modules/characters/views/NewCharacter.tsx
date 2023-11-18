@@ -7,7 +7,7 @@ import { useNewCharacter } from '../hooks/useNewCharacter';
 export const NewCharacter = () => {
   
   const { 
-    register, handleSubmit, handleChangePower, onAddPower, onNewCharacter, 
+    register, handleSubmit, handleChangePower, onAddPower, onDeletePower, onNewCharacter, 
     mutation, watch, errors, power 
   } = useNewCharacter();
 
@@ -66,7 +66,12 @@ export const NewCharacter = () => {
                         {
                             watch("powers")?.map(
                                 ({ name }) => (
-                                    <CharacterPowerChip key={ name } powerName={ name }/>
+                                    <CharacterPowerChip 
+                                        isEditable
+                                        key={ name } 
+                                        powerName={ name }
+                                        handleDelete={ onDeletePower }
+                                    />
                                 )
                             )
                         }
