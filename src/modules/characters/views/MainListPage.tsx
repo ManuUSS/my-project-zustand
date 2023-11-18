@@ -10,7 +10,7 @@ export const MainListPage = () => {
 
   useEffect(() => {
     window.scrollTo(0,0);
-    document.title = "Zest | Personajes";
+    // document.title = "Zest | Personajes";
   }, []);
   
 
