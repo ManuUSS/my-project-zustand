@@ -4,7 +4,6 @@ import { Loader } from '../../shared/components';
 import { CharacterCard } from '../components';
 import { useCharactersStore } from '..';
 
-
 export const HxHListPage = () => {
 
     const { isFetching } = useCharacters({ 
