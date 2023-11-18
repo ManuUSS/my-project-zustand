@@ -142,7 +142,7 @@ export const useEditCharacter = () => {
      * @param { data } CharacterResponse
      */
     const onEditCharacter:SubmitHandler<CharacterResponse> = async ( data ) => {
-        console.log( data );
+        
         const links = transformData( data );
         if( links.length > 6 || links.length < 6 ){
             toast.custom(() => (

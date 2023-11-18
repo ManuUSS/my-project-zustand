@@ -66,7 +66,7 @@ export const EditCharacter = () => {
                         {
                             watch("powers")?.map(
                                 ({ name }) => (
-                                    <CharacterPowerChip key={ name } powerName={ name }/>
+                                    <CharacterPowerChip key={ name } powerName={ name } isEditable/>
                                 )
                             )
                         }
