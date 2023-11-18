@@ -7,7 +7,7 @@ import { useEditCharacter } from '../hooks/useEditCharacter';
 export const EditCharacter = () => {
   
     const { 
-        register, handleSubmit, handleChangePower, onAddPower, onEditCharacter, 
+        register, handleSubmit, handleChangePower, onAddPower, onDeletePower, onEditCharacter, 
         mutation, watch, errors, power 
     } = useEditCharacter();
 
@@ -66,7 +66,12 @@ export const EditCharacter = () => {
                         {
                             watch("powers")?.map(
                                 ({ name }) => (
-                                    <CharacterPowerChip key={ name } powerName={ name } isEditable/>
+                                    <CharacterPowerChip 
+                                        isEditable
+                                        key={ name } 
+                                        powerName={ name } 
+                                        handleDelete={ onDeletePower }
+                                    />
                                 )
                             )
                         }

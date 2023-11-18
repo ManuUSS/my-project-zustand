@@ -142,7 +142,7 @@ export const useEditCharacter = () => {
      * @param { data } CharacterResponse
      */
     const onEditCharacter:SubmitHandler<CharacterResponse> = async ( data ) => {
-        
+
         const links = transformData( data );
         if( links.length > 6 || links.length < 6 ){
             toast.custom(() => (
@@ -194,8 +194,25 @@ export const useEditCharacter = () => {
             return;
         }
         const currentPowers = getValues("powers") || [];
+        if( currentPowers.some(( powerAdded ) => powerAdded.name === power.name ) ) {
+            toast.custom(() => (
+                createElement(
+                    ToasterInfo,
+                    {
+                        message: "Ese poder ya ha sido agregado"
+                    }
+                )
+            ));
+            return;
+        }
         setValue("powers", [ ...currentPowers, power ]);
         setPower({ name: "", efectiveness: 0 });
+    }
+
+    const onDeletePower = ( powerName: string ) => {
+        const currentPowers = getValues("powers");
+        const filtPowers = currentPowers?.filter(( power ) => power.name !== powerName ) || [];
+        setValue("powers", [ ...filtPowers ]);
     }
 
     /**
@@ -217,6 +234,7 @@ export const useEditCharacter = () => {
         handleSubmit,
         handleChangePower,
         onAddPower,
+        onDeletePower,
         onEditCharacter,
         queryClient,
         mutation
