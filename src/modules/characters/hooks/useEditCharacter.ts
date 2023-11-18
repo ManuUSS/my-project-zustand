@@ -117,10 +117,7 @@ export const useEditCharacter = () => {
                         message: `Ha ocurrido un error al actualizar a ${ vars.name }`,
                         description: `Intento al ${ dayjs().format('MM/DD/YYYY')}`
                     }
-                )),
-                {
-                  className: "fixed right-0",
-                }
+                ))
             );
 
             // Sets the new characters into query client data

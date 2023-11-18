@@ -64,10 +64,7 @@ export const useNewCharacter = () => {
                         message: `${ character.name } agregado correctamente`,
                         description: `Personaje agregado ${ dayjs().format('MM/DD/YYYY')}`
                     }
-                )),
-                {
-                  className: "fixed right-0",
-                }
+                ))
             );
 
             // <--- Clears the previous query key ---> 
