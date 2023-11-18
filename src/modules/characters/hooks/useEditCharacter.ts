@@ -69,10 +69,7 @@ export const useEditCharacter = () => {
                         message: `${ character.name } actualizado correctamente`,
                         description: `Personaje actualizado ${ dayjs().format('MM/DD/YYYY')}`
                     }
-                )),
-                {
-                  className: "fixed right-0",
-                }
+                ))
             );
 
             // <--- Clears the previous query key ---> 
