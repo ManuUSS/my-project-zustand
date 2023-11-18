@@ -29,7 +29,7 @@ export const FavoriteListPage = () => {
             }
         </div>
         {
-            !characters.length && ( <NoCharacters /> )
+          !characters.length && ( <NoCharacters /> )
         }
       </section>
   )

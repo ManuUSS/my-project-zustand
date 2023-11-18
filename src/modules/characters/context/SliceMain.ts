@@ -7,6 +7,7 @@ export interface MainSlice {
     mainFilterState: StatusCharacter;
     mainFilterStateSet: ( filter: StatusCharacter ) => void;
     setMainList: ( list:CharacterResponse[] ) => void;
+    getFromMainList: ( idSearch: number ) => CharacterResponse | undefined;
     addToMainList: ( char: CharacterResponse ) => void;
     removeFromMainList: ( id: number ) => void;
     filterMainList: ( status?: Status, name?:string ) => void;
@@ -33,6 +34,9 @@ export const createMainSlice:StateCreator<MainSlice> = ( set, get ) => ({
                 mainListCopy: [ ...ctx.mainList, char ] 
             })
         )
+    },
+    getFromMainList: ( idSearch: number ) => {
+        return get().mainList.find(({ id }) => id === idSearch );
     },
     removeFromMainList: ( id: number ) => {
         const currentChars = get().mainList.filter(( char ) => char.id !== id );

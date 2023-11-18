@@ -37,8 +37,8 @@ export const MainListPage = () => {
           </div>
         }
         {
-            !isLoading && !characters.length && ( <NoCharacters /> )
-          }
+          !isLoading && !characters.length && ( <NoCharacters /> )
+        }
       </section>
   )
 }
