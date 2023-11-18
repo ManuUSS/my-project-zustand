@@ -209,6 +209,12 @@ export const useEditCharacter = () => {
         setPower({ name: "", efectiveness: 0 });
     }
 
+    /**
+     * Deletes a power from current powers array.
+     * Modifies form state
+     * 
+     * @param {string} powerName 
+     */
     const onDeletePower = ( powerName: string ) => {
         const currentPowers = getValues("powers");
         const filtPowers = currentPowers?.filter(( power ) => power.name !== powerName ) || [];
