@@ -17,7 +17,7 @@ import { ToasterSuccess, ToasterError, ToasterInfo } from '../../shared/componen
 export const useEditCharacter = () => {
 
     // <--- Zustand Store | Characters --->
-    const { addToMainList, removeFromMainList } = useCharactersStore();
+    const { updateCharacter } = useCharactersStore();
     const navigate = useNavigate();
     const params = useParams();  
     const { id = '0' } = params;
@@ -96,16 +96,14 @@ export const useEditCharacter = () => {
                         });
                         return;
                     }
-                    
-                    // <--- Updates the zustand state --->
-                    removeFromMainList( character.id );
-                    addToMainList( character );
-
                     return oldCharacters.map(( cacheChar ) => 
                         ( cacheChar.id === ctx?.optimisticCharacter.id ) ? character : cacheChar
                     )  
                 }
             )
+
+            // <--- Updates the zustand state --->
+            updateCharacter( character.id, character );
             
             navigate('/');
         },
