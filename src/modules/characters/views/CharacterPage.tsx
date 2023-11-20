@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { StopIcon } from '@heroicons/react/24/solid';
-import { CardHeaderInfo, CharacterFavoriteButton, CharacterImage, CharacterPowerChip, CharacterResponse, ListHeader, getStatusText, useCharacter, useCharactersStore, validateStatus } from '..';
+import { CardHeaderInfo, CharacterFavoriteButton, CharacterImage, CharacterPowerChip, ListHeader, getRandomCharacters, getStatusText, useCharacter, useCharactersStore, validateStatus } from '..';
 
 export const CharacterPage = () => {
 
@@ -70,19 +70,14 @@ export const CharacterPage = () => {
             </div>
             <div>
                 <p className="after:border-b text-center text-2xl font-semibold mb-2 dark:text-slate-100">Personajes similares</p>
-                <div className='flex gap-4'>
-                    <div 
-                        className='bg-no-repeat bg-cover rounded-md shadow-sm w-full min-h-[180px] border border-red-300'
-                    >
-                    </div>
-                    <div 
-                        className='bg-no-repeat bg-cover rounded-md shadow-sm w-full min-h-[180px] border border-red-300'
-                    >
-                    </div>
-                    <div 
-                        className='bg-no-repeat bg-cover rounded-md shadow-sm w-full min-h-[180px] border border-red-300'
-                    >
-                    </div>
+                <div className='flex gap-4 overflow-x-scroll'>
+                    { getRandomCharacters( charactersList ).map(( char ) => (
+                        <div 
+                            key={ char.id }
+                            className='bg-no-repeat bg-cover rounded-md shadow-sm min-w-[350px] min-h-[180px] border border-red-300'
+                        >
+                        </div>
+                    )) }
                 </div>
             </div>
         </section>

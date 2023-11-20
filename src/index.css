@@ -51,3 +51,26 @@ h1 {
         opacity: 100%;
     }
 }
+
+body::-webkit-scrollbar,
+div::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+body::-webkit-scrollbar-track,
+div::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+body::-webkit-scrollbar-thumb,
+div::-webkit-scrollbar-thumb {
+    background-color: #babac0;
+    border-radius: 16px;
+    border: 2px solid #fff;
+}
+
+body::-webkit-scrollbar-button,
+div::-webkit-scrollbar-button {
+    display:none;
+}
