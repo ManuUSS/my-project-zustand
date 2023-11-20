@@ -1,6 +1,7 @@
-import { CharacterResponse } from '..';
+import { CharacterResponse, useCharactersStore } from '..';
 
-export const getRandomCharacters = ( charList: CharacterResponse[] ): CharacterResponse[] => {
+export const getRandomCharacters = (): CharacterResponse[] => {
+    const charList = useCharactersStore(( store ) => store.mainList );
     let nums = new Set<number>();
     let numberCharacters = 5;
     let length = charList.length;

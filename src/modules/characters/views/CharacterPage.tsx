@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { StopIcon } from '@heroicons/react/24/solid';
-import { CardHeaderInfo, CharacterFavoriteButton, CharacterImage, CharacterPowerChip, CharacterRelated, ListHeader, getRandomCharacters, getStatusText, useCharacter, useCharactersStore, validateStatus } from '..';
+import { CardHeaderInfo, CharacterFavoriteButton, CharacterImage, CharacterPowerChip, CharacterRelated, ListHeader, getRandomCharacters, getStatusText, useCharacter, validateStatus } from '..';
 import { Loader } from '../../shared/components';
 import { useQueryClient } from '@tanstack/react-query';
 
@@ -11,7 +11,6 @@ export const CharacterPage = () => {
     const { id = '0' } = params;
     const queryClient = useQueryClient();
     const { data: character, isFetching } = useCharacter({ characterId: +id });
-    const charactersList = useCharactersStore(( store ) => store.mainList );
 
     useEffect(() => {
         window.scrollTo(0,0);
@@ -20,11 +19,11 @@ export const CharacterPage = () => {
 
     useEffect(() => {
         if( !character ) {
-            queryClient.invalidateQueries({
+            id && queryClient.invalidateQueries({
                 queryKey: ['characters', +id ]
             });
         }
-    }, [ character ])
+    }, [ character, id ])
     
 
     return (
@@ -36,7 +35,7 @@ export const CharacterPage = () => {
             />
             {
                 isFetching ? ( <Loader /> )
-                : (
+                : character && (
                     <>
                         <div className='grid grid-cols-3 gap-4 list-max mb-8'>
                             <article className="border bg-gray-50 rounded-md dark:bg-gray-700 dark:border-gray-800 shadow-sm fade-in">
@@ -86,7 +85,7 @@ export const CharacterPage = () => {
                         <div>
                             <p className="after:border-b text-center text-2xl font-semibold mb-2 dark:text-slate-100">Personajes similares</p>
                             <div className='flex gap-4 overflow-x-scroll snap-proximity'>
-                                { getRandomCharacters( charactersList ).map(( char ) => (
+                                { getRandomCharacters().map(( char ) => (
                                     <CharacterRelated key={ char.id } character={ char }  />
                                 )) }
                             </div>
