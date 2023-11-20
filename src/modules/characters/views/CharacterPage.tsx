@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { StopIcon } from '@heroicons/react/24/solid';
-import { CardHeaderInfo, CharacterFavoriteButton, CharacterImage, CharacterPowerChip, ListHeader, getRandomCharacters, getStatusText, useCharacter, useCharactersStore, validateStatus } from '..';
+import { CardHeaderInfo, CharacterFavoriteButton, CharacterImage, CharacterPowerChip, CharacterRelated, ListHeader, getRandomCharacters, getStatusText, useCharacter, useCharactersStore, validateStatus } from '..';
 
 export const CharacterPage = () => {
 
@@ -72,14 +72,7 @@ export const CharacterPage = () => {
                 <p className="after:border-b text-center text-2xl font-semibold mb-2 dark:text-slate-100">Personajes similares</p>
                 <div className='flex gap-4 overflow-x-scroll snap-proximity'>
                     { getRandomCharacters( charactersList ).map(( char ) => (
-                        <div 
-                            key={ char.id }
-                            className={'relative bg-no-repeat bg-cover flex items-center justify-center rounded-md shadow-sm min-w-[350px] min-h-[180px] mb-2'}
-                            style={{ backgroundImage: `url(${ char.image })` }}
-                        >
-                            <p className={`z-50 text-3xl text-white font-bold text-center`}>{ char.name }</p>
-                            <div className={`absolute bg-neutral-950/80 top-0 right-0 bottom-0 left-0`}></div>
-                        </div>
+                        <CharacterRelated key={ char.id } character={ char }  />
                     )) }
                 </div>
             </div>

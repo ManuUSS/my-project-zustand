@@ -20,6 +20,7 @@ export { NoCharacters } from './components/NoCharacters';
 export { CardButtons } from './components/CardButtons';
 export { CardHeaderInfo } from './components/CardHeaderInfo';
 export { CharacterFavoriteButton } from './components/CharacterFavoriteButton';
+export { CharacterRelated } from './components/CharacterRelated';
 
 // <--- Context --->
 export { useCharactersStore } from './context/CharactersStore';
