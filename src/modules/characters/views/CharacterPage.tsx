@@ -70,12 +70,14 @@ export const CharacterPage = () => {
             </div>
             <div>
                 <p className="after:border-b text-center text-2xl font-semibold mb-2 dark:text-slate-100">Personajes similares</p>
-                <div className='flex gap-4 overflow-x-scroll'>
+                <div className='flex gap-4 overflow-x-scroll snap-proximity'>
                     { getRandomCharacters( charactersList ).map(( char ) => (
                         <div 
                             key={ char.id }
-                            className='bg-no-repeat bg-cover rounded-md shadow-sm min-w-[350px] min-h-[180px] border border-red-300'
+                            className='bg-no-repeat bg-cover flex items-center justify-center rounded-md shadow-sm min-w-[350px] min-h-[180px] mb-2'
+                            style={{ backgroundImage: `url(${ char.image })` }}
                         >
+                            <p className={'text-3xl font-bold text-center'}>{ char.name }</p>
                         </div>
                     )) }
                 </div>
