@@ -1,11 +1,11 @@
 
 .card-character__text {
     visibility: hidden;
-    transition: visibility .2s ease-in-out;
+    transition: visibility .1s ease-in-out;
 }
 .card-character__cover {
     visibility: hidden;
-    transition: visibility .2s ease-in-out;
+    transition: visibility .1s ease-in-out;
 }
 
 .card-character:hover .card-character__text, 
