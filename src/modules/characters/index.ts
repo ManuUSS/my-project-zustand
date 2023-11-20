@@ -41,6 +41,7 @@ export { useDeleteCharacter } from "./hooks/useDeleteCharacter";
 
 // <--- Utils --->
 export { validateStatus, validateStautsFilter, getStatusText } from './utils/validateStatus';
+export { getRandomCharacters } from './utils/getRandomChars';
 
 // <--- Interfaces --->
 export type { CharacterResponse, CharacterLike, Power } from './interfaces/character';
