@@ -14,6 +14,7 @@ export const router = createBrowserRouter([
             {
                 path: "",
                 lazy: async () => { 
+                    /* @vite-ignore */
                     const { MainListPage } = await import( url_views ); 
                     return { Component: MainListPage }
                 }
@@ -21,6 +22,7 @@ export const router = createBrowserRouter([
             {
                 path: PATHS["JJK"],
                 lazy: async () => { 
+                    /* @vite-ignore */
                     const { JJKListPage } = await import( url_views ); 
                     return { Component: JJKListPage }
                 }
@@ -28,6 +30,7 @@ export const router = createBrowserRouter([
             {
                 path: PATHS["DemonSlayer"],
                 lazy: async () => { 
+                    /* @vite-ignore */
                     const { DemonSlayerListPage } = await import( url_views ); 
                     return { Component: DemonSlayerListPage }
                 }
@@ -35,6 +38,7 @@ export const router = createBrowserRouter([
             {
                 path: PATHS["HxH"],
                 lazy: async () => { 
+                    /* @vite-ignore */
                     const { HxHListPage } = await import( url_views ); 
                     return { Component: HxHListPage }
                 }
@@ -42,6 +46,7 @@ export const router = createBrowserRouter([
             {
                 path: PATHS["Favorite"],
                 lazy: async () => { 
+                    /* @vite-ignore */
                     const { FavoriteListPage } = await import( url_views ); 
                     return { Component: FavoriteListPage }
                 }
@@ -49,6 +54,7 @@ export const router = createBrowserRouter([
             {
                 path: PATHS["New"],
                 lazy: async () => { 
+                    /* @vite-ignore */
                     const { NewCharacter } = await import( url_views ); 
                     return { Component: NewCharacter }
                 }
@@ -56,6 +62,7 @@ export const router = createBrowserRouter([
             {
                 path: PATHS["Edit"],
                 lazy: async () => { 
+                    /* @vite-ignore */
                     const { FavoriteListPage } = await import( url_views ); 
                     return { Component: FavoriteListPage }
                 }
