@@ -44,8 +44,6 @@ export const getCharacter = async ({ id }:GetCharacterOptions ):Promise<Characte
     
     // <--- Performs API petition --->
     const { data } = await charactersApi.get<CharacterResponse>(`/characters/${ id }`);
-    // <--- Simulates a delay --->
-    await delay( 5000 );
     return data;
 
 }
