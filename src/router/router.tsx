@@ -71,8 +71,8 @@ export const router = createBrowserRouter([
                 path: "/character/:id",
                 lazy: async () => { 
                     /* @vite-ignore */
-                    const { EditCharacter } = await import( url_views ); 
-                    return { Component: EditCharacter }
+                    const { CharacterPage } = await import( url_views ); 
+                    return { Component: CharacterPage }
                 }
             }
         ] 
