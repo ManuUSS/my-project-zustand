@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { CharacterResponse, charactersActions, useCharactersStore,} from '..'
 import { useQuery } from '@tanstack/react-query';
-import { useParams } from 'react-router-dom';
 
 interface Props {
     characterId: number;
@@ -18,22 +17,31 @@ interface Props {
  */
 export const useCharacter = ({ characterId }:Props) => {
 
+    // <--- Reads character's store | Zustand ---> 
     const charList = useCharactersStore(( store ) => store.mainList );
-    const params = useParams();  
-    const { id = '0' } = params;
+    // <--- Local random characters ---> 
     const [ randomChars, setRandomChars ] = useState<CharacterResponse[]>( [] );
+    // <--- Query Client | Tanstack Query ---> 
     const { data, isFetching } = useQuery({
         queryKey: ['characters', characterId ],
         queryFn: () => charactersActions.getCharacter({ id: characterId }),
         staleTime: 1000 * 60 * 10
     });
 
+    // <--- Local Effect Handler ---> 
     useEffect(() => {
         getRandomCharacters();
         window.scrollTo(0,0);
         document.title = `Zest | ${ data?.name }`;
-    }, [ id ])
-    
+    }, [ characterId ])
+
+    /**
+     * Generates a random selection of characters from the provided character list.
+     * Updates the state with the randomly selected characters.
+     *
+     * @function
+     * @returns {void}
+     */
     const getRandomCharacters = ():void => {
         if( !charList ) return;
         let nums = new Set<number>();
