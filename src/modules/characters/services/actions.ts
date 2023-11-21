@@ -41,7 +41,7 @@ export const getCharacters = async ({ filterKey }:GetCharacterOptions ):Promise<
  * @throws {Error} If there is an issue with the API request.
  */
 export const getCharacter = async ({ id }:GetCharacterOptions ):Promise<CharacterResponse> => {
-    
+    await delay( 3000 );
     // <--- Performs API petition --->
     const { data } = await charactersApi.get<CharacterResponse>(`/characters/${ id }`);
     return data;
