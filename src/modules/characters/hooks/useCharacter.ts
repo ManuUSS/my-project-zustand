@@ -58,7 +58,10 @@ export const useCharacter = ({ characterId }:Props) => {
         const newCharList:CharacterResponse[] = [];
     
         while ( nums.size < numberCharacters ) {
-            nums.add( Math.floor( Math.random() * ( length ) ) );
+            // <--- Generates a new random number ---> 
+            const randomNumber = Math.floor( Math.random() * ( length ) );
+            // <--- Validates if current character is equal to random number ---> 
+            nums.add( randomNumber );
         }
     
         Array.from( nums ).forEach(( num, index ) => newCharList[ index ] = charList[ num ]);
