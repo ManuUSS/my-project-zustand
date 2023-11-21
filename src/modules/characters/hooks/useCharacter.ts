@@ -58,7 +58,7 @@ export const useCharacter = ({ characterId }:Props) => {
         const newCharList:CharacterResponse[] = [];
     
         while ( nums.size < numberCharacters ) {
-            nums.add( Math.floor( Math.random() * ( length ) + 1) );
+            nums.add( Math.floor( Math.random() * ( length ) ) );
         }
     
         Array.from( nums ).forEach(( num, index ) => newCharList[ index ] = charList[ num ]);
