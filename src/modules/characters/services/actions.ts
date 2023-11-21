@@ -41,6 +41,7 @@ export const getCharacters = async ({ filterKey }:GetCharacterOptions ):Promise<
  * @throws {Error} If there is an issue with the API request.
  */
 export const getCharacter = async ({ id }:GetCharacterOptions ):Promise<CharacterResponse> => {
+    // <--- Simulates a delay --->
     await delay( 3000 );
     // <--- Performs API petition --->
     const { data } = await charactersApi.get<CharacterResponse>(`/characters/${ id }`);
@@ -57,7 +58,7 @@ export const getCharacter = async ({ id }:GetCharacterOptions ):Promise<Characte
  * @throws {Error} If there is an issue with the API request.
  */
 export const newCharacter = async ( character: CharacterLike ):Promise<CharacterResponse> => {
-
+    // <--- Simulates a delay --->
     await delay( 5000 );
     
     // <--- Performs API petition --->
@@ -76,7 +77,7 @@ export const newCharacter = async ( character: CharacterLike ):Promise<Character
  * @throws {Error} If there is an issue with the API request.
  */
 export const editCharacter = async ( character: CharacterResponse, id: number ):Promise<CharacterResponse> => {
-
+    // <--- Simulates a delay --->
     await delay( 5000 );
     
     // <--- Performs API petition --->
