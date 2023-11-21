@@ -1,45 +1,13 @@
-import { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { StopIcon } from '@heroicons/react/24/solid';
-import { CardHeaderInfo, CharacterFavoriteButton, CharacterImage, CharacterPowerChip, CharacterRelated, CharacterResponse, ListHeader, getStatusText, useCharacter, useCharactersStore, validateStatus } from '..';
+import { CardHeaderInfo, CharacterFavoriteButton, CharacterImage, CharacterPowerChip, CharacterRelated, ListHeader, getStatusText, useCharacter, validateStatus } from '..';
 import { Loader } from '../../shared/components';
-import { useQueryClient } from '@tanstack/react-query';
 
 export const CharacterPage = () => {
 
     const params = useParams();  
     const { id = '0' } = params;
-    const queryClient = useQueryClient();
-    const { data: character, isFetching } = useCharacter({ characterId: +id });
-    const charList = useCharactersStore(( store ) => store.mainList );
-
-    useEffect(() => {
-        window.scrollTo(0,0);
-        document.title = `Zest | ${ character?.name }`;
-    }, []);
-
-    useEffect(() => {
-        if( !character ) {
-            id && queryClient.invalidateQueries({
-                queryKey: ['characters', +id ]
-            });
-        }
-    }, [ character, id ])
-    
-    const getRandomCharacters = (): CharacterResponse[] => {
-        let nums = new Set<number>();
-        let numberCharacters = 5;
-        let length = charList.length;
-        const newCharList:CharacterResponse[] = [];
-    
-        while ( nums.size < numberCharacters ) {
-            nums.add( Math.floor( Math.random() * ( length - 1 + 1) + 1) );
-        }
-    
-        Array.from( nums ).forEach(( num, index ) => newCharList[ index ] = charList[ num ]);
-    
-        return newCharList;
-    }
+    const { data: character, isFetching, randomChars } = useCharacter({ characterId: +id });
 
     return (
         <section className="list-container p-4">
@@ -100,7 +68,7 @@ export const CharacterPage = () => {
                         <div>
                             <p className="after:border-b text-center text-2xl font-semibold mb-2 dark:text-slate-100">Personajes similares</p>
                             <div className='flex gap-4 overflow-x-scroll snap-proximity'>
-                                { getRandomCharacters().length && getRandomCharacters().map(( char ) => (
+                                { randomChars.length > 0 && randomChars.map(( char ) => (
                                     <CharacterRelated key={ char.id } character={ char }  />
                                 )) }
                             </div>
