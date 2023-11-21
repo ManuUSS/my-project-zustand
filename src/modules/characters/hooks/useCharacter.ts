@@ -35,7 +35,11 @@ export const useCharacter = ({ characterId }:Props) => {
     }, [ characterId ])
 
     useEffect(() => {
-        document.title = `Zest | ${ data?.name }`;
+        if( data ){
+            document.title = `Zest | ${ data?.name }`;
+        } else {
+            document.title = `Zest | Cargando...`;
+        }
     }, [ data ])
     
 
