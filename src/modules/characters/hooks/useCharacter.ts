@@ -32,8 +32,12 @@ export const useCharacter = ({ characterId }:Props) => {
     useEffect(() => {
         getRandomCharacters();
         window.scrollTo(0,0);
-        document.title = `Zest | ${ data?.name }`;
     }, [ characterId ])
+
+    useEffect(() => {
+        document.title = `Zest | ${ data?.name }`;
+    }, [ data ])
+    
 
     /**
      * Generates a random selection of characters from the provided character list.
