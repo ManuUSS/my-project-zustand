@@ -63,8 +63,8 @@ export const router = createBrowserRouter([
                 path: PATHS["Edit"],
                 lazy: async () => { 
                     /* @vite-ignore */
-                    const { FavoriteListPage } = await import( '../modules/characters' ); 
-                    return { Component: FavoriteListPage }
+                    const { EditCharacter } = await import( '../modules/characters' ); 
+                    return { Component: EditCharacter }
                 }
             },
             {
