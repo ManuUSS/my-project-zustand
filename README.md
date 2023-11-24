@@ -1,27 +1,39 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Zest
+Zest is an anime list with CRUD functionality, so feel free to modify this code to suit your own needs. 
+This project is created for educational purposes, it's based on React + Typescript.\
 
-Currently, two official plugins are available:
+## Technologies
+This is the lisf ot technologies used in this project. 
+- [Tanstack Query](https://tanstack.com/query/v5/docs/react/overview) : cache querie's handler
+- [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction): powerful states handler 
+- [Tailwind CSS](https://tailwindcss.com/): styles and predefined CSS classes
+## Run Locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Clone the project
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```bash
+  git clone https://github.com/ManuUSS/my-project-zustand.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Go to the project directory
+
+```bash
+  cd my-project-zustand
+```
+
+Install dependencies
+
+```bash
+  yarn
+```
+
+Start the server
+
+```bash
+  yarn dev
+```
+
+Look at API Server instructions\
+[Fake API](https://github.com/ManuUSS/my-zustand-api.git)
+
