@@ -32,7 +32,7 @@ export const useCharacter = ({ characterId }:Props) => {
     useEffect(() => {
         getRandomCharacters();
         window.scrollTo(0,0);
-    }, [ characterId ])
+    }, [ characterId, data ])
 
     useEffect(() => {
         if( data ){
@@ -51,16 +51,20 @@ export const useCharacter = ({ characterId }:Props) => {
      * @returns {void}
      */
     const getRandomCharacters = ():void => {
-        if( !charList ) return;
+        if( !charList || !data ) return;
         let nums = new Set<number>();
         let numberCharacters = 5;
         let length = charList.length - 1;
         const newCharList:CharacterResponse[] = [];
-    
-        while ( nums.size < numberCharacters ) {
+        
+        for ( let index = 0; index < numberCharacters; index++ ) {
             // <--- Generates a new random number ---> 
             const randomNumber = Math.floor( Math.random() * ( length ) );
             // <--- Validates if current character is equal to random number ---> 
+            if( randomNumber === characterId ) {
+                index--;
+                continue;
+            }
             nums.add( randomNumber );
         }
     
