@@ -13,13 +13,13 @@ export const EditCharacter = () => {
 
     useEffect(() => {
         window.scrollTo(0,0);
-        document.title = "Zest | Nuevo personaje";
+        document.title = "Zest | Editar personaje";
     }, []);
 
   return (
     <section className="list-container p-4">
         <ListHeader 
-            title="Nuevo personaje" 
+            title="Editar personaje" 
             hideSearcher
             showBackButton
         />
